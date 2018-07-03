@@ -27,13 +27,20 @@ var courseSections = new Vue({
 })
 
 
+
+
+
 // 创建个人课程表，二维数组[36][haveCourse]
-var user = new Array();
+const user = new Array();
+const user1 = { id: 0, name: '陈铭涛' };
+const user2 = { id: 1, name: '陈帅哥' };
+
+// 定义全部人的功课表，三维数组
+const member = new Array();
+
 
 // 获取填入表格的数据，并写入个人课程表
 function getValue() {
-    let week_num = 0;
-    let day_num = 0;
     //m表示课时，0~5表示：1-2，3-4，5-6，7-8，9，10-11
     for (let m = 0;m < 36; m++ ){
         var week = [];
@@ -55,12 +62,11 @@ function getValue() {
             }
         }
         user[m] = week;
-        /*for (let t = 0; t < 16; t++ ) {
-            console.log(week[t]);
-            user[m][t] = week[t];
-        }*/
+        
         console.log(week);
         console.log(user[m]);
     }
-    console.log(user);
+    member[0] = user;
+    console.log('user:',user);
+    console.log('members:',member);
 }
