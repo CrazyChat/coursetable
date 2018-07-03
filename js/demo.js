@@ -33,6 +33,7 @@ const userCourses = [
   { user: user2, courseId: 0, weekday: 0, haveCourseWeeks: [1, 2, 3, 4, 5, 6, 7, 10, 11, 12] }  // 彭彦滨在1~7、10~12周周一的1~2节有课
 ]
 
+
 userCourses.forEach(userCourse => {
   userCourse.haveCourseWeeks.forEach(week => {
     courseTables[week - 1][userCourse.courseId][userCourse.weekday].push(userCourse.user)
