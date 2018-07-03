@@ -96,7 +96,9 @@ ul,li {
     /*background-color: burlywood;*/
     text-align: center;
 }
-
+.week {
+    float: left;
+}
 
 
 /*--------------右边导航处--------------*/
