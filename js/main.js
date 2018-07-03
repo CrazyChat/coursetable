@@ -27,7 +27,10 @@ var courseSections = new Vue({
 })
 
 
-// 获取填入表格的数据
+// 创建个人课程表，二维数组[36][haveCourse]
+var user = new Array();
+
+// 获取填入表格的数据，并写入个人课程表
 function getValue() {
     let week_num = 0;
     let day_num = 0;
@@ -51,8 +54,13 @@ function getValue() {
                 week.push(parseInt(num[j]));
             }
         }
-        week_num = parseInt(m / 6) + 1;
-        day_num = (m + 1) % 6;
-        console.log('周' + week_num + '第' + day_num + '节课需要上课的周为：' + week);
+        user[m] = week;
+        /*for (let t = 0; t < 16; t++ ) {
+            console.log(week[t]);
+            user[m][t] = week[t];
+        }*/
+        console.log(week);
+        console.log(user[m]);
     }
+    console.log(user);
 }
