@@ -1,0 +1,108 @@
+body {
+    width: 1240px;
+    height: 650px;
+    margin: 0 auto;
+    padding: 0 auto;
+}
+ul,li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+/*--------------共用组件--------------*/
+/* 浮动 */
+.floatLeft {
+    float: left;
+}
+/* 解决子元素浮动致使父元素高度为0 */
+#course-days>ul::after,
+#main {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+
+
+/*--------------左边姓名处--------------*/
+#left {
+    background-color: antiquewhite;
+    float: left;
+    width: 17%;
+    height: 100%;
+}
+
+
+
+/*--------------中间表格处--------------*/
+#center {
+    background-color: burlywood;
+    float: left;
+    width: 66%;
+    height: 100%;
+}
+/* 星期几 */
+/* 第几节 */
+.course-day,
+.course-section {
+    line-height: 90px;
+    font-weight: bold;
+    font-size: 20px;
+}
+.course-day,
+.course-section,
+.course-num {
+    display: block;
+    width: 100px;
+    height: 90px;
+    text-align: center;
+}
+#course-sections {
+    float: left;
+    width: 100px;
+}
+/* 课程表格 */
+.course-form {
+    float: left;
+    height: 540px;
+    width: 600px;
+}
+.course-num input {
+    font-size: 18px;
+    font-weight: 100;
+}
+.course-star,
+.course-end {
+    display: block;
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin: 14px 9px;
+    text-align: center;
+}
+.star-end {
+    width: 10px;
+    height: 20px;
+    line-height: 20px;
+    margin: 14px 0;
+    text-align: center;
+}
+.course-else {
+    display: block;
+    width: 97%;
+    height: 20px;
+    border: none;
+    /*background-color: burlywood;*/
+    text-align: center;
+}
+
+
+
+/*--------------右边导航处--------------*/
+#right {
+    background-color: cadetblue;
+    float: right;
+    width: 17%;
+    height: 100%;
+}

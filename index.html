@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>佛大17计科1班陈铭涛</title>
+    <link rel="stylesheet" href="css/main.css" >
+</head>
+<body>
+    <div id="left"></div>
+    <div id="center">
+        <div id="course-days">
+            <ul>
+                <li class="course-day floatLeft" v-for="item in items">{{ item.message }}</li>
+            </ul>
+        </div>
+        <div id="main">
+            <div id="course-sections">
+                <ul>
+                    <li class="course-section" v-for="item in items">{{ item.message }}</li>
+                </ul>
+            </div>
+            <div class="course-form">
+                <ul class="Monday">
+                    <li class="course-num">
+                        <input type="text" class="course-star">
+                        <div class="floatLeft star-end">-</div>
+                        <input type="text" class="course-end">
+                        <input type="text" class="course-else">
+                    </li>
+                    <li class="course-num">
+                        <input type="text" class="course-star">
+                        <div class="floatLeft star-end">-</div>
+                        <input type="text" class="course-end">
+                        <input type="text" class="course-else">
+                    </li>
+                    <li class="course-num">
+                        <input type="text" class="course-star">
+                        <div class="floatLeft star-end">-</div>
+                        <input type="text" class="course-end">
+                        <input type="text" class="course-else">
+                    </li>
+                    <li class="course-num">
+                        <input type="text" class="course-star">
+                        <div class="floatLeft star-end">-</div>
+                        <input type="text" class="course-end">
+                        <input type="text" class="course-else">
+                    </li>
+                    <li class="course-num">
+                        <input type="text" class="course-star">
+                        <div class="floatLeft star-end">-</div>
+                        <input type="text" class="course-end">
+                        <input type="text" class="course-else">
+                    </li>
+                    <li class="course-num">
+                        <input type="text" class="course-star">
+                        <div class="floatLeft star-end">-</div>
+                        <input type="text" class="course-end">
+                        <input type="text" class="course-else">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="right">
+        <button onclick="getValue()"></button>
+    </div>
+    <template></template>
+    <script src="./lib/vue.js"></script>
+    <script src="./js/main.js" ></script>
+</body>
+</html>
