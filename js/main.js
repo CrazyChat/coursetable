@@ -1,4 +1,12 @@
 
+var left = new Vue({
+    el: '#left',
+    data: {
+        username: '陈铭涛',
+        
+    }
+})
+
 var courseDays = new Vue({
     el: '#course-days',
     data: {
