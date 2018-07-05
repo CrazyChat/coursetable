@@ -1,12 +1,5 @@
 
-var left = new Vue({
-    el: '#left',
-    data: {
-        username: '陈铭涛',
-        
-    }
-})
-
+/*
 var courseDays = new Vue({
     el: '#course-days',
     data: {
@@ -35,7 +28,10 @@ var courseSections = new Vue({
         ]
     }
 })
+*/
 
+let currentMember = 0;   // 计算当前是哪个成员
+let if_introduce = 1;
 const weeks = 16 // 表示学期的周数为16周，可以设置为让用户输入
 const courseTables = [] // 16个周的课程表, courseTables[0]表示第一周的课表
 for (let i = 0; i < weeks; i++) {
@@ -58,10 +54,8 @@ for (let i = 0; i < weeks; i++) {
 // 创建个人课程表，二维数组[36][haveCourse]
 const user = new Array();
 // 创建成员
-const user1 = { id: 0, name: '陈铭涛' };
-const user2 = { id: 1, name: '陈帅哥' };
-const user3 = { id: 2, name: '陈大大' };
-
+const member = [];
+member[0] = '陈铭涛';
 
 
 // 存储所有人的课程
@@ -71,10 +65,10 @@ const userCourses = [
      * weekday表示周几，0~6表示周一到周日
      * haveCourseWeeks表示有课的周
      */
-    { user: user1, courseId: 0, weekday: 0, haveCourseWeeks: [] }, // 陈铭涛在1~7、10~12周周一的1~2节有课
-    { user: user1, courseId: 2, weekday: 1, haveCourseWeeks: [] }, // 陈铭涛在5~8、10~12周周二的5-6节有课
-    { user: user2, courseId: 0, weekday: 0, haveCourseWeeks: [1, 2, 3, 4, 5, 6, 7, 10, 11, 12] },  // 陈帅哥在1~7、10~12周周一的1~2节有课
+    { user: member[0], courseId: 0, weekday: 0, haveCourseWeeks: [] }, // 陈铭涛在1~7、10~12周周一的1~2节有课
+    { user: member[0], courseId: 0, weekday: 0, haveCourseWeeks: [] }
 ]
+
 
 // 向userCourse写入数据函数
 function addCourse( user, courseId, weekday, haveCourseWeeks) {
@@ -85,7 +79,7 @@ function addCourse( user, courseId, weekday, haveCourseWeeks) {
 function getValue() {
     for (let x = 0; x < 7; x++ ) {
         for (let j = 0; j < 6; j++) {
-            let m = j + x * 6;
+            let m = j + x * 6 + currentMember * 42;
             var course_star = document.getElementsByClassName('course-star')[m].value;    // 获取开始的周
             var course_end = document.getElementsByClassName('course-end')[m].value;      // 获取截止的周
             var course_else = document.getElementsByClassName('course-else')[m].value;    // 获取其他不连续的周
@@ -104,15 +98,41 @@ function getValue() {
                     week.push(parseInt(num[j]));
                 }
             }
-            addCourse(user1, j, x, week);
+            addCourse(member[currentMember], j, x, week);
         }
     }
+}
+
+// 添加新成员按钮功能
+function addMember(){
+    // 输入新建成员的姓名
+    var str = window.prompt("请输入姓名:","");
+    // 判断是否已经输入名字，然后新建成员表格滑下显示
+    if (str) {
+        if (if_introduce) {
+            document.getElementsByClassName('introduce')[0].className = 'introduce form-hide';
+            document.getElementsByClassName('form-content')[0].className = "form-content form-current";
+            document.getElementsByClassName('left-name')[0].value = str;
+            if_introduce = 0;
+        } else {
+            getValue();
+            currentMember = currentMember + 1;
+            document.getElementsByClassName('left-name')[0].value = str;
+            document.getElementsByClassName('form-content')[currentMember-1].className = "form-content form-hide";
+            document.getElementsByClassName('form-content')[currentMember].className = "form-content form-current";
+        }
+        // 新建对象
+        member[currentMember] = str;
+    }
+}
+
+// 计算空课表按钮功能
+function NoCourseTable() {
+    getValue();
     // 将userCourse所有数据写入课表courseTables
     userCourses.forEach(userCourse => {
         userCourse.haveCourseWeeks.forEach(week => {
-          courseTables[week - 1][userCourse.courseId][userCourse.weekday].push(userCourse.user)
+          courseTables[week - 1][userCourse.courseId][userCourse.weekday].push(userCourse.user);
         })
     })
-    console.log('courseTables -----> ', courseTables[0]);
-    console.log('courseTables -----> ', courseTables[1]);
 }
