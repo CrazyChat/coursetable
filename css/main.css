@@ -8,7 +8,7 @@ ul,li {
     padding: 0;
     list-style-type: none;
 }
-div,input,li {
+div,input,li,textarea {
     box-sizing: border-box;
 }
 /*--------------共用组件--------------*/
@@ -17,16 +17,21 @@ div,input,li {
     float: left;
 }
 /* 解决子元素浮动致使父元素高度为0 */
+#all::after,
 #course-days>ul::after,
-#main {
+#main,
+.finall-days>ul::after,
+.finall-main::after,
+#none-course::after {
     content: '';
     display: table;
     clear: both;
 }
 
-
 /* 整体 */
-#all {
+#all_input {
+    position: absolute;
+    z-index: 10000;
     width: 1240px;
     height: 650px;
     margin: 0 auto;
@@ -35,6 +40,10 @@ div,input,li {
     background: url('../images/18042.jpg') no-repeat;
     background-size: 100% 100%;
     -moz-background-size:100% 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0px;
+    transition: all 1s;
 }
 
 /*--------------左边姓名处--------------*/
@@ -190,9 +199,22 @@ div,input,li {
 /* 表格分割线 */
 .course-day,
 .course-section,
-.course-num {
+.course-num,
+.once-li,
+.finall-day,
+.finall-section {
     border-right: 1px solid rgba(0,0,0,.2);
     border-bottom: 1px solid rgba(0,0,0,.2);
+}
+.finall-section {
+    border-left: 1px solid rgba(0,0,0,.2);
+}
+.finall-day {
+    border-top: 1px solid rgba(0,0,0,.2);
+}
+.finall-day:first-child {
+    color: #fd7575;
+    border-left: 1px solid rgba(0,0,0,.2);
 }
 
 
@@ -225,4 +247,70 @@ div,input,li {
 .finall-wrap {
     position: absolute;
     width: 100%;
+}
+
+
+/* 空课表样式 */
+#none-course {
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    opacity: 0;
+    display: none;
+    transition: all 1s;
+}
+.fianll-table-wrap {
+    position: absolute;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.fianll-table {
+    width: 100%;
+    margin-top: 20px;
+}
+.finall-days,
+.finall-main {
+    width: 100%;
+}
+.finall-day {
+    display: block;
+    width: 12.5%;
+    height: 90px;
+    text-align: center;
+    line-height: 90px;
+    font-weight: bold;
+    font-size: 20px;
+}
+.finall-sections {
+    width: 12.5%;
+}
+.finall-section {
+    display: block;
+    width: 100%;
+    height: 90px;
+    text-align: center;
+    line-height: 90px;
+    font-weight: bold;
+    font-size: 20px;
+}
+.once-form {
+    width: 87.5%;
+    height: 540px;
+}
+.once-ul {
+    width: 14.286%;
+    float: left;
+}
+.once-li {
+    display: block;
+    width: 100%;
+    height: 90px;
+}
+.once-tex {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+    resize:none;
 }

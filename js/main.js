@@ -31,7 +31,8 @@ var courseSections = new Vue({
 */
 
 let currentMember = 0;   // 计算当前是哪个成员
-let if_introduce = 1;
+let memberName = [];    // 记录成员姓名
+let if_introduce = 1;    // 判断当前是否为介绍页面
 const weeks = 16 // 表示学期的周数为16周，可以设置为让用户输入
 const courseTables = [] // 16个周的课程表, courseTables[0]表示第一周的课表
 for (let i = 0; i < weeks; i++) {
@@ -84,6 +85,7 @@ function getValue() {
             var course_end = document.getElementsByClassName('course-end')[m].value;      // 获取截止的周
             var course_else = document.getElementsByClassName('course-else')[m].value;    // 获取其他不连续的周
             var week = [];
+            var noneweek = [];
             // 提取第几周到第几周成数组
             if (course_star) {
                 week[0] = parseInt(course_star);
@@ -98,7 +100,13 @@ function getValue() {
                     week.push(parseInt(num[j]));
                 }
             }
-            addCourse(member[currentMember], j, x, week);
+            // 不用上课的周的数组
+            for (let t = 1; t < weeks+1; t++) {
+                if( week.indexOf(t) == -1 ) {
+                    noneweek.push(t);
+                }
+            }
+            addCourse(member[currentMember], j, x, noneweek);
         }
     }
 }
@@ -110,11 +118,13 @@ function addMember(){
     // 判断是否已经输入名字，然后新建成员表格滑下显示
     if (str) {
         if (if_introduce) {
+            memberName[0] = document.getElementsByClassName('left-name')[0].value;
             document.getElementsByClassName('introduce')[0].className = 'introduce form-hide';
             document.getElementsByClassName('form-content')[0].className = "form-content form-current";
             document.getElementsByClassName('left-name')[0].value = str;
             if_introduce = 0;
         } else {
+            memberName[currentMember] = document.getElementsByClassName('left-name')[0].value;
             getValue();
             currentMember = currentMember + 1;
             document.getElementsByClassName('left-name')[0].value = str;
@@ -123,6 +133,35 @@ function addMember(){
         }
         // 新建对象
         member[currentMember] = str;
+    }
+}
+
+// 删除成员按钮功能
+function delMember() {
+    if (currentMember > 0) {
+        currentMember = currentMember - 1;
+        document.getElementsByClassName('left-name')[0].value = memberName[currentMember];
+        document.getElementsByClassName('form-content')[currentMember+1].className = "form-content form-hide";
+        document.getElementsByClassName('form-content')[currentMember].className = "form-content form-current";
+        console.log('currentMember ---> ', currentMember);
+    } else if (currentMember == 0) {
+        document.getElementsByClassName('left-name')[0].value = '姓名';
+        document.getElementsByClassName('form-content')[0].className = "form-content form-hide";
+        document.getElementsByClassName('introduce')[0].className = 'introduce form-current';
+    } else {
+        return;
+    }
+}
+
+// 打印每周的空课表
+function printCourse() {
+    for (let all = 0; all < weeks; all++) {
+        for(let x = 0; x < 7; x++) {
+            for (let j = 0; j < 6; j++) {
+                let m = j + x * 6 + all * 42;
+                document.getElementsByClassName('once-tex')[m].value = courseTables[all][j][x];
+            }
+        }
     }
 }
 
@@ -135,4 +174,8 @@ function NoCourseTable() {
           courseTables[week - 1][userCourse.courseId][userCourse.weekday].push(userCourse.user);
         })
     })
+    document.getElementById('all_input').style.top = '-650px';
+    document.getElementById('none-course').style.display = 'block';
+    document.getElementById('none-course').style.opacity = 1;
+    printCourse();
 }
