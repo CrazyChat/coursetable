@@ -21,7 +21,6 @@ div,input,li,textarea {
 #course-days>ul::after,
 #main,
 .finall-days>ul::after,
-.finall-main::after,
 #none-course::after {
     content: '';
     display: table;
@@ -267,10 +266,9 @@ div,input,li,textarea {
 }
 .fianll-table {
     width: 100%;
-    margin-top: 20px;
+    margin: 10px 0;
 }
-.finall-days,
-.finall-main {
+.finall-days {
     width: 100%;
 }
 .finall-day {
@@ -284,6 +282,7 @@ div,input,li,textarea {
 }
 .finall-sections {
     width: 12.5%;
+    float: left;
 }
 .finall-section {
     display: block;
@@ -295,11 +294,11 @@ div,input,li,textarea {
     font-size: 20px;
 }
 .once-form {
-    width: 87.5%;
+    width: 100%;
     height: 540px;
 }
 .once-ul {
-    width: 14.286%;
+    width: 12.5%;
     float: left;
 }
 .once-li {
@@ -309,6 +308,7 @@ div,input,li,textarea {
 }
 .once-tex {
     display: block;
+    margin: 0;
     width: 100%;
     height: 100%;
     border: none;

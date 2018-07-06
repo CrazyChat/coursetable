@@ -1,35 +1,4 @@
 
-/*
-var courseDays = new Vue({
-    el: '#course-days',
-    data: {
-        items: [
-            { message: '——' },
-            { message: '周一' },
-            { message: '周二' },
-            { message: '周三' },
-            { message: '周四' },
-            { message: '周五' },
-            { message: '周六' },
-            { message: '周日' },
-        ]
-    }
-})
-var courseSections = new Vue({
-    el: '#course-sections',
-    data: {
-        items: [
-            { message: '1-2' },
-            { message: '3-4' },
-            { message: '5-6' },
-            { message: '7-8' },
-            { message: '9' },
-            { message: '10-11' },
-        ]
-    }
-})
-*/
-
 let currentMember = 0;   // 计算当前是哪个成员
 let memberName = [];    // 记录成员姓名
 let if_introduce = 1;    // 判断当前是否为介绍页面
