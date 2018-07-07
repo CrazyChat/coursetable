@@ -50,20 +50,20 @@ function getValue() {
     for (let x = 0; x < 7; x++ ) {
         for (let j = 0; j < 6; j++) {
             let m = j + x * 6 + currentMember * 42;
-            var course_star = document.getElementsByClassName('course-star')[m].value;    // 获取开始的周
-            var course_end = document.getElementsByClassName('course-end')[m].value;      // 获取截止的周
-            var course_else = document.getElementsByClassName('course-else')[m].value;    // 获取其他不连续的周
-            var week = [];
-            var noneweek = [];
+            let course_star = document.getElementsByClassName('course-star')[m].value;    // 获取开始的周
+            let course_end = document.getElementsByClassName('course-end')[m].value;      // 获取截止的周
+            let course_else = document.getElementsByClassName('course-else')[m].value;    // 获取其他不连续的周
+            let week = [];
+            let noneweek = [];
             // 提取第几周到第几周成数组
             if (course_star) {
                 week[0] = parseInt(course_star);
-                for ( var i = 1,l = course_end - course_star; i <= l; i++ ){
+                for ( let i = 1,l = course_end - course_star; i <= l; i++ ){
                     week[i] = parseInt(week[i-1]) + 1;
                 }
             }
             // 添加额外不连续的周 进数组
-            var num = course_else.match(/\d+/g);
+            let num = course_else.match(/\d+/g);
             if (num) {
                 for (let j = 0, l = num.length; j < l; j++) {
                     week.push(parseInt(num[j]));
@@ -83,7 +83,7 @@ function getValue() {
 // 添加新成员按钮功能
 function addMember(){
     // 输入新建成员的姓名
-    var str = window.prompt("请输入姓名:","");
+    let str = window.prompt("请输入姓名:","");
     // 判断是否已经输入名字，然后新建成员表格滑下显示
     if (str) {
         if (if_introduce) {
