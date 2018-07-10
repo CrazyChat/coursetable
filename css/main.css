@@ -256,6 +256,10 @@ div,input,li,textarea {
     margin: 2px 0;
     color: #376792;
 }
+.member:hover {
+    color: #0484f7;
+    cursor: pointer;
+}
 
 
 

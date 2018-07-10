@@ -92,17 +92,16 @@ function addMember(){
             MEMBERNAME[0] = str;
             document.getElementsByClassName('introduce')[0].className = 'introduce form-hide';
             document.getElementsByClassName('form-content')[0].className = "form-content form-current";
-            document.getElementsByClassName('member')[0].innerHTML = str;
             document.getElementsByClassName('left-name')[0].value = str;
             IF_INTRODUCE = false;
         } else {
             MEMBERNAME[CURRENTMEMBER] = document.getElementsByClassName('left-name')[0].value;
             CURRENTMEMBER = CURRENTMEMBER + 1;
-            document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML = str;
             document.getElementsByClassName('left-name')[0].value = str;
             document.getElementsByClassName('form-content')[CURRENTMEMBER-1].className = "form-content form-hide";
             document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-current";
         }
+        document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML = str;
         // 新建对象
         member[CURRENTMEMBER] = str;
     }
@@ -111,9 +110,9 @@ function addMember(){
 // 删除成员按钮功能
 function delMember() {
     if (CURRENTMEMBER > 0) {
+        document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML = '';
         CURRENTMEMBER = CURRENTMEMBER - 1;
         document.getElementsByClassName('left-name')[0].value = MEMBERNAME[CURRENTMEMBER];
-        document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML = '';
         document.getElementsByClassName('form-content')[CURRENTMEMBER+1].className = "form-content form-hide";
         document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-current";
         console.log('CURRENTMEMBER ---> ', CURRENTMEMBER);
@@ -125,6 +124,17 @@ function delMember() {
         IF_INTRODUCE = true;
     } else {
         return;
+    }
+}
+
+// 点击导航栏的名字
+function clickNav(x) {
+    document.getElementsByClassName('left-name')[0].value = document.getElementsByClassName('member')[x].innerHTML;
+    document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-hide";
+    CURRENTMEMBER = x;
+    document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-current";
+    if (x === 0) {
+        IF_INTRODUCE = true;
     }
 }
 
