@@ -47,35 +47,37 @@ function addCourse( user, courseId, weekday, haveCourseWeeks) {
 
 // 获取输入的课表并写入userCourse
 function getValue() {
-    for (let x = 0; x < 7; x++ ) {
-        for (let j = 0; j < 6; j++) {
-            let m = j + x * 6 + CURRENTMEMBER * 42;
-            let course_star = document.getElementsByClassName('course-star')[m].value;    // 获取开始的周
-            let course_end = document.getElementsByClassName('course-end')[m].value;      // 获取截止的周
-            let course_else = document.getElementsByClassName('course-else')[m].value;    // 获取其他不连续的周
-            let week = [];
-            let noneweek = [];
-            // 提取第几周到第几周成数组
-            if (course_star) {
-                week[0] = parseInt(course_star);
-                for ( let i = 1,l = course_end - course_star; i <= l; i++ ){
-                    week[i] = parseInt(week[i-1]) + 1;
+    for (let w = 0; w <= CURRENTMEMBER; w++ ){
+        for (let x = 0; x < 7; x++ ) {
+            for (let j = 0; j < 6; j++) {
+                let m = j + x * 6 + w * 42;
+                let course_star = document.getElementsByClassName('course-star')[m].value;    // 获取开始的周
+                let course_end = document.getElementsByClassName('course-end')[m].value;      // 获取截止的周
+                let course_else = document.getElementsByClassName('course-else')[m].value;    // 获取其他不连续的周
+                let week = [];
+                let noneweek = [];
+                // 提取第几周到第几周成数组
+                if (course_star) {
+                    week[0] = parseInt(course_star);
+                    for ( let i = 1,l = course_end - course_star; i <= l; i++ ){
+                        week[i] = parseInt(week[i-1]) + 1;
+                    }
                 }
-            }
-            // 添加额外不连续的周 进数组
-            let num = course_else.match(/\d+/g);
-            if (num) {
-                for (let j = 0, l = num.length; j < l; j++) {
-                    week.push(parseInt(num[j]));
+                // 添加额外不连续的周 进数组
+                let num = course_else.match(/\d+/g);
+                if (num) {
+                    for (let j = 0, l = num.length; j < l; j++) {
+                        week.push(parseInt(num[j]));
+                    }
                 }
-            }
-            // 不用上课的周的数组
-            for (let t = 1; t < WEEKS+1; t++) {
-                if( week.indexOf(t) == -1 ) {
-                    noneweek.push(t);
+                // 不用上课的周的数组
+                for (let t = 1; t < WEEKS+1; t++) {
+                    if( week.indexOf(t) == -1 ) {
+                        noneweek.push(t);
+                    }
                 }
+                addCourse(member[w], j, x, noneweek);
             }
-            addCourse(member[CURRENTMEMBER], j, x, noneweek);
         }
     }
 }
@@ -94,7 +96,6 @@ function addMember(){
             IF_INTRODUCE = false;
         } else {
             MEMBERNAME[CURRENTMEMBER] = document.getElementsByClassName('left-name')[0].value;
-            getValue();
             CURRENTMEMBER = CURRENTMEMBER + 1;
             document.getElementsByClassName('left-name')[0].value = str;
             document.getElementsByClassName('form-content')[CURRENTMEMBER-1].className = "form-content form-hide";
@@ -137,6 +138,7 @@ function printCourse() {
 
 // 计算空课表按钮功能
 function NoCourseTable() {
+    CURRENTMEMBER = 
     getValue();
     // 将userCourse所有数据写入课表COURSETABLES
     userCourses.forEach(userCourse => {
