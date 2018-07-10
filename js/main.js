@@ -113,11 +113,13 @@ function delMember() {
     if (CURRENTMEMBER > 0) {
         CURRENTMEMBER = CURRENTMEMBER - 1;
         document.getElementsByClassName('left-name')[0].value = MEMBERNAME[CURRENTMEMBER];
+        document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML = '';
         document.getElementsByClassName('form-content')[CURRENTMEMBER+1].className = "form-content form-hide";
         document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-current";
         console.log('CURRENTMEMBER ---> ', CURRENTMEMBER);
     } else if (CURRENTMEMBER === 0) {
         document.getElementsByClassName('left-name')[0].value = '姓名';
+        document.getElementsByClassName('member')[0].innerHTML = '';
         document.getElementsByClassName('form-content')[0].className = "form-content form-hide";
         document.getElementsByClassName('introduce')[0].className = 'introduce form-current';
         IF_INTRODUCE = true;
