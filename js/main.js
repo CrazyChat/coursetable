@@ -1,7 +1,7 @@
 
 let CURRENTMEMBER = 0;   // 计算当前是哪个成员
 let MEMBERNAME = [];    // 记录成员姓名
-let IF_INTRODUCE = 1;    // 判断当前是否为介绍页面
+let IF_INTRODUCE = true;    // 判断当前是否为介绍页面
 const WEEKS = 16 // 表示学期的周数为16周，可以设置为让用户输入
 const COURSETABLES = [] // 16个周的课程表, COURSETABLES[0]表示第一周的课表
 for (let i = 0; i < WEEKS; i++) {
@@ -87,11 +87,11 @@ function addMember(){
     // 判断是否已经输入名字，然后新建成员表格滑下显示
     if (str) {
         if (IF_INTRODUCE) {
-            MEMBERNAME[0] = document.getElementsByClassName('left-name')[0].value;
+            MEMBERNAME[0] = str;
             document.getElementsByClassName('introduce')[0].className = 'introduce form-hide';
             document.getElementsByClassName('form-content')[0].className = "form-content form-current";
             document.getElementsByClassName('left-name')[0].value = str;
-            IF_INTRODUCE = 0;
+            IF_INTRODUCE = false;
         } else {
             MEMBERNAME[CURRENTMEMBER] = document.getElementsByClassName('left-name')[0].value;
             getValue();
@@ -113,10 +113,11 @@ function delMember() {
         document.getElementsByClassName('form-content')[CURRENTMEMBER+1].className = "form-content form-hide";
         document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-current";
         console.log('CURRENTMEMBER ---> ', CURRENTMEMBER);
-    } else if (CURRENTMEMBER == 0) {
+    } else if (CURRENTMEMBER === 0) {
         document.getElementsByClassName('left-name')[0].value = '姓名';
         document.getElementsByClassName('form-content')[0].className = "form-content form-hide";
         document.getElementsByClassName('introduce')[0].className = 'introduce form-current';
+        IF_INTRODUCE = true;
     } else {
         return;
     }
@@ -143,8 +144,8 @@ function NoCourseTable() {
           COURSETABLES[week - 1][userCourse.courseId][userCourse.weekday].push(userCourse.user);
         })
     })
+    printCourse();
     document.getElementById('all_input').style.top = '-650px';
     document.getElementById('none-course').style.display = 'block';
     document.getElementById('none-course').style.opacity = 1;
-    printCourse();
 }
