@@ -92,11 +92,13 @@ function addMember(){
             MEMBERNAME[0] = str;
             document.getElementsByClassName('introduce')[0].className = 'introduce form-hide';
             document.getElementsByClassName('form-content')[0].className = "form-content form-current";
+            document.getElementsByClassName('member')[0].innerHTML = str;
             document.getElementsByClassName('left-name')[0].value = str;
             IF_INTRODUCE = false;
         } else {
             MEMBERNAME[CURRENTMEMBER] = document.getElementsByClassName('left-name')[0].value;
             CURRENTMEMBER = CURRENTMEMBER + 1;
+            document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML = str;
             document.getElementsByClassName('left-name')[0].value = str;
             document.getElementsByClassName('form-content')[CURRENTMEMBER-1].className = "form-content form-hide";
             document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-current";
