@@ -88,8 +88,6 @@ function addMember(){
     let str = window.prompt("请输入姓名:","");
     // 判断是否已经输入名字，然后新建成员表格滑下显示
     if (str) {
-        document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-hide";
-        CURRENTMEMBER = member.length - 1; // 定位到最后一个成员
         if (IF_INTRODUCE) {
             MEMBERNAME[0] = str;
             document.getElementsByClassName('introduce')[0].className = 'introduce form-hide';
