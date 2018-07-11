@@ -123,14 +123,6 @@ function delMember() {
     }
 }
 
-// 点击导航栏的名字
-function clickNav(x) {
-    document.getElementsByClassName('left-name')[0].value = document.getElementsByClassName('member')[x].innerHTML;
-    document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-hide";
-    CURRENTMEMBER = x;
-    document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-current";
-}
-
 // 点击导航栏的名字功能和加索引
 (function addNumber() {
     let ul = document.getElementById("members");
@@ -146,9 +138,6 @@ function clickNav(x) {
     }
 } ())
 
-function nothing() {
-    return;
-}
 // 打印每周的空课表
 function printCourse() {
     for (let all = 0; all < WEEKS; all++) {
