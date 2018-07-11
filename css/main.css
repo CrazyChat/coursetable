@@ -3,6 +3,9 @@ body {
     padding: 0 auto;
     
 }
+i {
+    font-size: 20px;
+}
 ul,li {
     margin: 0;
     padding: 0;
@@ -343,8 +346,22 @@ div,input,li,textarea {
     resize:none;
 }
 /* 右边第几周的跳转按钮 */
+.back-input {
+    position: fixed;
+    top: 30px;
+    right: 20px;
+}
+.icon-yooxi {
+    font-size: 40px;
+    color: rgba(0,0,0,.7);
+}
+.icon-yooxi:hover {
+    cursor: pointer;
+    color: rgba(0,0,0,1);
+    font-size: 41px;
+}
 .week-nav {
     position: fixed;
-    right: 2px;
-
+    top: 100px;
+    right: 10px;
 }

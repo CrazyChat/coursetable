@@ -160,3 +160,10 @@ function NoCourseTable() {
     document.getElementById('none-course').style.display = 'block';
     document.getElementById('none-course').style.opacity = 1;
 }
+
+// 返回输入页面按钮
+function backInput() {
+    document.getElementById('all_input').style.top = '0px';
+    document.getElementById('none-course').style.display = 'none';
+    document.getElementById('none-course').style.opacity = 0;
+}
