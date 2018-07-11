@@ -104,17 +104,6 @@ function addMember(){
     }
 }
 
-// 给导航栏各个名字加索引
-(function addNumber() {
-    var ul = document.getElementById("members");
-    var ul_child = ul.getElementsByTagName('li');
-    for (let i = 0; i < ul_child.length; i++) {
-        ul_child[i].index = i;
-        ul_child[i].onclick = function(){
-            alert("元素索引为" +this.index);
-        }
-    }
-} ())
 // 删除成员按钮功能
 function delMember() {
     if (CURRENTMEMBER > 0) {
@@ -142,6 +131,24 @@ function clickNav(x) {
     document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-current";
 }
 
+// 点击导航栏的名字功能和加索引
+(function addNumber() {
+    let ul = document.getElementById("members");
+    let ul_child = ul.getElementsByTagName('li');
+    for (let i = 0; i < ul_child.length; i++) {
+        ul_child[i].index = i;
+        ul_child[i].onclick = function() {
+            document.getElementsByClassName('left-name')[0].value = document.getElementsByClassName('member')[i].innerHTML;
+            document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-hide";
+            CURRENTMEMBER = i;
+            document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-current";
+        }
+    }
+} ())
+
+function nothing() {
+    return;
+}
 // 打印每周的空课表
 function printCourse() {
     for (let all = 0; all < WEEKS; all++) {
