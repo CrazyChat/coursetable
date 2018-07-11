@@ -290,8 +290,7 @@ div,input,li,textarea {
 .fianll-table-wrap {
     position: absolute;
     width: 90%;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 10px;
 }
 .fianll-table {
     width: 100%;
@@ -342,4 +341,10 @@ div,input,li,textarea {
     height: 100%;
     border: none;
     resize:none;
+}
+/* 右边第几周的跳转按钮 */
+.week-nav {
+    position: fixed;
+    right: 2px;
+
 }

@@ -131,9 +131,6 @@ function clickNav(x) {
     document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-hide";
     CURRENTMEMBER = x;
     document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-current";
-    if (x === 0) {
-        IF_INTRODUCE = true;
-    }
 }
 
 // 打印每周的空课表
@@ -150,7 +147,7 @@ function printCourse() {
 
 // 计算空课表按钮功能
 function NoCourseTable() {
-    CURRENTMEMBER = 
+    CURRENTMEMBER = member.length - 1;
     getValue();
     // 将userCourse所有数据写入课表COURSETABLES
     userCourses.forEach(userCourse => {
