@@ -1,6 +1,5 @@
 
 let CURRENTMEMBER = 0;   // 计算当前是哪个成员
-let MEMBERNAME = [];    // 记录成员姓名
 let IF_INTRODUCE = true;    // 判断当前是否为介绍页面
 const WEEKS = 16 // 表示学期的周数为16周，可以设置为让用户输入
 const COURSETABLES = [] // 16个周的课程表, COURSETABLES[0]表示第一周的课表
@@ -36,7 +35,6 @@ const userCourses = [
      * haveCourseWeeks表示有课的周
      */
     { user: member[0], courseId: 0, weekday: 0, haveCourseWeeks: [] }, // 陈铭涛在1~7、10~12周周一的1~2节有课
-    { user: member[0], courseId: 0, weekday: 0, haveCourseWeeks: [] }
 ]
 
 
@@ -89,13 +87,13 @@ function addMember(){
     // 判断是否已经输入名字，然后新建成员表格滑下显示
     if (str) {
         if (IF_INTRODUCE) {
-            MEMBERNAME[0] = str;
+            
             document.getElementsByClassName('introduce')[0].className = 'introduce form-hide';
             document.getElementsByClassName('form-content')[0].className = "form-content form-current";
             document.getElementsByClassName('left-name')[0].value = str;
             IF_INTRODUCE = false;
         } else {
-            MEMBERNAME[CURRENTMEMBER] = document.getElementsByClassName('left-name')[0].value;
+            
             CURRENTMEMBER = CURRENTMEMBER + 1;
             document.getElementsByClassName('left-name')[0].value = str;
             document.getElementsByClassName('form-content')[CURRENTMEMBER-1].className = "form-content form-hide";
@@ -112,7 +110,7 @@ function delMember() {
     if (CURRENTMEMBER > 0) {
         document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML = '';
         CURRENTMEMBER = CURRENTMEMBER - 1;
-        document.getElementsByClassName('left-name')[0].value = MEMBERNAME[CURRENTMEMBER];
+        document.getElementsByClassName('left-name')[0].value = member[CURRENTMEMBER];
         document.getElementsByClassName('form-content')[CURRENTMEMBER+1].className = "form-content form-hide";
         document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-current";
         console.log('CURRENTMEMBER ---> ', CURRENTMEMBER);
