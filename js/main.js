@@ -87,7 +87,6 @@ function addMember(){
     // 判断是否已经输入名字，然后新建成员表格滑下显示
     if (str) {
         if (IF_INTRODUCE) {
-            
             document.getElementsByClassName('introduce')[0].className = 'introduce form-hide';
             document.getElementsByClassName('form-content')[0].className = "form-content form-current";
             document.getElementsByClassName('left-name')[0].value = str;
@@ -105,6 +104,17 @@ function addMember(){
     }
 }
 
+// 给导航栏各个名字加索引
+(function addNumber() {
+    var ul = document.getElementById("members");
+    var ul_child = ul.getElementsByTagName('li');
+    for (let i = 0; i < ul_child.length; i++) {
+        ul_child[i].index = i;
+        ul_child[i].onclick = function(){
+            alert("元素索引为" +this.index);
+        }
+    }
+} ())
 // 删除成员按钮功能
 function delMember() {
     if (CURRENTMEMBER > 0) {
@@ -113,7 +123,6 @@ function delMember() {
         document.getElementsByClassName('left-name')[0].value = member[CURRENTMEMBER];
         document.getElementsByClassName('form-content')[CURRENTMEMBER+1].className = "form-content form-hide";
         document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-current";
-        console.log('CURRENTMEMBER ---> ', CURRENTMEMBER);
     } else if (CURRENTMEMBER === 0) {
         document.getElementsByClassName('left-name')[0].value = '姓名';
         document.getElementsByClassName('member')[0].innerHTML = '';

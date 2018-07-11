@@ -230,8 +230,6 @@ div,input,li,textarea {
     font-size: 15px;
     text-align: center;
 }
-.members {
-}
 .member:first-child {
     margin-top: 10px;
 }
@@ -349,6 +347,7 @@ div,input,li,textarea {
 .week-nav a {
     text-decoration: none;
     color: rgba(0,0,0,.7);
+    margin-right: 0;
 }
 .week-nav a:hover {
     color: rgba(0,0,0,1);
