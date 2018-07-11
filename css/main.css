@@ -1,10 +1,6 @@
 body {
     margin: 0 auto;
     padding: 0 auto;
-    
-}
-i {
-    font-size: 20px;
 }
 ul,li {
     margin: 0;
@@ -348,8 +344,8 @@ div,input,li,textarea {
 /* 右边第几周的跳转按钮 */
 .back-input {
     position: fixed;
-    top: 30px;
-    right: 20px;
+    top: 20px;
+    right: 6px;
 }
 .icon-yooxi {
     font-size: 40px;
@@ -362,6 +358,16 @@ div,input,li,textarea {
 }
 .week-nav {
     position: fixed;
-    top: 100px;
+    top: 75px;
     right: 10px;
+}
+.week-nav a {
+    text-decoration: none;
+    color: rgba(0,0,0,.7);
+}
+.week-nav a:hover {
+    color: rgba(0,0,0,1);
+}
+.weeksicon {
+    font-size: 30px;
 }
