@@ -161,9 +161,32 @@ function NoCourseTable() {
     document.getElementById('none-course').style.opacity = 1;
 }
 
+// 清空数据
+function deleteDate() {
+    userCourses.length = 0;     // 清空userCourses的数据
+    // 清空COURSETABLES的数据
+    for (let i = 0; i < WEEKS; i++) {
+        for (let j = 0; j <= 5; j++) {
+            for(let k = 0; k <= 6; k++) {
+                COURSETABLES[i][j][k].length = 0;
+            }
+        }
+    }
+    // 清除空课表数据
+    for (let all = 0; all < WEEKS; all++) {
+        for(let x = 0; x < 7; x++) {
+            for (let j = 0; j < 6; j++) {
+                let m = j + x * 6 + all * 42;
+                document.getElementsByClassName('once-tex')[m].value = [];
+            }
+        }
+    }
+}
+
 // 返回输入页面按钮
 function backInput() {
     document.getElementById('all_input').style.top = '0px';
     document.getElementById('none-course').style.display = 'none';
     document.getElementById('none-course').style.opacity = 0;
+    deleteDate();
 }
