@@ -93,7 +93,6 @@ function addMember(){
             INPUT_NAME.value = str;
             IF_INTRODUCE = false;
         } else {
-            
             CURRENTMEMBER = CURRENTMEMBER + 1;
             INPUT_NAME.value = str;
             document.getElementsByClassName('form-content')[CURRENTMEMBER-1].className = "form-content form-hide";
@@ -107,6 +106,17 @@ function addMember(){
 
 // 删除成员按钮功能
 function delMember() {
+    // 清除当前表格的数据和成员
+    member.splice(CURRENTMEMBER,1);
+    for (let x = 0; x < 7; x++ ) {
+        for (let j = 0; j < 6; j++) {
+            let m = j + x * 6 + CURRENTMEMBER * 42;
+            document.getElementsByClassName('course-star')[m].value = '';
+            document.getElementsByClassName('course-end')[m].value = '';
+            document.getElementsByClassName('course-else')[m].value = '';
+        }
+    }
+    // 更换页面显示的成员表格
     if (CURRENTMEMBER > 0) {
         document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML = '';
         CURRENTMEMBER = CURRENTMEMBER - 1;
@@ -119,8 +129,6 @@ function delMember() {
         document.getElementsByClassName('form-content')[0].className = "form-content form-hide";
         document.getElementsByClassName('introduce')[0].className = 'introduce form-current';
         IF_INTRODUCE = true;
-    } else {
-        return;
     }
 }
 
