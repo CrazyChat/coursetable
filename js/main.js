@@ -1,4 +1,4 @@
-
+let MAXMEMBER = 20;    // 最多可以有多少个成员
 let CURRENTMEMBER = 0;   // 计算当前是哪个成员
 let IF_INTRODUCE = true;    // 判断当前是否为介绍页面
 let INPUT_NAME = document.getElementsByClassName('left-name')[0];  // 名字输入框的姓名
@@ -84,29 +84,33 @@ function getValue() {
 
 // 添加新成员按钮功能
 function addMember(){
-    // 输入新建成员的姓名
-    let str = window.prompt("请输入姓名:","");
-    // 判断是否已经输入名字，然后新建成员表格滑下显示
-    if (str) {
-        if (IF_INTRODUCE) {
-            document.getElementsByClassName('introduce')[0].className = 'introduce form-hide';
-            document.getElementsByClassName('form-content')[0].className = "form-content form-current";
-            INPUT_NAME.value = str;
-            IF_INTRODUCE = false;
-        } else {
-            document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-hide";
-            // 判断有无哪儿删除了成员的课表没用上并使CURRENTMEMBER跳到当前成员
-            if (member.indexOf('') !== -1) {
-                CURRENTMEMBER = member.indexOf('');
+    if ((member.length < MAXMEMBER) || (member.indexOf('') !== -1)) {
+        // 输入新建成员的姓名
+        let str = window.prompt("请输入姓名:","");
+        // 判断是否已经输入名字，然后新建成员表格滑下显示
+        if (str) {
+            if (IF_INTRODUCE) {
+                document.getElementsByClassName('introduce')[0].className = 'introduce form-hide';
+                document.getElementsByClassName('form-content')[0].className = "form-content form-current";
+                INPUT_NAME.value = str;
+                IF_INTRODUCE = false;
             } else {
-                CURRENTMEMBER = CURRENTMEMBER + 1;
+                document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-hide";
+                // 判断有无哪儿删除了成员的课表没用上并使CURRENTMEMBER跳到当前成员
+                if (member.indexOf('') !== -1) {
+                    CURRENTMEMBER = member.indexOf('');
+                } else {
+                    CURRENTMEMBER = CURRENTMEMBER + 1;
+                }
+                INPUT_NAME.value = str;
+                document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-current";
             }
-            INPUT_NAME.value = str;
-            document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-current";
+            document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML = str;
+            // 新建对象
+            member[CURRENTMEMBER] = str;
         }
-        document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML = str;
-        // 新建对象
-        member[CURRENTMEMBER] = str;
+    } else {
+        alert('最多只能添加20名成员，若想添加更多成员请联系作者修改，造成不便敬请谅解！');
     }
 }
 
