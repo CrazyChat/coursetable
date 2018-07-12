@@ -4,6 +4,7 @@ let IF_INTRODUCE = true;    // 判断当前是否为介绍页面
 let INPUT_NAME = document.getElementsByClassName('left-name')[0];  // 名字输入框的姓名
 const WEEKS = 16 // 表示学期的周数为16周，可以设置为让用户输入
 const COURSETABLES = [] // 16个周的课程表, COURSETABLES[0]表示第一周的课表
+let LASTMEMBER = 0;    // 记录点击计算课表前最后停留的成员
 for (let i = 0; i < WEEKS; i++) {
     /**
      * push的是一个周课程表，假设叫做courseTable，三维数组，courseTable[i][j]是一个数组，存储着当前课程时间段内有课的人及其有课的周
@@ -172,6 +173,7 @@ function printCourse() {
 
 // 计算空课表按钮功能
 function NoCourseTable() {
+    LASTMEMBER = CURRENTMEMBER;
     CURRENTMEMBER = member.length - 1;
     getValue();
     // 将userCourse所有数据写入课表COURSETABLES
@@ -210,6 +212,7 @@ function deleteDate() {
 
 // 返回输入页面按钮
 function backInput() {
+    CURRENTMEMBER = LASTMEMBER;
     document.getElementById('all_input').style.top = '0px';
     document.getElementById('none-course').style.display = 'none';
     document.getElementById('none-course').style.opacity = 0;
