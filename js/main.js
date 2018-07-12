@@ -93,9 +93,14 @@ function addMember(){
             INPUT_NAME.value = str;
             IF_INTRODUCE = false;
         } else {
-            CURRENTMEMBER = CURRENTMEMBER + 1;
+            document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-hide";
+            // 判断有无哪儿删除了成员的课表没用上并使CURRENTMEMBER跳到当前成员
+            if (member.indexOf('') !== -1) {
+                CURRENTMEMBER = member.indexOf('');
+            } else {
+                CURRENTMEMBER = CURRENTMEMBER + 1;
+            }
             INPUT_NAME.value = str;
-            document.getElementsByClassName('form-content')[CURRENTMEMBER-1].className = "form-content form-hide";
             document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-current";
         }
         document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML = str;
