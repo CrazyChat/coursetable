@@ -1,6 +1,7 @@
 
 let CURRENTMEMBER = 0;   // 计算当前是哪个成员
 let IF_INTRODUCE = true;    // 判断当前是否为介绍页面
+let INPUT_NAME = document.getElementsByClassName('left-name')[0]; //当前输入框的姓名
 const WEEKS = 16 // 表示学期的周数为16周，可以设置为让用户输入
 const COURSETABLES = [] // 16个周的课程表, COURSETABLES[0]表示第一周的课表
 for (let i = 0; i < WEEKS; i++) {
@@ -89,12 +90,12 @@ function addMember(){
         if (IF_INTRODUCE) {
             document.getElementsByClassName('introduce')[0].className = 'introduce form-hide';
             document.getElementsByClassName('form-content')[0].className = "form-content form-current";
-            document.getElementsByClassName('left-name')[0].value = str;
+            INPUT_NAME = str;
             IF_INTRODUCE = false;
         } else {
             
             CURRENTMEMBER = CURRENTMEMBER + 1;
-            document.getElementsByClassName('left-name')[0].value = str;
+            INPUT_NAME = str;
             document.getElementsByClassName('form-content')[CURRENTMEMBER-1].className = "form-content form-hide";
             document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-current";
         }
@@ -109,11 +110,11 @@ function delMember() {
     if (CURRENTMEMBER > 0) {
         document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML = '';
         CURRENTMEMBER = CURRENTMEMBER - 1;
-        document.getElementsByClassName('left-name')[0].value = member[CURRENTMEMBER];
+        INPUT_NAME = member[CURRENTMEMBER];
         document.getElementsByClassName('form-content')[CURRENTMEMBER+1].className = "form-content form-hide";
         document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-current";
     } else if (CURRENTMEMBER === 0) {
-        document.getElementsByClassName('left-name')[0].value = '姓名';
+        INPUT_NAME = '姓名';
         document.getElementsByClassName('member')[0].innerHTML = '';
         document.getElementsByClassName('form-content')[0].className = "form-content form-hide";
         document.getElementsByClassName('introduce')[0].className = 'introduce form-current';
@@ -123,20 +124,25 @@ function delMember() {
     }
 }
 
-// 点击导航栏的名字功能和加索引
-(function addNumber() {
-    let ul = document.getElementById("members");
-    let ul_child = ul.getElementsByTagName('li');
-    for (let i = 0; i < ul_child.length; i++) {
-        ul_child[i].index = i;
-        ul_child[i].onclick = function() {
-            document.getElementsByClassName('left-name')[0].value = document.getElementsByClassName('member')[i].innerHTML;
+// 点击导航栏的名字功能
+(function clickNav() {
+    let oul = document.getElementById('members');
+    let oli = oul.getElementsByTagName('li');
+    for (let i = 0; i < oli.length; i++) {
+        oli[i].index = i;
+    }
+    oul.onclick = function() {
+        var ev = ev || window.event;
+        var target = ev.target || ev.srcElement;
+        if(target.nodeName.toLowerCase() == 'li'){
+            INPUT_NAME = document.getElementsByClassName('member')[target.index].innerHTML;
             document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-hide";
-            CURRENTMEMBER = i;
+            CURRENTMEMBER = target.index;
             document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-current";
         }
     }
-} ())
+}())
+
 
 // 打印每周的空课表
 function printCourse() {
