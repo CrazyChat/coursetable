@@ -107,7 +107,8 @@ function addMember(){
 // 删除成员按钮功能
 function delMember() {
     // 清除当前表格的数据和成员
-    member.splice(CURRENTMEMBER,1);
+    member[CURRENTMEMBER] = '';
+    // member.splice(CURRENTMEMBER,1);
     for (let x = 0; x < 7; x++ ) {
         for (let j = 0; j < 6; j++) {
             let m = j + x * 6 + CURRENTMEMBER * 42;
