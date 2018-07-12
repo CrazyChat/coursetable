@@ -1,7 +1,7 @@
 
 let CURRENTMEMBER = 0;   // 计算当前是哪个成员
 let IF_INTRODUCE = true;    // 判断当前是否为介绍页面
-let INPUT_NAME = document.getElementsByClassName('left-name')[0]; //当前输入框的姓名
+let INPUT_NAME = document.getElementsByClassName('left-name')[0];  // 名字输入框的姓名
 const WEEKS = 16 // 表示学期的周数为16周，可以设置为让用户输入
 const COURSETABLES = [] // 16个周的课程表, COURSETABLES[0]表示第一周的课表
 for (let i = 0; i < WEEKS; i++) {
@@ -90,12 +90,12 @@ function addMember(){
         if (IF_INTRODUCE) {
             document.getElementsByClassName('introduce')[0].className = 'introduce form-hide';
             document.getElementsByClassName('form-content')[0].className = "form-content form-current";
-            INPUT_NAME = str;
+            INPUT_NAME.value = str;
             IF_INTRODUCE = false;
         } else {
             
             CURRENTMEMBER = CURRENTMEMBER + 1;
-            INPUT_NAME = str;
+            INPUT_NAME.value = str;
             document.getElementsByClassName('form-content')[CURRENTMEMBER-1].className = "form-content form-hide";
             document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-current";
         }
@@ -110,11 +110,11 @@ function delMember() {
     if (CURRENTMEMBER > 0) {
         document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML = '';
         CURRENTMEMBER = CURRENTMEMBER - 1;
-        INPUT_NAME = member[CURRENTMEMBER];
+        INPUT_NAME.value = member[CURRENTMEMBER];
         document.getElementsByClassName('form-content')[CURRENTMEMBER+1].className = "form-content form-hide";
         document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-current";
     } else if (CURRENTMEMBER === 0) {
-        INPUT_NAME = '姓名';
+        INPUT_NAME.value = '姓名';
         document.getElementsByClassName('member')[0].innerHTML = '';
         document.getElementsByClassName('form-content')[0].className = "form-content form-hide";
         document.getElementsByClassName('introduce')[0].className = 'introduce form-current';
@@ -135,7 +135,7 @@ function delMember() {
         var ev = ev || window.event;
         var target = ev.target || ev.srcElement;
         if(target.nodeName.toLowerCase() == 'li'){
-            INPUT_NAME = document.getElementsByClassName('member')[target.index].innerHTML;
+            INPUT_NAME.value = document.getElementsByClassName('member')[target.index].innerHTML;
             document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-hide";
             CURRENTMEMBER = target.index;
             document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-current";
@@ -200,4 +200,10 @@ function backInput() {
     document.getElementById('none-course').style.display = 'none';
     document.getElementById('none-course').style.opacity = 0;
     deleteDate();
+}
+
+// 姓名输入框的修改
+function changeName() {
+    document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML = INPUT_NAME.value;
+    member[CURRENTMEMBER] = INPUT_NAME.value;
 }
