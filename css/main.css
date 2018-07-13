@@ -345,9 +345,11 @@ div,input,li,textarea {
     right: 10px;
 }
 .week-nav a {
+    width: 100%;
+    height: 100%;
+    display: block;
     text-decoration: none;
     color: rgba(0,0,0,.7);
-    margin-right: 0;
 }
 .week-nav a:hover {
     color: rgba(0,0,0,1);
