@@ -138,28 +138,32 @@ function addMember(){
 
 // 删除成员按钮功能
 function delMember() {
-    // 清除当前表格的数据和成员
-    member[CURRENTMEMBER] = '';
-    // member.splice(CURRENTMEMBER,1);
-    for (let x = 0; x < 7; x++ ) {
-        for (let j = 0; j < 6; j++) {
-            let m = j + x * 6 + CURRENTMEMBER * 42;
-            document.getElementsByClassName('course-star')[m].value = '';
-            document.getElementsByClassName('course-end')[m].value = '';
-            document.getElementsByClassName('course-else')[m].value = '';
-        }
+    // 清除已经提交到userCourse的数据
+    if (IF_FIRST[CURRENTMEMBER] === 1) {
+        let w = CURRENTMEMBER * 42;
+        CURRENTMEMBER.splice(w, 42);
     }
-    // 更换页面显示的成员表格
+    // 清除当前成员
+    member.splice(CURRENTMEMBER,1);
     if (CURRENTMEMBER > 0) {
+        changeForm();
         document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML = '';
         CURRENTMEMBER = CURRENTMEMBER - 1;
         INPUT_NAME.value = member[CURRENTMEMBER];
-        document.getElementsByClassName('form-content')[CURRENTMEMBER+1].className = "form-content form-hide";
-        document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-current";
     } else if (CURRENTMEMBER === 0) {
         INPUT_NAME.value = '姓名';
         document.getElementsByClassName('member')[0].innerHTML = '';
-        document.getElementsByClassName('form-content')[0].className = "form-content form-hide";
+        $("#form2").attr("class", "form-content form-hide");
+        $("#form1").attr("class", "form-content form-hdie");
+        // 清空表格数据
+        for(let w = 0; w < 2; w++) {
+            for(let x = 0; x < 7; x++) {
+                for (let j = 0; j < 6; j++) {
+                    let m = j + x * 6 + w * 42;
+                    document.getElementsByClassName('once-tex')[m].value = [];
+                }
+            }
+        }
         document.getElementsByClassName('introduce')[0].className = 'introduce form-current';
         IF_INTRODUCE = true;
     }
