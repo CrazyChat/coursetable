@@ -4,7 +4,6 @@ let IF_INTRODUCE = true;    // 判断当前是否为介绍页面
 let INPUT_NAME = document.getElementsByClassName('left-name')[0];  // 名字输入框的姓名
 const WEEKS = 16 // 表示学期的周数为16周，可以设置为让用户输入
 const COURSETABLES = [] // 16个周的课程表, COURSETABLES[0]表示第一周的课表
-let LASTMEMBER = 0;    // 记录点击计算课表前最后停留的成员
 let IF_FIRST = [];       // 判断成员数据是否已经提交到了userCourses
 for (let i = 0; i < WEEKS; i++) {
     /**
@@ -205,6 +204,17 @@ function printCourse() {
 // 计算空课表按钮功能
 function NoCourseTable() {
     getValue();
+    $("#form2").attr("class", "form-content form-hide");
+    $("#form1").attr("class", "form-content form-hdie");
+    // 清空表格数据
+    for(let w = 0; w < 2; w++) {
+        for(let x = 0; x < 7; x++) {
+            for (let j = 0; j < 6; j++) {
+                let m = j + x * 6 + w * 42;
+                document.getElementsByClassName('once-tex')[m].value = [];
+            }
+        }
+    }
     CURRENTMEMBER = member.length - 1;
     // 将userCourse所有数据写入课表COURSETABLES
     userCourses.forEach(userCourse => {
@@ -241,10 +251,12 @@ function deleteDate() {
 
 // 返回输入页面按钮
 function backInput() {
-    CURRENTMEMBER = LASTMEMBER;
-    document.getElementById('all_input').style.top = '0px';
     document.getElementById('none-course').style.display = 'none';
     document.getElementById('none-course').style.opacity = 0;
+    document.getElementById('all_input').style.top = '0px';
+    // 返回后显示最后一个成员的数据表格
+    $("#form1").attr("class", "form-content form-current");
+    userCourses.length = CURRENTMEMBER*42;
     deleteDate();
 }
 
