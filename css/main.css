@@ -264,14 +264,18 @@ div,input,li,textarea {
 #none-course {
     position: absolute;
     z-index: 100;
-    width: 100%;
+    width: 1200px;
+    max-width: 1500px;
+    min-width: 1200px;
     opacity: 0;
     display: none;
     transition: all 1s;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .fianll-table-wrap {
     position: absolute;
-    width: 90%;
+    width: 94%;
     left: 10px;
 }
 .fianll-table {
