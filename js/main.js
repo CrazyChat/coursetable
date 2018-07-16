@@ -27,7 +27,6 @@ const user = new Array();
 // 创建成员
 const member = [];
 
-
 // 存储所有人的课程
 const userCourses = [
     /**
@@ -42,10 +41,12 @@ const userCourses = [
 function changeForm() {
     if ($('#form1').is('.form-current') == true) {
         // 清空表格数据
-        for(let x = 0; x < 7; x++) {
+        for (let x = 0; x < 7; x++ ) {
             for (let j = 0; j < 6; j++) {
                 let m = j + x * 6;
-                document.getElementsByClassName('once-tex')[m].value = [];
+                document.getElementsByClassName('course-star')[m].value = '';
+                document.getElementsByClassName('course-end')[m].value = '';
+                document.getElementsByClassName('course-else')[m].value = '';
             }
         }
         $("#form1").attr("class", "form-content form-hide");
@@ -54,10 +55,12 @@ function changeForm() {
         $("#form2").attr("class", "form-content form-hide");
         $("#form1").attr("class", "form-content form-current");
         // 清空表格数据
-        for(let x = 0; x < 7; x++) {
+        for (let x = 0; x < 7; x++ ) {
             for (let j = 0; j < 6; j++) {
                 let m = j + x * 6 + 42;
-                document.getElementsByClassName('once-tex')[m].value = [];
+                document.getElementsByClassName('course-star')[m].value = '';
+                document.getElementsByClassName('course-end')[m].value = '';
+                document.getElementsByClassName('course-else')[m].value = '';
             }
         }
     } else {
@@ -73,9 +76,13 @@ function addCourse( user, courseId, weekday, noneCourseWeeks) {
 
 // 获取输入的课表并写入userCourse
 function getValue() {
+    let w = 1;
+    if ($('#form1').is('.form-current') == true) {
+        w = 0;
+    }
     for (let x = 0; x < 7; x++ ) {
         for (let j = 0; j < 6; j++) {
-            let m = j + x * 6;
+            let m = j + x * 6 + w * 42;
             let course_star = document.getElementsByClassName('course-star')[m].value;    // 获取开始的周
             let course_end = document.getElementsByClassName('course-end')[m].value;      // 获取截止的周
             let course_else = document.getElementsByClassName('course-else')[m].value;    // 获取其他不连续的周
@@ -104,13 +111,18 @@ function getValue() {
             userCourses.push({ user: member[CURRENTMEMBER], courseId: j, weekday: x, noneCourseWeeks: noneweek });
         }
     }
+    console.log('done getValue.');
 }
 
 // 修改userCourse数据
 function changeValue() {
+    let t = 1;
+    if ($('#form1').is('.form-current') == true) {
+        t = 0;
+    }
     for (let x = 0; x < 7; x++ ) {
         for (let j = 0; j < 6; j++) {
-            let m = j + x * 6;
+            let m = j + x * 6 + t * 42;
             let w = j + x * 6 + CURRENTMEMBER * 42;
             let course_star = document.getElementsByClassName('course-star')[m].value;    // 获取开始的周
             let course_end = document.getElementsByClassName('course-end')[m].value;      // 获取截止的周
@@ -140,6 +152,7 @@ function changeValue() {
             userCourses[w].noneCourseWeeks = noneweek;
         }
     }
+    console.log('done changeValue.');
 }
 
 // 添加新成员按钮功能
@@ -247,13 +260,16 @@ function NoCourseTable() {
         changeValue();
     } else {
         getValue();
+        IF_FIRST[CURRENTMEMBER] = 1;
     }
     // 清空表格数据
-    for(let w = 0; w < 2; w++) {
-        for(let x = 0; x < 7; x++) {
+    for (let w = 0; w < 2; w++) {
+        for (let x = 0; x < 7; x++ ) {
             for (let j = 0; j < 6; j++) {
                 let m = j + x * 6 + w * 42;
-                document.getElementsByClassName('once-tex')[m].value = [];
+                document.getElementsByClassName('course-star')[m].value = '';
+                document.getElementsByClassName('course-end')[m].value = '';
+                document.getElementsByClassName('course-else')[m].value = '';
             }
         }
     }
@@ -296,7 +312,7 @@ function backInput() {
     document.getElementById('none-course').style.display = 'none';
     document.getElementById('none-course').style.opacity = 0;
     document.getElementById('all_input').style.top = '0px';
-    changeForm(0);
+    changeForm();
     deleteDate();
 }
 
