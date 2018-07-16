@@ -145,6 +145,7 @@ function delMember() {
     }
     // 清除当前成员
     member.splice(CURRENTMEMBER,1);
+    IF_FIRST.splice(CURRENTMEMBER,1);
     if (CURRENTMEMBER > 0) {
         changeForm();
         document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML = '';
@@ -180,10 +181,15 @@ function delMember() {
         var ev = ev || window.event;
         var target = ev.target || ev.srcElement;
         if(target.nodeName.toLowerCase() == 'li'){
-            INPUT_NAME.value = document.getElementsByClassName('member')[target.index].innerHTML;
-            document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-hide";
+            getValue();
             CURRENTMEMBER = target.index;
-            document.getElementsByClassName('form-content')[CURRENTMEMBER].className = "form-content form-current";
+            // 清除已经提交到userCourse的数据
+            if (IF_FIRST[CURRENTMEMBER] === 1) {
+                let w = CURRENTMEMBER * 42;
+                CURRENTMEMBER.splice(w, 42);
+            }
+            INPUT_NAME.value = document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML;
+            changeForm();
         }
     }
 }())
