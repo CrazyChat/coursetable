@@ -204,9 +204,8 @@ function printCourse() {
 
 // 计算空课表按钮功能
 function NoCourseTable() {
-    LASTMEMBER = CURRENTMEMBER;
-    CURRENTMEMBER = member.length - 1;
     getValue();
+    CURRENTMEMBER = member.length - 1;
     // 将userCourse所有数据写入课表COURSETABLES
     userCourses.forEach(userCourse => {
         userCourse.noneCourseWeeks.forEach(week => {
@@ -221,7 +220,6 @@ function NoCourseTable() {
 
 // 清空数据
 function deleteDate() {
-    userCourses.length = 0;     // 清空userCourses的数据
     // 清空COURSETABLES的数据
     for (let i = 0; i < WEEKS; i++) {
         for (let j = 0; j <= 5; j++) {
