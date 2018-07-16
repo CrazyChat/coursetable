@@ -100,12 +100,12 @@ function getValue() {
                     noneweek.push(t);
                 }
             }
-            userCourses.push({ user: member[w], courseId: j, weekday: x, noneCourseWeeks: noneweek });
+            userCourses.push({ user: member[CURRENTMEMBER], courseId: j, weekday: x, noneCourseWeeks: noneweek });
         }
     }
 }
 
-// 修改数据
+// 修改userCourse数据
 function changeValue() {
     for (let x = 0; x < 7; x++ ) {
         for (let j = 0; j < 6; j++) {
@@ -153,16 +153,15 @@ function addMember(){
             INPUT_NAME.value = str;
             IF_INTRODUCE = false;
         } else {
-            getValue();
-            IF_FIRST[CURRENTMEMBER] = 1;    // 数据写入到userCourses里了
+            if (IF_FIRST[CURRENTMEMBER] === 1) {
+                changeValue();
+            } else {
+                getValue();
+                IF_FIRST[CURRENTMEMBER] = 1;    // 数据写入到userCourses里了
+            }
             // 交换表格并清掉数据
             changeForm();
-            // 判断有无哪儿删除了成员的课表没用上并使CURRENTMEMBER跳到当前成员
-            if (member.indexOf('') !== -1) {
-                CURRENTMEMBER = member.indexOf('');
-            } else {
-                CURRENTMEMBER = CURRENTMEMBER + 1;
-            }
+            CURRENTMEMBER = member.length;
             INPUT_NAME.value = str;
         }
         document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML = str;
