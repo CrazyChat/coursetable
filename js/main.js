@@ -205,7 +205,11 @@ function delMember() {
         var ev = ev || window.event;
         var target = ev.target || ev.srcElement;
         if(target.nodeName.toLowerCase() == 'li'){
-            getValue();
+            if (IF_FIRST[CURRENTMEMBER] === 1) {
+                changeValue();
+            } else {
+                getValue();
+            }
             CURRENTMEMBER = target.index;
             INPUT_NAME.value = document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML;
             changeForm();
