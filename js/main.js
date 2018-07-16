@@ -183,11 +183,6 @@ function delMember() {
         if(target.nodeName.toLowerCase() == 'li'){
             getValue();
             CURRENTMEMBER = target.index;
-            // 清除已经提交到userCourse的数据
-            if (IF_FIRST[CURRENTMEMBER] === 1) {
-                let w = CURRENTMEMBER * 42;
-                CURRENTMEMBER.splice(w, 42);
-            }
             INPUT_NAME.value = document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML;
             changeForm();
         }
