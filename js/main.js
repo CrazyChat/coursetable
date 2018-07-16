@@ -105,6 +105,42 @@ function getValue() {
     }
 }
 
+// 修改数据
+function changeValue() {
+    for (let x = 0; x < 7; x++ ) {
+        for (let j = 0; j < 6; j++) {
+            let m = j + x * 6;
+            let w = j + x * 6 + CURRENTMEMBER * 42;
+            let course_star = document.getElementsByClassName('course-star')[m].value;    // 获取开始的周
+            let course_end = document.getElementsByClassName('course-end')[m].value;      // 获取截止的周
+            let course_else = document.getElementsByClassName('course-else')[m].value;    // 获取其他不连续的周
+            let week = [];
+            let noneweek = [];
+            // 提取第几周到第几周成数组
+            if (course_star) {
+                week[0] = parseInt(course_star);
+                for ( let i = 1,l = course_end - course_star; i <= l; i++ ){
+                    week[i] = parseInt(week[i-1]) + 1;
+                }
+            }
+            // 添加额外不连续的周 进数组
+            let num = course_else.match(/\d+/g);
+            if (num) {
+                for (let j = 0, l = num.length; j < l; j++) {
+                    week.push(parseInt(num[j]));
+                }
+            }
+            // 不用上课的周的数组
+            for (let t = 1; t < WEEKS+1; t++) {
+                if( week.indexOf(t) == -1 ) {
+                    noneweek.push(t);
+                }
+            }
+            userCourses[w].noneCourseWeeks = noneweek;
+        }
+    }
+}
+
 // 添加新成员按钮功能
 function addMember(){
     // 输入新建成员的姓名
