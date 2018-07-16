@@ -26,7 +26,6 @@ for (let i = 0; i < WEEKS; i++) {
 const user = new Array();
 // 创建成员
 const member = [];
-member[0] = '陈铭涛';
 
 
 // 存储所有人的课程
@@ -51,7 +50,7 @@ function changeForm() {
         }
         $("#form1").attr("class", "form-content form-hide");
         $("#form2").attr("class", "form-content form-current");
-    } else {
+    } else if ($('#form2').is('.form-current') == true) {
         $("#form2").attr("class", "form-content form-hide");
         $("#form1").attr("class", "form-content form-current");
         // 清空表格数据
@@ -61,6 +60,8 @@ function changeForm() {
                 document.getElementsByClassName('once-tex')[m].value = [];
             }
         }
+    } else {
+        $("#form1").attr("class", "form-content form-current");
     }
     return;
 }
@@ -172,26 +173,36 @@ function addMember(){
 
 // 删除成员按钮功能
 function delMember() {
+    if (CURRENTMEMBER > 0 || member.length > 1) {
+        // 更换页面表格
+        changeForm();
+    } else if (CURRENTMEMBER === 0) {
+        // 清空表格数据
+        for (let m = 0; m < 2; m++ ){
+            for(let x = 0; x < 7; x++) {
+                for (let j = 0; j < 6; j++) {
+                    let m = j + x * 6;
+                    document.getElementsByClassName('once-tex')[m].value = [];
+                }
+            }
+        }
+        $("#form1").attr("class", "form-content form-hide");
+        console.log('do this?');
+        $("#form2").attr("class", "form-content form-hide");
+    } else {
+        return false;
+    }
     // 清除已经提交到userCourse的数据
     if (IF_FIRST[CURRENTMEMBER] === 1) {
         let w = CURRENTMEMBER * 42;
         userCourses.splice(w, 42);
     }
-    $("#form2").attr("class", "form-content form-hide");
-    $("#form1").attr("class", "form-content form-hdie");
+    document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML = '';
     // 清除当前成员
     member.splice(CURRENTMEMBER,1);
     IF_FIRST.splice(CURRENTMEMBER,1);
-    document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML = '';
-    // 清空表格数据
-    for(let w = 0; w < 2; w++) {
-        for(let x = 0; x < 7; x++) {
-            for (let j = 0; j < 6; j++) {
-                let m = j + x * 6 + w * 42;
-                document.getElementsByClassName('once-tex')[m].value = [];
-            }
-        }
-    }
+    CURRENTMEMBER = member.length - 1;
+    INPUT_NAME.value = member[CURRENTMEMBER];
 }
 
 // 点击导航栏的名字功能
@@ -232,9 +243,11 @@ function printCourse() {
 
 // 计算空课表按钮功能
 function NoCourseTable() {
-    getValue();
-    $("#form2").attr("class", "form-content form-hide");
-    $("#form1").attr("class", "form-content form-hdie");
+    if (IF_FIRST[CURRENTMEMBER] === 1) {
+        changeValue();
+    } else {
+        getValue();
+    }
     // 清空表格数据
     for(let w = 0; w < 2; w++) {
         for(let x = 0; x < 7; x++) {
@@ -283,9 +296,7 @@ function backInput() {
     document.getElementById('none-course').style.display = 'none';
     document.getElementById('none-course').style.opacity = 0;
     document.getElementById('all_input').style.top = '0px';
-    // 返回后显示最后一个成员的数据表格
-    $("#form1").attr("class", "form-content form-current");
-    userCourses.length = CURRENTMEMBER*42;
+    changeForm(0);
     deleteDate();
 }
 
