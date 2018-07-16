@@ -175,32 +175,22 @@ function delMember() {
     // 清除已经提交到userCourse的数据
     if (IF_FIRST[CURRENTMEMBER] === 1) {
         let w = CURRENTMEMBER * 42;
-        CURRENTMEMBER.splice(w, 42);
+        userCourses.splice(w, 42);
     }
+    $("#form2").attr("class", "form-content form-hide");
+    $("#form1").attr("class", "form-content form-hdie");
     // 清除当前成员
     member.splice(CURRENTMEMBER,1);
     IF_FIRST.splice(CURRENTMEMBER,1);
-    if (CURRENTMEMBER > 0) {
-        changeForm();
-        document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML = '';
-        CURRENTMEMBER = CURRENTMEMBER - 1;
-        INPUT_NAME.value = member[CURRENTMEMBER];
-    } else if (CURRENTMEMBER === 0) {
-        INPUT_NAME.value = '姓名';
-        document.getElementsByClassName('member')[0].innerHTML = '';
-        $("#form2").attr("class", "form-content form-hide");
-        $("#form1").attr("class", "form-content form-hdie");
-        // 清空表格数据
-        for(let w = 0; w < 2; w++) {
-            for(let x = 0; x < 7; x++) {
-                for (let j = 0; j < 6; j++) {
-                    let m = j + x * 6 + w * 42;
-                    document.getElementsByClassName('once-tex')[m].value = [];
-                }
+    document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML = '';
+    // 清空表格数据
+    for(let w = 0; w < 2; w++) {
+        for(let x = 0; x < 7; x++) {
+            for (let j = 0; j < 6; j++) {
+                let m = j + x * 6 + w * 42;
+                document.getElementsByClassName('once-tex')[m].value = [];
             }
         }
-        document.getElementsByClassName('introduce')[0].className = 'introduce form-current';
-        IF_INTRODUCE = true;
     }
 }
 
