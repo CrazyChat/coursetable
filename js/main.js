@@ -5,9 +5,9 @@ let INPUT_NAME = document.getElementsByClassName('left-name')[0];  // 名字输�
 const WEEKS = 16 // 表示学期的周数为16周，可以设置为让用户输入
 let IF_FIRST = [];       // 判断成员数据是否已经提交到了userCourses
 // 保存每个成员的数据
-let course_star = [];
-let course_end = [];
-let course_else = [];
+let member_star = [];
+let member_end = [];
+let member_else = [];
 
 const COURSETABLES = [] // 16个周的课程表, COURSETABLES[0]表示第一周的课表
 for (let i = 0; i < WEEKS; i++) {
@@ -91,6 +91,11 @@ function getValue() {
             let course_star = document.getElementsByClassName('course-star')[m].value;    // 获取开始的周
             let course_end = document.getElementsByClassName('course-end')[m].value;      // 获取截止的周
             let course_else = document.getElementsByClassName('course-else')[m].value;    // 获取其他不连续的周
+            // 保存成员输入的数据
+            member_star[m] = course_star;
+            member_end[m] = course_end;
+            member_else[m] = course_else;
+
             let week = [];
             let noneweek = [];
             // 提取第几周到第几周成数组
@@ -132,6 +137,11 @@ function changeValue() {
             let course_star = document.getElementsByClassName('course-star')[m].value;    // 获取开始的周
             let course_end = document.getElementsByClassName('course-end')[m].value;      // 获取截止的周
             let course_else = document.getElementsByClassName('course-else')[m].value;    // 获取其他不连续的周
+            // 修改成员输入的数据
+            member_star[m] = course_star;
+            member_end[m] = course_end;
+            member_else[m] = course_else;
+
             let week = [];
             let noneweek = [];
             // 提取第几周到第几周成数组
@@ -158,6 +168,25 @@ function changeValue() {
         }
     }
     console.log('done changeValue.');
+} 
+
+function importValue() {
+    // 导入要显示的成员的数据
+    if (!IF_INTRODUCE) {
+        let w = 1;
+        if ($('#form1').is('.form-current') == true) {
+            w = 0;
+        }
+        for (let x = 0; x < 7; x++ ) {
+            for (let j = 0; j < 6; j++) {
+                let m = j + x * 6 + w * 42;
+                let temp = j + x * 6 + CURRENTMEMBER * 42;
+                document.getElementsByClassName('course-star')[m].value = member_star[temp];
+                document.getElementsByClassName('course-end')[m].value = member_end[temp];
+                document.getElementsByClassName('course-else')[m].value = member_else[temp];
+            }    
+        }
+    }
 }
 
 // 添加新成员按钮以及点击导航栏姓名功能
@@ -198,11 +227,12 @@ window.onload = function() {
                 $("#form1").attr("class", "form-content form-current");
                 IF_INTRODUCE = false;
             } else {
-                // 提交前一个成员的数据
+                // 提交前一个成员的数据并保存数据
                 if (IF_FIRST[CURRENTMEMBER] === 1) {
                     changeValue();
                 } else {
                     getValue();
+
                     IF_FIRST[CURRENTMEMBER] = 1;    // 数据写入到userCourses里了
                 }
                 // 交换表格并清掉数据
@@ -226,6 +256,7 @@ window.onload = function() {
 
 // 删除成员按钮功能
 function delMember() {
+    // 更换表格
     if (CURRENTMEMBER > 0 || member.length > 1) {
         // 更换页面表格
         changeForm();
@@ -242,15 +273,17 @@ function delMember() {
         $("#form1").attr("class", "form-content form-hide");
         $("#form2").attr("class", "form-content form-hide");
         // 姓名框变成即将展示的成员姓名
-        INPUT_NAME.value = 'NO MEMBER';
         let IF_INTRODUCE = true;
     } else {
         return false;
     }
-    // 清除已经提交到userCourse的数据
+    // 清除已经提交到userCourse的数据和保存的成员输入数据
     if (IF_FIRST[CURRENTMEMBER] === 1) {
         let w = CURRENTMEMBER * 42;
         userCourses.splice(w, 42);
+        member_star.splice(w, 42);
+        member_end.splice(w, 42);
+        member_else.splice(w, 42);
     }
     // 清除导航栏的该成员的li标签
     $("#members li:eq(" + CURRENTMEMBER + ")").remove();
@@ -260,6 +293,7 @@ function delMember() {
     // 姓名框变成即将展示的成员姓名（最后一个成员）
     CURRENTMEMBER = member.length - 1;
     INPUT_NAME.value =  member[CURRENTMEMBER] || '姓名';
+    importValue();
 }
 
 
