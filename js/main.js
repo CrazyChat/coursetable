@@ -88,13 +88,14 @@ function getValue() {
     for (let x = 0; x < 7; x++ ) {
         for (let j = 0; j < 6; j++) {
             let m = j + x * 6 + w * 42;
+            let temp = j + x * 6 + CURRENTMEMBER * 42;
             let course_star = document.getElementsByClassName('course-star')[m].value;    // 获取开始的周
             let course_end = document.getElementsByClassName('course-end')[m].value;      // 获取截止的周
             let course_else = document.getElementsByClassName('course-else')[m].value;    // 获取其他不连续的周
             // 保存成员输入的数据
-            member_star[m] = course_star;
-            member_end[m] = course_end;
-            member_else[m] = course_else;
+            member_star[temp] = course_star;
+            member_end[temp] = course_end;
+            member_else[temp] = course_else;
 
             let week = [];
             let noneweek = [];
@@ -133,14 +134,14 @@ function changeValue() {
     for (let x = 0; x < 7; x++ ) {
         for (let j = 0; j < 6; j++) {
             let m = j + x * 6 + t * 42;
-            let w = j + x * 6 + CURRENTMEMBER * 42;
+            let temp = j + x * 6 + CURRENTMEMBER * 42;
             let course_star = document.getElementsByClassName('course-star')[m].value;    // 获取开始的周
             let course_end = document.getElementsByClassName('course-end')[m].value;      // 获取截止的周
             let course_else = document.getElementsByClassName('course-else')[m].value;    // 获取其他不连续的周
             // 修改成员输入的数据
-            member_star[m] = course_star;
-            member_end[m] = course_end;
-            member_else[m] = course_else;
+            member_star[temp] = course_star;
+            member_end[temp] = course_end;
+            member_else[temp] = course_else;
 
             let week = [];
             let noneweek = [];
@@ -164,28 +165,27 @@ function changeValue() {
                     noneweek.push(t);
                 }
             }
-            userCourses[w].noneCourseWeeks = noneweek;
+            userCourses[temp].noneCourseWeeks = noneweek;
         }
     }
     console.log('done changeValue.');
-} 
+}
 
+// 导入要显示的成员的数据
 function importValue() {
-    // 导入要显示的成员的数据
-    if (!IF_INTRODUCE) {
-        let w = 1;
-        if ($('#form1').is('.form-current') == true) {
-            w = 0;
-        }
-        for (let x = 0; x < 7; x++ ) {
-            for (let j = 0; j < 6; j++) {
-                let m = j + x * 6 + w * 42;
-                let temp = j + x * 6 + CURRENTMEMBER * 42;
-                document.getElementsByClassName('course-star')[m].value = member_star[temp];
-                document.getElementsByClassName('course-end')[m].value = member_end[temp];
-                document.getElementsByClassName('course-else')[m].value = member_else[temp];
-            }    
-        }
+    let if_form2 = 1;
+    if ($('#form1').is('.form-current') == true) {
+        if_form2 = 0;
+        console.log("form1出现");
+    }
+    for (let x = 0; x < 7; x++ ) {
+        for (let j = 0; j < 6; j++) {
+            let m = j + x * 6 + if_form2 * 42;
+            let temp = j + x * 6 + CURRENTMEMBER * 42;
+            document.getElementsByClassName('course-star')[m].value = member_star[temp];
+            document.getElementsByClassName('course-end')[m].value = member_end[temp];
+            document.getElementsByClassName('course-else')[m].value = member_else[temp];
+        }    
     }
 }
 
@@ -212,10 +212,10 @@ window.onload = function() {
                 CURRENTMEMBER = target.index;
                 INPUT_NAME.value = document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML;
                 changeForm();
+                importValue();
             }
         }
     };
-    clickNav();
     // 点击添加新成员按钮
     oBtn.onclick = function(){
         // 输入新建成员的姓名
@@ -293,7 +293,10 @@ function delMember() {
     // 姓名框变成即将展示的成员姓名（最后一个成员）
     CURRENTMEMBER = member.length - 1;
     INPUT_NAME.value =  member[CURRENTMEMBER] || '姓名';
-    importValue();
+    // 导入要显示的成员的数据
+    if (!IF_INTRODUCE) {
+        importValue();
+    }
 }
 
 
