@@ -288,20 +288,28 @@ div,input,li,textarea {
 }
 #choice {
     position: absolute;
-    top: 55px;
+    top: 10px;
     display: block;
     width: 100px;
     height: 30px;
     left: 22px;
     z-index: 10000;
 }
+#back-input,
 #choice-week {
     display: block;
     width: 100%;
     height: 100%;
     font-size: 16px;
+    margin-top: 5px;
 }
-
+#back-input {
+    cursor: pointer;
+    border-radius: 5px;
+}
+#back-input:hover {
+    background-color: #f3f3f3;
+}
 
 .fianll-table {
     position: absolute;
