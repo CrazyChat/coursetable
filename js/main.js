@@ -372,10 +372,11 @@ function deleteDate() {
 function backInput() {
     document.getElementById('none-course').style.opacity = 0;
     document.getElementById('none-course').style.display = 'none';
-    document.getElementById('all_input').style.display = 'none';
+    document.getElementById('all_input').style.display = 'block';
     document.getElementById('all_input').style.top = '0px';
     changeForm();
     importValue();
+    INPUT_NAME.value = member[CURRENTMEMBER];
     deleteDate();
 }
 
