@@ -3,8 +3,13 @@ let CURRENTMEMBER = 0;   // 计算当前是哪个成员
 let IF_INTRODUCE = true;    // 判断当前是否为介绍页面
 let INPUT_NAME = document.getElementsByClassName('left-name')[0];  // 名字输入框的姓名
 const WEEKS = 16 // 表示学期的周数为16周，可以设置为让用户输入
-const COURSETABLES = [] // 16个周的课程表, COURSETABLES[0]表示第一周的课表
 let IF_FIRST = [];       // 判断成员数据是否已经提交到了userCourses
+// 保存每个成员的数据
+let course_star = [];
+let course_end = [];
+let course_else = [];
+
+const COURSETABLES = [] // 16个周的课程表, COURSETABLES[0]表示第一周的课表
 for (let i = 0; i < WEEKS; i++) {
     /**
      * push的是一个周课程表，假设叫做courseTable，三维数组，courseTable[i][j]是一个数组，存储着当前课程时间段内有课的人及其有课的周
