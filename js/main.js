@@ -1,4 +1,4 @@
-let MAXMEMBER = 20;    // 最多可以有多少个成员
+
 let CURRENTMEMBER = 0;   // 计算当前是哪个成员
 let IF_INTRODUCE = true;    // 判断当前是否为介绍页面
 let INPUT_NAME = document.getElementsByClassName('left-name')[0];  // 名字输入框的姓名
@@ -155,34 +155,71 @@ function changeValue() {
     console.log('done changeValue.');
 }
 
-// 添加新成员按钮功能
-function addMember(){
-    // 输入新建成员的姓名
-    let str = window.prompt("请输入姓名:","");
-    // 判断是否已经输入名字，然后新建成员表格滑下显示
-    if (str) {
-        if (IF_INTRODUCE) {
-            document.getElementsByClassName('introduce')[0].className = 'introduce form-hide';
-            $("#form1").attr("class", "form-content form-current");
-            INPUT_NAME.value = str;
-            IF_INTRODUCE = false;
-        } else {
-            if (IF_FIRST[CURRENTMEMBER] === 1) {
-                changeValue();
-            } else {
-                getValue();
-                IF_FIRST[CURRENTMEMBER] = 1;    // 数据写入到userCourses里了
-            }
-            // 交换表格并清掉数据
-            changeForm();
-            CURRENTMEMBER = member.length;
-            INPUT_NAME.value = str;
+// 添加新成员按钮以及点击导航栏姓名功能
+window.onload = function() {
+    var oBtn = document.getElementById("new-member");
+    var oUl = document.getElementById("members");
+    var aLi = oUl.getElementsByTagName('li');
+    // 点击导航栏的名字功能
+    function clickNav() {
+        for (let i = 0; i < aLi.length; i++) {
+            aLi[i].index = i;
         }
-        document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML = str;
-        // 新建对象
-        member[CURRENTMEMBER] = str;
-    }
-}
+        oUl.onclick = function() {
+            var ev = ev || window.event;
+            var target = ev.target || ev.srcElement;
+            if(target.nodeName.toLowerCase() == 'li'){
+                if (IF_FIRST[CURRENTMEMBER] === 1) {
+                    changeValue();
+                } else {
+                    getValue();
+                    IF_FIRST[CURRENTMEMBER] = 1;
+                }
+                CURRENTMEMBER = target.index;
+                INPUT_NAME.value = document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML;
+                changeForm();
+            }
+        }
+    };
+    clickNav();
+    // 点击添加新成员按钮
+    oBtn.onclick = function(){
+        // 输入新建成员的姓名
+        let str = window.prompt("请输入姓名:","");
+        // 判断是否已经输入名字，然后新建成员表格滑下显示
+        if (str) {
+            if (IF_INTRODUCE) {
+                document.getElementsByClassName('introduce')[0].className = 'introduce form-hide';
+                $("#form1").attr("class", "form-content form-current");
+                INPUT_NAME.value = str;
+                IF_INTRODUCE = false;
+                document.getElementsByClassName('member')[0].innerHTML = str;
+            } else {
+                // 提交前一个成员的数据
+                if (IF_FIRST[CURRENTMEMBER] === 1) {
+                    changeValue();
+                } else {
+                    getValue();
+                    IF_FIRST[CURRENTMEMBER] = 1;    // 数据写入到userCourses里了
+                }
+                // 交换表格并清掉数据
+                changeForm();
+                // 添加新成员
+                CURRENTMEMBER = member.length;
+                INPUT_NAME.value = str;
+                // 向导航栏添加成员并赋予功能
+                var oLi = document.createElement('li');
+                oLi.innerHTML = str;
+                oLi.className = "member";
+                oUl.appendChild(oLi);
+                clickNav();
+            }
+            // 新建对象
+            member[CURRENTMEMBER] = str;
+        }
+    };
+};
+
 
 // 删除成员按钮功能
 function delMember() {
@@ -217,29 +254,6 @@ function delMember() {
     CURRENTMEMBER = member.length - 1;
     INPUT_NAME.value = member[CURRENTMEMBER];
 }
-
-// 点击导航栏的名字功能
-(function clickNav() {
-    let oul = document.getElementById('members');
-    let oli = oul.getElementsByTagName('li');
-    for (let i = 0; i < oli.length; i++) {
-        oli[i].index = i;
-    }
-    oul.onclick = function() {
-        var ev = ev || window.event;
-        var target = ev.target || ev.srcElement;
-        if(target.nodeName.toLowerCase() == 'li'){
-            if (IF_FIRST[CURRENTMEMBER] === 1) {
-                changeValue();
-            } else {
-                getValue();
-            }
-            CURRENTMEMBER = target.index;
-            INPUT_NAME.value = document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML;
-            changeForm();
-        }
-    }
-}())
 
 
 // 打印每周的空课表
