@@ -239,6 +239,8 @@ function delMember() {
         $("#form1").attr("class", "form-content form-hide");
         console.log('do this?');
         $("#form2").attr("class", "form-content form-hide");
+        // 姓名框变成即将展示的成员姓名
+        INPUT_NAME.value = 'NO MEMBER';
     } else {
         return false;
     }
@@ -247,12 +249,14 @@ function delMember() {
         let w = CURRENTMEMBER * 42;
         userCourses.splice(w, 42);
     }
-    document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML = '';
+    // 清除导航栏的该成员的li标签
+    $("#members li:eq(" + CURRENTMEMBER + ")").remove();
     // 清除当前成员
     member.splice(CURRENTMEMBER,1);
     IF_FIRST.splice(CURRENTMEMBER,1);
+    // 姓名框变成即将展示的成员姓名（最后一个成员）
     CURRENTMEMBER = member.length - 1;
-    INPUT_NAME.value = member[CURRENTMEMBER];
+    INPUT_NAME.value =  member[CURRENTMEMBER] || '姓名';
 }
 
 
