@@ -40,7 +40,7 @@ div,input,li,textarea {
     -moz-background-size:100% 100%;
     left: 50%;
     transform: translateX(-50%);
-    top: 0px;
+    top: -650px;      /* 改回来 */
     transition: all 1s;
 }
 
@@ -268,23 +268,51 @@ div,input,li,textarea {
 #none-course {
     position: absolute;
     z-index: 100;
-    width: 1200px;
+    width: 100%;
     max-width: 1500px;
     min-width: 1200px;
-    opacity: 0;
-    display: none;
+    /*opacity: 0;*/     /* 改回来 */
+    display: block;     /* 改回来 */
     transition: all 1s;
     left: 50%;
     transform: translateX(-50%);
 }
 .fianll-table-wrap {
-    position: absolute;
-    width: 94%;
-    left: 10px;
+    width: 95%;
+    margin: 10px auto;
 }
-.fianll-table {
+.finall-content {
+    position: relative;
     width: 100%;
-    margin: 10px 0;
+    height: 100%;
+}
+#choice {
+    position: absolute;
+    top: 55px;
+    display: block;
+    width: 100px;
+    height: 30px;
+    left: 22px;
+    z-index: 10000;
+}
+#choice-week {
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+}
+
+
+.fianll-table {
+    position: absolute;
+    width: 100%;
+    transition: all 1s;
+}
+.week-current {
+    opacity: 1;
+}
+.week-hide {
+    opacity: 0;
 }
 .finall-days {
     width: 100%;
@@ -331,37 +359,4 @@ div,input,li,textarea {
     height: 100%;
     border: none;
     resize:none;
-}
-/* 右边第几周的跳转按钮 */
-.back-input {
-    position: fixed;
-    top: 20px;
-    right: 6px;
-}
-.icon-yooxi {
-    font-size: 40px;
-    color: rgba(0,0,0,.7);
-}
-.icon-yooxi:hover {
-    cursor: pointer;
-    color: rgba(0,0,0,1);
-    font-size: 41px;
-}
-.week-nav {
-    position: fixed;
-    top: 75px;
-    right: 10px;
-}
-.week-nav a {
-    width: 100%;
-    height: 100%;
-    display: block;
-    text-decoration: none;
-    color: rgba(0,0,0,.7);
-}
-.week-nav a:hover {
-    color: rgba(0,0,0,1);
-}
-.weeksicon {
-    font-size: 30px;
 }

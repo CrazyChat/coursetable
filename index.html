@@ -634,1309 +634,188 @@
     <!-- 空课表页面 -->
     <div id="none-course">
         <div class="fianll-table-wrap">
-            <div title="0" id="week1" class="fianll-table">
-                <div class="finall-days">
-                    <ul>
-                        <li class="finall-day floatLeft">第一周</li>
-                        <li class="finall-day floatLeft">周一</li>
-                        <li class="finall-day floatLeft">周二</li>
-                        <li class="finall-day floatLeft">周三</li>
-                        <li class="finall-day floatLeft">周四</li>
-                        <li class="finall-day floatLeft">周五</li>
-                        <li class="finall-day floatLeft">周六</li>
-                        <li class="finall-day floatLeft">周日</li>
-                    </ul>
+            <div class="finall-content">
+                <div id="choice">
+                    <select id="choice-week">
+                        <option value="0">第一周</option>
+                        <option value="1">第二周</option>
+                        <option value="2">第三周</option>
+                        <option value="3">第四周</option>
+                        <option value="3">第五周</option>
+                        <option value="3">第六周</option>
+                        <option value="3">第七周</option>
+                        <option value="3">第八周</option>
+                        <option value="3">第九周</option>
+                        <option value="3">第十周</option>
+                        <option value="3">第十一周</option>
+                        <option value="3">第十二周</option>
+                        <option value="3">第十三周</option>
+                        <option value="3">第十四周</option>
+                        <option value="3">第十五周</option>
+                        <option value="3">第十六周</option>
+                    </select>
                 </div>
-                <div class="once-form">
-                    <ul class="finall-sections">
-                            <li class="finall-section">1-2</li>
-                            <li class="finall-section">3-4</li>
-                            <li class="finall-section">5-6</li>
-                            <li class="finall-section">7-8</li>
-                            <li class="finall-section">9</li>
-                            <li class="finall-section">10-11</li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
+                <div title="0" id="week1" class="fianll-table week-current">
+                    <div class="finall-days">
+                        <ul>
+                            <li class="finall-day floatLeft"></li>
+                            <li class="finall-day floatLeft">周一</li>
+                            <li class="finall-day floatLeft">周二</li>
+                            <li class="finall-day floatLeft">周三</li>
+                            <li class="finall-day floatLeft">周四</li>
+                            <li class="finall-day floatLeft">周五</li>
+                            <li class="finall-day floatLeft">周六</li>
+                            <li class="finall-day floatLeft">周日</li>
+                        </ul>
+                    </div>
+                    <div class="once-form">
+                        <ul class="finall-sections">
+                                <li class="finall-section">1-2</li>
+                                <li class="finall-section">3-4</li>
+                                <li class="finall-section">5-6</li>
+                                <li class="finall-section">7-8</li>
+                                <li class="finall-section">9</li>
+                                <li class="finall-section">10-11</li>
+                        </ul>
+                        <ul class="once-ul">
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                        </ul>
+                        <ul class="once-ul">
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                        </ul>
+                        <ul class="once-ul">
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                        </ul>
+                        <ul class="once-ul">
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                        </ul>
+                        <ul class="once-ul">
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                        </ul>
+                        <ul class="once-ul">
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                        </ul>
+                        <ul class="once-ul">
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div title="1" id="week2" class="fianll-table">
-                <div class="finall-days">
-                    <ul>
-                        <li class="finall-day floatLeft">第二周</li>
-                        <li class="finall-day floatLeft">周一</li>
-                        <li class="finall-day floatLeft">周二</li>
-                        <li class="finall-day floatLeft">周三</li>
-                        <li class="finall-day floatLeft">周四</li>
-                        <li class="finall-day floatLeft">周五</li>
-                        <li class="finall-day floatLeft">周六</li>
-                        <li class="finall-day floatLeft">周日</li>
-                    </ul>
-                </div>
-                <div class="once-form">
-                    <ul class="finall-sections">
-                            <li class="finall-section">1-2</li>
-                            <li class="finall-section">3-4</li>
-                            <li class="finall-section">5-6</li>
-                            <li class="finall-section">7-8</li>
-                            <li class="finall-section">9</li>
-                            <li class="finall-section">10-11</li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                </div>
-            </div>
-            <div title="2" id="week3" class="fianll-table">
-                <div class="finall-days">
-                    <ul>
-                        <li class="finall-day floatLeft">第三周</li>
-                        <li class="finall-day floatLeft">周一</li>
-                        <li class="finall-day floatLeft">周二</li>
-                        <li class="finall-day floatLeft">周三</li>
-                        <li class="finall-day floatLeft">周四</li>
-                        <li class="finall-day floatLeft">周五</li>
-                        <li class="finall-day floatLeft">周六</li>
-                        <li class="finall-day floatLeft">周日</li>
-                    </ul>
-                </div>
-                <div class="once-form">
-                    <ul class="finall-sections">
-                            <li class="finall-section">1-2</li>
-                            <li class="finall-section">3-4</li>
-                            <li class="finall-section">5-6</li>
-                            <li class="finall-section">7-8</li>
-                            <li class="finall-section">9</li>
-                            <li class="finall-section">10-11</li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
+                <div title="1" id="week2" class="fianll-table week-hide">
+                    <div class="finall-days">
+                        <ul>
+                            <li class="finall-day floatLeft"></li>
+                            <li class="finall-day floatLeft">周一</li>
+                            <li class="finall-day floatLeft">周二</li>
+                            <li class="finall-day floatLeft">周三</li>
+                            <li class="finall-day floatLeft">周四</li>
+                            <li class="finall-day floatLeft">周五</li>
+                            <li class="finall-day floatLeft">周六</li>
+                            <li class="finall-day floatLeft">周日</li>
+                        </ul>
+                    </div>
+                    <div class="once-form">
+                        <ul class="finall-sections">
+                                <li class="finall-section">1-2</li>
+                                <li class="finall-section">3-4</li>
+                                <li class="finall-section">5-6</li>
+                                <li class="finall-section">7-8</li>
+                                <li class="finall-section">9</li>
+                                <li class="finall-section">10-11</li>
+                        </ul>
+                        <ul class="once-ul">
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                        </ul>
+                        <ul class="once-ul">
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                        </ul>
+                        <ul class="once-ul">
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                        </ul>
+                        <ul class="once-ul">
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                        </ul>
+                        <ul class="once-ul">
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                        </ul>
+                        <ul class="once-ul">
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                        </ul>
+                        <ul class="once-ul">
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                                <li class="once-li"><textarea class="once-tex"></textarea></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div title="3" id="week4" class="fianll-table">
-                <div class="finall-days">
-                    <ul>
-                        <li class="finall-day floatLeft">第四周</li>
-                        <li class="finall-day floatLeft">周一</li>
-                        <li class="finall-day floatLeft">周二</li>
-                        <li class="finall-day floatLeft">周三</li>
-                        <li class="finall-day floatLeft">周四</li>
-                        <li class="finall-day floatLeft">周五</li>
-                        <li class="finall-day floatLeft">周六</li>
-                        <li class="finall-day floatLeft">周日</li>
-                    </ul>
-                </div>
-                <div class="once-form">
-                    <ul class="finall-sections">
-                            <li class="finall-section">1-2</li>
-                            <li class="finall-section">3-4</li>
-                            <li class="finall-section">5-6</li>
-                            <li class="finall-section">7-8</li>
-                            <li class="finall-section">9</li>
-                            <li class="finall-section">10-11</li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                </div>
-            </div>
-            <div title="4" id="week5" class="fianll-table">
-                <div class="finall-days">
-                    <ul>
-                        <li class="finall-day floatLeft">第五周</li>
-                        <li class="finall-day floatLeft">周一</li>
-                        <li class="finall-day floatLeft">周二</li>
-                        <li class="finall-day floatLeft">周三</li>
-                        <li class="finall-day floatLeft">周四</li>
-                        <li class="finall-day floatLeft">周五</li>
-                        <li class="finall-day floatLeft">周六</li>
-                        <li class="finall-day floatLeft">周日</li>
-                    </ul>
-                </div>
-                <div class="once-form">
-                    <ul class="finall-sections">
-                            <li class="finall-section">1-2</li>
-                            <li class="finall-section">3-4</li>
-                            <li class="finall-section">5-6</li>
-                            <li class="finall-section">7-8</li>
-                            <li class="finall-section">9</li>
-                            <li class="finall-section">10-11</li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                </div>
-            </div>
-            <div title="5" id="week6" class="fianll-table">
-                <div class="finall-days">
-                    <ul>
-                        <li class="finall-day floatLeft">第六周</li>
-                        <li class="finall-day floatLeft">周一</li>
-                        <li class="finall-day floatLeft">周二</li>
-                        <li class="finall-day floatLeft">周三</li>
-                        <li class="finall-day floatLeft">周四</li>
-                        <li class="finall-day floatLeft">周五</li>
-                        <li class="finall-day floatLeft">周六</li>
-                        <li class="finall-day floatLeft">周日</li>
-                    </ul>
-                </div>
-                <div class="once-form">
-                    <ul class="finall-sections">
-                            <li class="finall-section">1-2</li>
-                            <li class="finall-section">3-4</li>
-                            <li class="finall-section">5-6</li>
-                            <li class="finall-section">7-8</li>
-                            <li class="finall-section">9</li>
-                            <li class="finall-section">10-11</li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                </div>
-            </div>
-            <div title="6" id="week7" class="fianll-table">
-                <div class="finall-days">
-                    <ul>
-                        <li class="finall-day floatLeft">第七周</li>
-                        <li class="finall-day floatLeft">周一</li>
-                        <li class="finall-day floatLeft">周二</li>
-                        <li class="finall-day floatLeft">周三</li>
-                        <li class="finall-day floatLeft">周四</li>
-                        <li class="finall-day floatLeft">周五</li>
-                        <li class="finall-day floatLeft">周六</li>
-                        <li class="finall-day floatLeft">周日</li>
-                    </ul>
-                </div>
-                <div class="once-form">
-                    <ul class="finall-sections">
-                            <li class="finall-section">1-2</li>
-                            <li class="finall-section">3-4</li>
-                            <li class="finall-section">5-6</li>
-                            <li class="finall-section">7-8</li>
-                            <li class="finall-section">9</li>
-                            <li class="finall-section">10-11</li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                </div>
-            </div>
-            <div title="7" id="week8" class="fianll-table">
-                <div class="finall-days">
-                    <ul>
-                        <li class="finall-day floatLeft">第八周</li>
-                        <li class="finall-day floatLeft">周一</li>
-                        <li class="finall-day floatLeft">周二</li>
-                        <li class="finall-day floatLeft">周三</li>
-                        <li class="finall-day floatLeft">周四</li>
-                        <li class="finall-day floatLeft">周五</li>
-                        <li class="finall-day floatLeft">周六</li>
-                        <li class="finall-day floatLeft">周日</li>
-                    </ul>
-                </div>
-                <div class="once-form">
-                    <ul class="finall-sections">
-                            <li class="finall-section">1-2</li>
-                            <li class="finall-section">3-4</li>
-                            <li class="finall-section">5-6</li>
-                            <li class="finall-section">7-8</li>
-                            <li class="finall-section">9</li>
-                            <li class="finall-section">10-11</li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                </div>
-            </div>
-            <div title="8" id="week9" class="fianll-table">
-                <div class="finall-days">
-                    <ul>
-                        <li class="finall-day floatLeft">第九周</li>
-                        <li class="finall-day floatLeft">周一</li>
-                        <li class="finall-day floatLeft">周二</li>
-                        <li class="finall-day floatLeft">周三</li>
-                        <li class="finall-day floatLeft">周四</li>
-                        <li class="finall-day floatLeft">周五</li>
-                        <li class="finall-day floatLeft">周六</li>
-                        <li class="finall-day floatLeft">周日</li>
-                    </ul>
-                </div>
-                <div class="once-form">
-                    <ul class="finall-sections">
-                            <li class="finall-section">1-2</li>
-                            <li class="finall-section">3-4</li>
-                            <li class="finall-section">5-6</li>
-                            <li class="finall-section">7-8</li>
-                            <li class="finall-section">9</li>
-                            <li class="finall-section">10-11</li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                </div>
-            </div>
-            <div title="9" id="week10" class="fianll-table">
-                <div class="finall-days">
-                    <ul>
-                        <li class="finall-day floatLeft">第十周</li>
-                        <li class="finall-day floatLeft">周一</li>
-                        <li class="finall-day floatLeft">周二</li>
-                        <li class="finall-day floatLeft">周三</li>
-                        <li class="finall-day floatLeft">周四</li>
-                        <li class="finall-day floatLeft">周五</li>
-                        <li class="finall-day floatLeft">周六</li>
-                        <li class="finall-day floatLeft">周日</li>
-                    </ul>
-                </div>
-                <div class="once-form">
-                    <ul class="finall-sections">
-                            <li class="finall-section">1-2</li>
-                            <li class="finall-section">3-4</li>
-                            <li class="finall-section">5-6</li>
-                            <li class="finall-section">7-8</li>
-                            <li class="finall-section">9</li>
-                            <li class="finall-section">10-11</li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                </div>
-            </div>
-            <div title="10" id="week11" class="fianll-table">
-                <div class="finall-days">
-                    <ul>
-                        <li class="finall-day floatLeft">第十一周</li>
-                        <li class="finall-day floatLeft">周一</li>
-                        <li class="finall-day floatLeft">周二</li>
-                        <li class="finall-day floatLeft">周三</li>
-                        <li class="finall-day floatLeft">周四</li>
-                        <li class="finall-day floatLeft">周五</li>
-                        <li class="finall-day floatLeft">周六</li>
-                        <li class="finall-day floatLeft">周日</li>
-                    </ul>
-                </div>
-                <div class="once-form">
-                    <ul class="finall-sections">
-                            <li class="finall-section">1-2</li>
-                            <li class="finall-section">3-4</li>
-                            <li class="finall-section">5-6</li>
-                            <li class="finall-section">7-8</li>
-                            <li class="finall-section">9</li>
-                            <li class="finall-section">10-11</li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                </div>
-            </div>
-            <div title="11" id="week12" class="fianll-table">
-                <div class="finall-days">
-                    <ul>
-                        <li class="finall-day floatLeft">第十二周</li>
-                        <li class="finall-day floatLeft">周一</li>
-                        <li class="finall-day floatLeft">周二</li>
-                        <li class="finall-day floatLeft">周三</li>
-                        <li class="finall-day floatLeft">周四</li>
-                        <li class="finall-day floatLeft">周五</li>
-                        <li class="finall-day floatLeft">周六</li>
-                        <li class="finall-day floatLeft">周日</li>
-                    </ul>
-                </div>
-                <div class="once-form">
-                    <ul class="finall-sections">
-                            <li class="finall-section">1-2</li>
-                            <li class="finall-section">3-4</li>
-                            <li class="finall-section">5-6</li>
-                            <li class="finall-section">7-8</li>
-                            <li class="finall-section">9</li>
-                            <li class="finall-section">10-11</li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                </div>
-            </div>
-            <div title="12" id="week13" class="fianll-table">
-                <div class="finall-days">
-                    <ul>
-                        <li class="finall-day floatLeft">第十三周</li>
-                        <li class="finall-day floatLeft">周一</li>
-                        <li class="finall-day floatLeft">周二</li>
-                        <li class="finall-day floatLeft">周三</li>
-                        <li class="finall-day floatLeft">周四</li>
-                        <li class="finall-day floatLeft">周五</li>
-                        <li class="finall-day floatLeft">周六</li>
-                        <li class="finall-day floatLeft">周日</li>
-                    </ul>
-                </div>
-                <div class="once-form">
-                    <ul class="finall-sections">
-                            <li class="finall-section">1-2</li>
-                            <li class="finall-section">3-4</li>
-                            <li class="finall-section">5-6</li>
-                            <li class="finall-section">7-8</li>
-                            <li class="finall-section">9</li>
-                            <li class="finall-section">10-11</li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                </div>
-            </div>
-            <div title="13" id="week14" class="fianll-table">
-                <div class="finall-days">
-                    <ul>
-                        <li class="finall-day floatLeft">第十四周</li>
-                        <li class="finall-day floatLeft">周一</li>
-                        <li class="finall-day floatLeft">周二</li>
-                        <li class="finall-day floatLeft">周三</li>
-                        <li class="finall-day floatLeft">周四</li>
-                        <li class="finall-day floatLeft">周五</li>
-                        <li class="finall-day floatLeft">周六</li>
-                        <li class="finall-day floatLeft">周日</li>
-                    </ul>
-                </div>
-                <div class="once-form">
-                    <ul class="finall-sections">
-                            <li class="finall-section">1-2</li>
-                            <li class="finall-section">3-4</li>
-                            <li class="finall-section">5-6</li>
-                            <li class="finall-section">7-8</li>
-                            <li class="finall-section">9</li>
-                            <li class="finall-section">10-11</li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                </div>
-            </div>
-            <div title="14" id="week15" class="fianll-table">
-                <div class="finall-days">
-                    <ul>
-                        <li class="finall-day floatLeft">第十五周</li>
-                        <li class="finall-day floatLeft">周一</li>
-                        <li class="finall-day floatLeft">周二</li>
-                        <li class="finall-day floatLeft">周三</li>
-                        <li class="finall-day floatLeft">周四</li>
-                        <li class="finall-day floatLeft">周五</li>
-                        <li class="finall-day floatLeft">周六</li>
-                        <li class="finall-day floatLeft">周日</li>
-                    </ul>
-                </div>
-                <div class="once-form">
-                    <ul class="finall-sections">
-                            <li class="finall-section">1-2</li>
-                            <li class="finall-section">3-4</li>
-                            <li class="finall-section">5-6</li>
-                            <li class="finall-section">7-8</li>
-                            <li class="finall-section">9</li>
-                            <li class="finall-section">10-11</li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                </div>
-            </div>
-            <div title="15" id="week16" class="fianll-table">
-                <div class="finall-days">
-                    <ul>
-                        <li class="finall-day floatLeft">第十六周</li>
-                        <li class="finall-day floatLeft">周一</li>
-                        <li class="finall-day floatLeft">周二</li>
-                        <li class="finall-day floatLeft">周三</li>
-                        <li class="finall-day floatLeft">周四</li>
-                        <li class="finall-day floatLeft">周五</li>
-                        <li class="finall-day floatLeft">周六</li>
-                        <li class="finall-day floatLeft">周日</li>
-                    </ul>
-                </div>
-                <div class="once-form">
-                    <ul class="finall-sections">
-                            <li class="finall-section">1-2</li>
-                            <li class="finall-section">3-4</li>
-                            <li class="finall-section">5-6</li>
-                            <li class="finall-section">7-8</li>
-                            <li class="finall-section">9</li>
-                            <li class="finall-section">10-11</li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                    <ul class="once-ul">
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                            <li class="once-li"><textarea class="once-tex"></textarea></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="week-nav">
-            <ul>
-                <li><a href="#week1"><i class="weeksicon iconfont icon-101"></i></a></li>
-                <li><a href="#week2"><i class="weeksicon iconfont icon-201"></i></a></li>
-                <li><a href="#week3"><i class="weeksicon iconfont icon-301"></i></a></li>
-                <li><a href="#week4"><i class="weeksicon iconfont icon-401"></i></a></li>
-                <li><a href="#week5"><i class="weeksicon iconfont icon-501"></i></a></li>
-                <li><a href="#week6"><i class="weeksicon iconfont icon-601"></i></a></li>
-                <li><a href="#week7"><i class="weeksicon iconfont icon-701"></i></a></li>
-                <li><a href="#week8"><i class="weeksicon iconfont icon-801"></i></a></li>
-                <li><a href="#week9"><i class="weeksicon iconfont icon-901"></i></a></li>
-                <li><a href="#week10"><i class="weeksicon iconfont icon-1001"></i></a></li>
-                <li><a href="#week11"><i class="weeksicon iconfont icon-1101"></i></a></li>
-                <li><a href="#week12"><i class="weeksicon iconfont icon-1201"></i></a></li>
-                <li><a href="#week13"><i class="weeksicon iconfont icon-1301"></i></a></li>
-                <li><a href="#week14"><i class="weeksicon iconfont icon-1401"></i></a></li>
-                <li><a href="#week15"><i class="weeksicon iconfont icon-1501"></i></a></li>
-                <li><a href="#week16"><i class="weeksicon iconfont icon-1601"></i></a></li>
-            </ul>
-        </div>
-        <div class="back-input">
-            <i title="返回输入页面" onclick="backInput()" class="iconfont icon-yooxi"></i>
         </div>
     </div>
     <script src="./js/jquery.js"></script>
