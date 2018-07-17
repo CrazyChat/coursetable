@@ -191,9 +191,7 @@ window.onload = function() {
             if (IF_INTRODUCE) {
                 document.getElementsByClassName('introduce')[0].className = 'introduce form-hide';
                 $("#form1").attr("class", "form-content form-current");
-                INPUT_NAME.value = str;
                 IF_INTRODUCE = false;
-                document.getElementsByClassName('member')[0].innerHTML = str;
             } else {
                 // 提交前一个成员的数据
                 if (IF_FIRST[CURRENTMEMBER] === 1) {
@@ -206,14 +204,14 @@ window.onload = function() {
                 changeForm();
                 // 添加新成员
                 CURRENTMEMBER = member.length;
-                INPUT_NAME.value = str;
-                // 向导航栏添加成员并赋予功能
-                var oLi = document.createElement('li');
-                oLi.innerHTML = str;
-                oLi.className = "member";
-                oUl.appendChild(oLi);
-                clickNav();
             }
+            INPUT_NAME.value = str;
+            // 向导航栏添加成员并赋予功能
+            var oLi = document.createElement('li');
+            oLi.innerHTML = str;
+            oLi.className = "member";
+            oUl.appendChild(oLi);
+            clickNav();
             // 新建对象
             member[CURRENTMEMBER] = str;
         }
@@ -237,10 +235,10 @@ function delMember() {
             }
         }
         $("#form1").attr("class", "form-content form-hide");
-        console.log('do this?');
         $("#form2").attr("class", "form-content form-hide");
         // 姓名框变成即将展示的成员姓名
         INPUT_NAME.value = 'NO MEMBER';
+        let IF_INTRODUCE = true;
     } else {
         return false;
     }
