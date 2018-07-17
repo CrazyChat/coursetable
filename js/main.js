@@ -371,6 +371,7 @@ function backInput() {
     document.getElementById('none-course').style.opacity = 0;
     document.getElementById('all_input').style.top = '0px';
     changeForm();
+    importValue();
     deleteDate();
 }
 
