@@ -341,6 +341,7 @@ function NoCourseTable() {
         })
         printCourse();
         document.getElementById('all_input').style.top = '-650px';
+        document.getElementById('all_input').style.display = 'none';
         document.getElementById('none-course').style.display = 'block';
         document.getElementById('none-course').style.opacity = 1;
     }
@@ -369,8 +370,9 @@ function deleteDate() {
 
 // 返回输入页面按钮
 function backInput() {
-    document.getElementById('none-course').style.display = 'none';
     document.getElementById('none-course').style.opacity = 0;
+    document.getElementById('none-course').style.display = 'none';
+    document.getElementById('all_input').style.display = 'none';
     document.getElementById('all_input').style.top = '0px';
     changeForm();
     importValue();

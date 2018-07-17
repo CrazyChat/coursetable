@@ -230,6 +230,10 @@ div,input,li,textarea {
     font-size: 15px;
     text-align: center;
 }
+#members {
+    height: 475px;
+    overflow: scroll;
+}
 .member:first-child {
     margin-top: 10px;
 }
