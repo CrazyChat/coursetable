@@ -379,6 +379,8 @@ function backInput() {
 
 // 姓名输入框的修改
 function changeName() {
-    document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML = INPUT_NAME.value;
-    member[CURRENTMEMBER] = INPUT_NAME.value;
+    if (!IF_INTRODUCE) {
+        document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML = INPUT_NAME.value;
+        member[CURRENTMEMBER] = INPUT_NAME.value;
+    }
 }
