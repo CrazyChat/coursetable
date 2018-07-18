@@ -1,4 +1,8 @@
 
+console.log('author: 陈铭涛');
+console.log('School: 佛山科学技术学院');
+console.log('WeChat: L13049045466');
+
 let CURRENTMEMBER = 0;   // 计算当前是哪个成员
 let IF_INTRODUCE = true;    // 判断当前是否为介绍页面
 let INPUT_NAME = document.getElementsByClassName('left-name')[0];  // 名字输入框的姓名
