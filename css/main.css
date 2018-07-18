@@ -66,6 +66,7 @@ div,input,li,textarea {
 }
 .left-name,
 #delete-name,
+#use-course,
 #new-member,
 .compete {
     display: block;
@@ -86,6 +87,7 @@ div,input,li,textarea {
     background-color: #fd7575;
     color: #fff;
 }
+#use-course:hover,
 #new-member:hover,
 .compete:hover {
     cursor: pointer;
