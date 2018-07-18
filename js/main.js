@@ -199,18 +199,18 @@ function importValue() {
 
 // 添加新成员按钮以及点击导航栏姓名功能
 window.onload = function() {
-    var oBtn = document.getElementById("new-member");
-    var oDtn = document.getElementById('delete-name');
-    var oUl = document.getElementById("members");
-    var aLi = oUl.getElementsByTagName('li');
+    let oBtn = document.getElementById("new-member");
+    let oDtn = document.getElementById('delete-name');
+    let oUl = document.getElementById("members");
+    let aLi = oUl.getElementsByTagName('li');
     // 点击导航栏的名字功能
     function clickNav() {
         for (let i = 0; i < aLi.length; i++) {
             aLi[i].index = i;
         }
         oUl.onclick = function() {
-            var ev = ev || window.event;
-            var target = ev.target || ev.srcElement;
+            let ev = ev || window.event;
+            let target = ev.target || ev.srcElement;
             if(target.nodeName.toLowerCase() == 'li'){
                 if (IF_FIRST[CURRENTMEMBER] === 1) {
                     changeValue();
@@ -251,7 +251,7 @@ window.onload = function() {
             }
             INPUT_NAME.value = str;
             // 向导航栏添加成员并赋予功能
-            var oLi = document.createElement('li');
+            let oLi = document.createElement('li');
             oLi.innerHTML = str;
             oLi.className = "member";
             oUl.appendChild(oLi);
@@ -309,6 +309,33 @@ window.onload = function() {
     }
 };
 
+// 遍历tex获取最高的高度，改变所有tex高度为它
+function uniteHeight(x) {
+    let maxHeight = 100;
+    for (let days = 0; days < 7; days++ ) {
+        for (let sec = 0; sec < 6; sec++ ) {
+            let sort = sec + days * 6 + x * 42;
+            if ( document.getElementsByClassName('once-tex')[sort].scrollHeight > maxHeight ) {
+                maxHeight = document.getElementsByClassName('once-tex')[sort].scrollHeight;
+            }
+        }
+    }
+    if (maxHeight > 100) {
+        console.log('change divHeight');
+        for (let days = 0; days < 7; days++ ) {
+            for (let sec = 0; sec < 6; sec++ ) {
+                let sort = sec + days * 6 + x * 42;
+                document.getElementsByClassName('once-tex')[sort].style.height = maxHeight + 'px';
+            }
+        }
+        for (let sec = 0; sec < 6; sec++) {
+            let sort = sec + x * 6;
+            document.getElementsByClassName('finall-section')[sort].style.height = maxHeight + 'px';
+            document.getElementsByClassName('finall-section')[sort].style.lineHeight = maxHeight + 'px';
+        }
+    }
+}
+
 // 计算空课表按钮功能
 function NoCourseTable() {
     if (!IF_INTRODUCE) {
@@ -336,17 +363,18 @@ function NoCourseTable() {
               COURSETABLES[week - 1][userCourse.courseId][userCourse.weekday].push(userCourse.user);
             })
         })
-        var choiceweek = document.getElementById('choice-week').selectedIndex;
+        let choiceweek = document.getElementById('choice-week').selectedIndex;
         for (let x = 0; x < 7; x++) {
             for (let j = 0; j < 6; j++) {
                 let m1 = j + x * 6;
-                document.getElementsByClassName('once-tex')[m1].value = COURSETABLES[choiceweek][j][x];
+                document.getElementsByClassName('once-tex')[m1].innerHTML = COURSETABLES[choiceweek][j][x];
             }
         }
         document.getElementById('all_input').style.top = '-650px';
         document.getElementById('all_input').style.display = 'none';
         document.getElementById('none-course').style.display = 'block';
         document.getElementById('none-course').style.opacity = 1;
+        uniteHeight(0);
     }
 }
 
@@ -360,12 +388,13 @@ function mySelect() {
             for (let j = 0; j < 6; j++) {
                 let m1 = j + x * 6;
                 let m2 = j + x * 6 + 42;
-                document.getElementsByClassName('once-tex')[m1].value = '';
-                document.getElementsByClassName('once-tex')[m2].value = COURSETABLES[my_select][j][x];
+                document.getElementsByClassName('once-tex')[m1].innerHTML = '';
+                document.getElementsByClassName('once-tex')[m2].innerHTML = COURSETABLES[my_select][j][x];
             }
         }
         $("#week1").attr("class", "fianll-table week-hide");
         $("#week2").attr("class", "fianll-table week-current");
+        uniteHeight(1);
     } else if ($('#week2').is('.week-current') == true) {
         $("#week2").attr("class", "fianll-table week-hide");
         $("#week1").attr("class", "fianll-table week-current");
@@ -374,10 +403,11 @@ function mySelect() {
             for (let j = 0; j < 6; j++) {
                 let m1 = j + x * 6;
                 let m2 = j + x * 6 + 42;
-                document.getElementsByClassName('once-tex')[m2].value = '';
-                document.getElementsByClassName('once-tex')[m1].value = COURSETABLES[my_select][j][x];
+                document.getElementsByClassName('once-tex')[m2].innerHTML = '';
+                document.getElementsByClassName('once-tex')[m1].innerHTML = COURSETABLES[my_select][j][x];
             }
         }
+        uniteHeight(0);
     }
 }
 
@@ -398,8 +428,8 @@ function deleteDate() {
         for (let j = 0; j < 6; j++) {
             let m1 = j + x * 6;
             let m2 = j + x * 6 + 42;
-            document.getElementsByClassName('once-tex')[m1].value = '';
-            document.getElementsByClassName('once-tex')[m2].value = '';
+            document.getElementsByClassName('once-tex')[m1].innerHTML = '';
+            document.getElementsByClassName('once-tex')[m2].innerHTML = '';
         }
     }
 }

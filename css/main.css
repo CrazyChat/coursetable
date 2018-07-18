@@ -183,7 +183,7 @@ div,input,li,textarea {
 .course-day,
 .course-section,
 .course-num,
-.once-li,
+.once-tex,
 .finall-day,
 .finall-section {
     border-right: 1px solid rgba(0,0,0,.2);
@@ -317,10 +317,12 @@ div,input,li,textarea {
     transition: all 1s;
 }
 .week-current {
+    display: block;
     top: 0px;
 }
 .week-hide {
     top: -850px;
+    display: none;
 }
 .finall-days {
     width: 100%;
@@ -341,9 +343,10 @@ div,input,li,textarea {
 .finall-section {
     display: block;
     width: 100%;
-    height: 125px;
+    height: 100px;     /* 待改 */
+    min-height: 100px;
     text-align: center;
-    line-height: 125px;
+    line-height: 100px; /* 待改 */
     font-weight: bold;
     font-size: 20px;
 }
@@ -358,13 +361,17 @@ div,input,li,textarea {
 .once-li {
     display: block;
     width: 100%;
-    height: 125px;
 }
 .once-tex {
     display: block;
-    margin: 0;
     width: 100%;
-    height: 100%;
-    border: none;
-    resize:none;
+    min-height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    outline: 0;
+    font-size: 12px;
+    word-wrap: break-word;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-user-modify: read-write-plaintext-only;
 }
