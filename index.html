@@ -636,8 +636,7 @@
         <div class="fianll-table-wrap">
             <div class="finall-content">
                 <div id="choice">
-                    <button id="back-input" onclick=backInput()>返回</button>
-                    <select id="choice-week">
+                    <select id="choice-week" onchange="mySelect()">
                         <option value="0">第一周</option>
                         <option value="1">第二周</option>
                         <option value="2">第三周</option>
@@ -655,6 +654,7 @@
                         <option value="3">第十五周</option>
                         <option value="3">第十六周</option>
                     </select>
+                    <button id="back-input" onclick="backInput()">返回</button>
                 </div>
                 <div title="0" id="week1" class="fianll-table week-current">
                     <div class="finall-days">

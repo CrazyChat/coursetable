@@ -79,6 +79,14 @@ function addCourse( user, courseId, weekday, noneCourseWeeks) {
     userCourses.push({ user, courseId, weekday, noneCourseWeeks });
 }
 
+// 姓名输入框的修改
+function changeName() {
+    if (!IF_INTRODUCE) {
+        document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML = INPUT_NAME.value;
+        member[CURRENTMEMBER] = INPUT_NAME.value;
+    }
+}
+
 // 获取输入的课表并写入userCourse
 function getValue() {
     let w = 1;
@@ -299,19 +307,6 @@ function delMember() {
     }
 }
 
-
-// 打印每周的空课表
-function printCourse() {
-    for (let all = 0; all < WEEKS; all++) {
-        for(let x = 0; x < 7; x++) {
-            for (let j = 0; j < 6; j++) {
-                let m = j + x * 6 + all * 42;
-                document.getElementsByClassName('once-tex')[m].value = COURSETABLES[all][j][x];
-            }
-        }
-    }
-}
-
 // 计算空课表按钮功能
 function NoCourseTable() {
     if (!IF_INTRODUCE) {
@@ -339,11 +334,48 @@ function NoCourseTable() {
               COURSETABLES[week - 1][userCourse.courseId][userCourse.weekday].push(userCourse.user);
             })
         })
-        printCourse();
+        var choiceweek = document.getElementById('choice-week').selectedIndex;
+        for (let x = 0; x < 7; x++) {
+            for (let j = 0; j < 6; j++) {
+                let m1 = j + x * 6;
+                document.getElementsByClassName('once-tex')[m1].value = COURSETABLES[choiceweek][j][x];
+            }
+        }
         document.getElementById('all_input').style.top = '-650px';
         document.getElementById('all_input').style.display = 'none';
         document.getElementById('none-course').style.display = 'block';
         document.getElementById('none-course').style.opacity = 1;
+    }
+}
+
+// 选择展示周
+function mySelect() {
+    let sel_button = document.getElementById('choice-week');
+    let my_select = sel_button.selectedIndex;
+    if ($('#week1').is('.week-current') == true) {
+        // 清空表格数据并写入新的数据
+        for (let x = 0; x < 7; x++ ) {
+            for (let j = 0; j < 6; j++) {
+                let m1 = j + x * 6;
+                let m2 = j + x * 6 + 42;
+                document.getElementsByClassName('once-tex')[m1].value = '';
+                document.getElementsByClassName('once-tex')[m2].value = COURSETABLES[my_select][j][x];
+            }
+        }
+        $("#week1").attr("class", "fianll-table week-hide");
+        $("#week2").attr("class", "fianll-table week-current");
+    } else if ($('#week2').is('.week-current') == true) {
+        $("#week2").attr("class", "fianll-table week-hide");
+        $("#week1").attr("class", "fianll-table week-current");
+        // 清空表格数据并写入新的数据
+        for (let x = 0; x < 7; x++ ) {
+            for (let j = 0; j < 6; j++) {
+                let m1 = j + x * 6;
+                let m2 = j + x * 6 + 42;
+                document.getElementsByClassName('once-tex')[m2].value = '';
+                document.getElementsByClassName('once-tex')[m1].value = COURSETABLES[my_select][j][x];
+            }
+        }
     }
 }
 
@@ -357,13 +389,15 @@ function deleteDate() {
             }
         }
     }
-    // 清除空课表数据
-    for (let all = 0; all < WEEKS; all++) {
-        for(let x = 0; x < 7; x++) {
-            for (let j = 0; j < 6; j++) {
-                let m = j + x * 6 + all * 42;
-                document.getElementsByClassName('once-tex')[m].value = [];
-            }
+    // 清空空课表表格数据
+    $("#week2").attr("class", "fianll-table week-hide");
+    $("#week1").attr("class", "fianll-table week-current");
+    for (let x = 0; x < 7; x++ ) {
+        for (let j = 0; j < 6; j++) {
+            let m1 = j + x * 6;
+            let m2 = j + x * 6 + 42;
+            document.getElementsByClassName('once-tex')[m1].value = '';
+            document.getElementsByClassName('once-tex')[m2].value = '';
         }
     }
 }
@@ -378,12 +412,4 @@ function backInput() {
     importValue();
     INPUT_NAME.value = member[CURRENTMEMBER];
     deleteDate();
-}
-
-// 姓名输入框的修改
-function changeName() {
-    if (!IF_INTRODUCE) {
-        document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML = INPUT_NAME.value;
-        member[CURRENTMEMBER] = INPUT_NAME.value;
-    }
 }
