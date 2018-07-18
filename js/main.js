@@ -200,6 +200,7 @@ function importValue() {
 // 添加新成员按钮以及点击导航栏姓名功能
 window.onload = function() {
     var oBtn = document.getElementById("new-member");
+    var oDtn = document.getElementById('delete-name');
     var oUl = document.getElementById("members");
     var aLi = oUl.getElementsByTagName('li');
     // 点击导航栏的名字功能
@@ -259,53 +260,54 @@ window.onload = function() {
             member[CURRENTMEMBER] = str;
         }
     };
-};
-
-
-// 删除成员按钮功能
-function delMember() {
-    if (!IF_INTRODUCE) {
-        // 更换表格
-        if (CURRENTMEMBER > 0 || member.length > 1) {
-            // 更换页面表格
-            changeForm();
-        } else if (CURRENTMEMBER === 0) {
-            // 清空表格数据
-            for (let m = 0; m < 2; m++ ){
-                for(let x = 0; x < 7; x++) {
-                    for (let j = 0; j < 6; j++) {
-                        let m = j + x * 6;
-                        document.getElementsByClassName('once-tex')[m].value = [];
-                    }
-                }
-            }
-            $("#form1").attr("class", "form-content form-hide");
-            $("#form2").attr("class", "form-content form-hide");
-            // 姓名框变成即将展示的成员姓名
-            let IF_INTRODUCE = true;
-        }
-        // 清除已经提交到userCourse的数据和保存的成员输入数据
-        if (IF_FIRST[CURRENTMEMBER] === 1) {
-            let w = CURRENTMEMBER * 42;
-            userCourses.splice(w, 42);
-            member_star.splice(w, 42);
-            member_end.splice(w, 42);
-            member_else.splice(w, 42);
-        }
-        // 清除导航栏的该成员的li标签
-        $("#members li:eq(" + CURRENTMEMBER + ")").remove();
-        // 清除当前成员
-        member.splice(CURRENTMEMBER,1);
-        IF_FIRST.splice(CURRENTMEMBER,1);
-        // 姓名框变成即将展示的成员姓名（最后一个成员）
-        CURRENTMEMBER = member.length - 1;
-        INPUT_NAME.value =  member[CURRENTMEMBER] || '姓名';
-        // 导入要显示的成员的数据
+    // 点击删除成员按钮
+    oDtn.onclick = function(){
         if (!IF_INTRODUCE) {
-            importValue();
+            if (confirm('确定要删除该成员？？？')) {
+                // 更换表格
+                if (CURRENTMEMBER > 0 || member.length > 1) {
+                    // 更换页面表格
+                    changeForm();
+                } else if (CURRENTMEMBER === 0) {
+                    // 清空表格数据
+                    for (let m = 0; m < 2; m++ ){
+                        for(let x = 0; x < 7; x++) {
+                            for (let j = 0; j < 6; j++) {
+                                let m = j + x * 6;
+                                document.getElementsByClassName('once-tex')[m].value = [];
+                            }
+                        }
+                    }
+                    $("#form1").attr("class", "form-content form-hide");
+                    $("#form2").attr("class", "form-content form-hide");
+                    // 姓名框变成即将展示的成员姓名
+                    let IF_INTRODUCE = true;
+                }
+                // 清除已经提交到userCourse的数据和保存的成员输入数据
+                if (IF_FIRST[CURRENTMEMBER] === 1) {
+                    let w = CURRENTMEMBER * 42;
+                    userCourses.splice(w, 42);
+                    member_star.splice(w, 42);
+                    member_end.splice(w, 42);
+                    member_else.splice(w, 42);
+                }
+                // 清除导航栏的该成员的li标签
+                $("#members li:eq(" + CURRENTMEMBER + ")").remove();
+                // 清除当前成员
+                member.splice(CURRENTMEMBER,1);
+                IF_FIRST.splice(CURRENTMEMBER,1);
+                // 姓名框变成即将展示的成员姓名（最后一个成员）
+                CURRENTMEMBER = member.length - 1;
+                INPUT_NAME.value =  member[CURRENTMEMBER] || '姓名';
+                // 导入要显示的成员的数据
+                if (!IF_INTRODUCE) {
+                    importValue();
+                }
+                clickNav();
+            }
         }
     }
-}
+};
 
 // 计算空课表按钮功能
 function NoCourseTable() {

@@ -59,7 +59,7 @@ div,input,li,textarea {
     top: 200px;
 }
 .left-name,
-.delete-name,
+#delete-name,
 #new-member,
 .compete {
     display: block;
@@ -75,7 +75,7 @@ div,input,li,textarea {
     background-color: rgba(255,255,255,0.5);
     color: #376792;
 }
-.delete-name:hover {
+#delete-name:hover {
     cursor: pointer;
     background-color: #fd7575;
     color: #fff;
