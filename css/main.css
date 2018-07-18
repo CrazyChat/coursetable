@@ -33,15 +33,21 @@ div,input,li,textarea {
     width: 1240px;
     height: 650px;
     margin: 0 auto;
-    border-radius: 10px;
     font-size: 0;      /* 消除设置line-block后产生的间隙 */
-    background: url('../images/18042.jpg') no-repeat;
     background-size: 100% 100%;
     -moz-background-size:100% 100%;
     left: 50%;
     transform: translateX(-50%);
     top: 0px;      
     transition: all 1s;
+    background-color: #eaeaea;
+    /* background: linear-gradient(45deg,#eaeaea, rgb(150, 227, 250)); */
+    /* background: linear-gradient(45deg,#e7ffed, rgb(150, 210, 228)); */
+    /* background: radial-gradient(#42daff, rgb(150, 227, 250), #eaeaea); */
+    background: -webkit-radial-gradient(#e7ffed, rgb(150, 210, 228), #eaeaea);
+    background: -o-radial-gradient(#e7ffed, rgb(150, 210, 228), #eaeaea);
+    background: -moz-radial-gradient(#e7ffed, rgb(150, 210, 228), #eaeaea);
+    background: radial-gradient(#e7ffed, rgb(150, 210, 228), #eaeaea);
 }
 
 /*--------------左边姓名处--------------*/
