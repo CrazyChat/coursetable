@@ -62,12 +62,13 @@ div,input,li,textarea {
     position: absolute;
     width: 100%;
     height: 30%;
-    top: 160px;
+    top: 120px;
 }
 .left-name,
+#saveStorage,
+#importStorage,
 #delete-name,
 #use-course,
-#saveValue,
 #new-member,
 .compete {
     display: block;
