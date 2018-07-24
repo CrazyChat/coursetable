@@ -1,6 +1,7 @@
 
 console.log('author: 陈铭涛');
 console.log('School: 佛山科学技术学院');
+console.log('Class: 计算机科学与技术1班');
 console.log('WeChat: L13049045466');
 
 let CURRENTMEMBER = 0;   // 计算当前是哪个成员
@@ -213,7 +214,7 @@ window.onload = function() {
             aLi[i].index = i;
         }
         oUl.onclick = function() {
-            let ev = ev || window.event;
+            var ev = ev || window.event;   // 使用let会报错?
             let target = ev.target || ev.srcElement;
             if(target.nodeName.toLowerCase() == 'li'){
                 if (IF_FIRST[CURRENTMEMBER] === 1) {
@@ -259,9 +260,9 @@ window.onload = function() {
             oLi.innerHTML = str;
             oLi.className = "member";
             oUl.appendChild(oLi);
-            clickNav();
             // 新建对象
             member[CURRENTMEMBER] = str;
+            clickNav();
         }
     };
     // 点击删除成员按钮
@@ -449,3 +450,15 @@ function backInput() {
     INPUT_NAME.value = member[CURRENTMEMBER];
     deleteDate();
 }
+
+// 保存数据到localStorage
+function saveStorage() {
+    let storage = window.localStorage;
+    storage.setItem("sWEEKS",WEEKS);
+    storage.setItem("smember_star",member_star);
+    storage.setItem("smember_end",member_end);
+    storage.setItem("smember_else",member_end);
+    storage.setItem("smember",member);
+    alert("保存数据成功!");
+}
+

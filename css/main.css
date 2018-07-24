@@ -62,11 +62,12 @@ div,input,li,textarea {
     position: absolute;
     width: 100%;
     height: 30%;
-    top: 200px;
+    top: 160px;
 }
 .left-name,
 #delete-name,
 #use-course,
+#saveValue,
 #new-member,
 .compete {
     display: block;
@@ -87,6 +88,7 @@ div,input,li,textarea {
     background-color: #fd7575;
     color: #fff;
 }
+#saveValue:hover,
 #use-course:hover,
 #new-member:hover,
 .compete:hover {
@@ -351,10 +353,10 @@ div,input,li,textarea {
 .finall-section {
     display: block;
     width: 100%;
-    height: 100px;     /* 待改 */
+    height: 100px;     
     min-height: 100px;
     text-align: center;
-    line-height: 100px; /* 待改 */
+    line-height: 100px; 
     font-weight: bold;
     font-size: 20px;
 }
