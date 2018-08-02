@@ -184,24 +184,21 @@ function deleteDate() {
         }
     }
     // 清空空课表表格数据
-    $("#week2").attr("class", "fianll-table week-hide");
     $("#week1").attr("class", "fianll-table week-current");
     for (let x = 0; x < 7; x++ ) {
         for (let j = 0; j < 6; j++) {
-            let m1 = j + x * 6;
-            let m2 = j + x * 6 + 42;
-            document.getElementsByClassName('once-tex')[m1].innerHTML = '';
-            document.getElementsByClassName('once-tex')[m2].innerHTML = '';
+            let m = j + x * 6;
+            document.getElementsByClassName('once-tex')[m].innerHTML = '';
         }
     }
 }
 
 // 遍历tex获取最高的高度，改变所有tex高度为它
-function uniteHeight(x) {
+function uniteHeight() {
     let maxHeight = 100;
     for (let days = 0; days < 7; days++ ) {
         for (let sec = 0; sec < 6; sec++ ) {
-            let sort = sec + days * 6 + x * 42;
+            let sort = sec + days * 6;
             if ( document.getElementsByClassName('once-tex')[sort].scrollHeight > maxHeight ) {
                 maxHeight = document.getElementsByClassName('once-tex')[sort].scrollHeight;
             }
@@ -211,14 +208,13 @@ function uniteHeight(x) {
         console.log('change divHeight');
         for (let days = 0; days < 7; days++ ) {
             for (let sec = 0; sec < 6; sec++ ) {
-                let sort = sec + days * 6 + x * 42;
+                let sort = sec + days * 6;
                 document.getElementsByClassName('once-tex')[sort].style.height = maxHeight + 'px';
             }
         }
         for (let sec = 0; sec < 6; sec++) {
-            let sort = sec + x * 6;
-            document.getElementsByClassName('finall-section')[sort].style.height = maxHeight + 'px';
-            document.getElementsByClassName('finall-section')[sort].style.lineHeight = maxHeight + 'px';
+            document.getElementsByClassName('finall-section')[sec].style.height = maxHeight + 'px';
+            document.getElementsByClassName('finall-section')[sec].style.lineHeight = maxHeight + 'px';
         }
     }
 }

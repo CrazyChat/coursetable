@@ -94,6 +94,8 @@ window.onload = function() {
 function NoCourseTable() {
     if (!IF_INTRODUCE || IfImport) {
         IfImport = false;
+        IF_INTRODUCE = false;
+        document.getElementsByClassName('introduce')[0].className = 'introduce form-hide';
         if (IF_FIRST[CURRENTMEMBER] === 1) {
             changeValue();
         } else {
@@ -121,8 +123,8 @@ function NoCourseTable() {
         let choiceweek = document.getElementById('choice-week').selectedIndex;
         for (let x = 0; x < 7; x++) {
             for (let j = 0; j < 6; j++) {
-                let m1 = j + x * 6;
-                document.getElementsByClassName('once-tex')[m1].innerHTML = COURSETABLES[choiceweek][j][x];
+                let m = j + x * 6;
+                document.getElementsByClassName('once-tex')[m].innerHTML = COURSETABLES[choiceweek][j][x];
             }
         }
         document.getElementById('all_input').style.top = '-650px';
@@ -149,31 +151,11 @@ function backInput() {
 function mySelect() {
     let sel_button = document.getElementById('choice-week');
     let my_select = sel_button.selectedIndex;
-    if ($('#week1').is('.week-current') == true) {
-        // 清空表格数据并写入新的数据
-        for (let x = 0; x < 7; x++ ) {
-            for (let j = 0; j < 6; j++) {
-                let m1 = j + x * 6;
-                let m2 = j + x * 6 + 42;
-                document.getElementsByClassName('once-tex')[m1].innerHTML = '';
-                document.getElementsByClassName('once-tex')[m2].innerHTML = COURSETABLES[my_select][j][x];
-            }
+    for (let x = 0; x < 7; x++) {
+        for (let j = 0; j < 6; j++) {
+            let m = j + x * 6;
+            document.getElementsByClassName('once-tex')[m].innerHTML = COURSETABLES[my_select][j][x];
         }
-        $("#week1").attr("class", "fianll-table week-hide");
-        $("#week2").attr("class", "fianll-table week-current");
-        uniteHeight(1);
-    } else if ($('#week2').is('.week-current') == true) {
-        $("#week2").attr("class", "fianll-table week-hide");
-        $("#week1").attr("class", "fianll-table week-current");
-        // 清空表格数据并写入新的数据
-        for (let x = 0; x < 7; x++ ) {
-            for (let j = 0; j < 6; j++) {
-                let m1 = j + x * 6;
-                let m2 = j + x * 6 + 42;
-                document.getElementsByClassName('once-tex')[m2].innerHTML = '';
-                document.getElementsByClassName('once-tex')[m1].innerHTML = COURSETABLES[my_select][j][x];
-            }
-        }
-        uniteHeight(0);
     }
+    uniteHeight();
 }
