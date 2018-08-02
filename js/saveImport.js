@@ -1,6 +1,13 @@
 let IfImport = false;
 // 保存数据到localStorage
 function saveStorage() {
+  // 提交前一个成员的数据并保存数据
+  if (IF_FIRST[CURRENTMEMBER] === 1) {
+      changeValue();
+  } else {
+      getValue();
+      IF_FIRST[CURRENTMEMBER] = 1;    // 数据写入到userCourses里了
+  }
   let storage = window.localStorage;
   storage.clear();
 
