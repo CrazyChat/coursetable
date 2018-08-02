@@ -3,29 +3,6 @@ window.onload = function() {
     let oBtn = document.getElementById("new-member");
     let oDtn = document.getElementById('delete-name');
     let oUl = document.getElementById("members");
-    let aLi = oUl.getElementsByTagName('li');
-    // 点击导航栏的名字功能
-    function clickNav() {
-        for (let i = 0; i < aLi.length; i++) {
-            aLi[i].index = i;
-        }
-        oUl.onclick = function() {
-            var ev = ev || window.event;   // 使用let会报错?
-            let target = ev.target || ev.srcElement;
-            if(target.nodeName.toLowerCase() == 'li'){
-                if (IF_FIRST[CURRENTMEMBER] === 1) {
-                    changeValue();
-                } else {
-                    getValue();
-                    IF_FIRST[CURRENTMEMBER] = 1;
-                }
-                CURRENTMEMBER = target.index;
-                INPUT_NAME.value = document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML;
-                changeForm();
-                importValue();
-            }
-        }
-    };
     // 点击添加新成员按钮
     oBtn.onclick = function(){
         // 输入新建成员的姓名
@@ -36,20 +13,23 @@ window.onload = function() {
                 document.getElementsByClassName('introduce')[0].className = 'introduce form-hide';
                 $("#form1").attr("class", "form-content form-current");
                 IF_INTRODUCE = false;
+                if (IfImport) {
+                    // 添加新成员
+                    CURRENTMEMBER = member.length;
+                }
             } else {
                 // 提交前一个成员的数据并保存数据
                 if (IF_FIRST[CURRENTMEMBER] === 1) {
                     changeValue();
                 } else {
                     getValue();
-
                     IF_FIRST[CURRENTMEMBER] = 1;    // 数据写入到userCourses里了
                 }
-                // 交换表格并清掉数据
-                changeForm();
                 // 添加新成员
                 CURRENTMEMBER = member.length;
             }
+            // 交换表格并清掉数据
+            changeForm();
             INPUT_NAME.value = str;
             // 向导航栏添加成员并赋予功能
             let oLi = document.createElement('li');
@@ -112,7 +92,8 @@ window.onload = function() {
 
 // 计算空课表按钮功能
 function NoCourseTable() {
-    if (!IF_INTRODUCE) {
+    if (!IF_INTRODUCE || IfImport) {
+        IfImport = false;
         if (IF_FIRST[CURRENTMEMBER] === 1) {
             changeValue();
         } else {
@@ -162,4 +143,37 @@ function backInput() {
     importValue();
     INPUT_NAME.value = member[CURRENTMEMBER];
     deleteDate();
+}
+
+// 选择展示周
+function mySelect() {
+    let sel_button = document.getElementById('choice-week');
+    let my_select = sel_button.selectedIndex;
+    if ($('#week1').is('.week-current') == true) {
+        // 清空表格数据并写入新的数据
+        for (let x = 0; x < 7; x++ ) {
+            for (let j = 0; j < 6; j++) {
+                let m1 = j + x * 6;
+                let m2 = j + x * 6 + 42;
+                document.getElementsByClassName('once-tex')[m1].innerHTML = '';
+                document.getElementsByClassName('once-tex')[m2].innerHTML = COURSETABLES[my_select][j][x];
+            }
+        }
+        $("#week1").attr("class", "fianll-table week-hide");
+        $("#week2").attr("class", "fianll-table week-current");
+        uniteHeight(1);
+    } else if ($('#week2').is('.week-current') == true) {
+        $("#week2").attr("class", "fianll-table week-hide");
+        $("#week1").attr("class", "fianll-table week-current");
+        // 清空表格数据并写入新的数据
+        for (let x = 0; x < 7; x++ ) {
+            for (let j = 0; j < 6; j++) {
+                let m1 = j + x * 6;
+                let m2 = j + x * 6 + 42;
+                document.getElementsByClassName('once-tex')[m2].innerHTML = '';
+                document.getElementsByClassName('once-tex')[m1].innerHTML = COURSETABLES[my_select][j][x];
+            }
+        }
+        uniteHeight(0);
+    }
 }

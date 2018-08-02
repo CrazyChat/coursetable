@@ -30,6 +30,34 @@ function changeForm() {
     return;
 }
 
+// 点击导航栏名字功能
+function clickNav() {
+    let oUl = document.getElementById("members");
+    let aLi = oUl.getElementsByTagName('li');
+    for (let i = 0; i < aLi.length; i++) {
+        aLi[i].index = i;
+    }
+    oUl.onclick = function() {
+        var ev = ev || window.event;   // 使用let会报错?
+        let target = ev.target || ev.srcElement;
+        if(target.nodeName.toLowerCase() == 'li'){
+            if (IF_FIRST[CURRENTMEMBER] === 1) {
+                changeValue();
+            } else {
+                getValue();
+                IF_FIRST[CURRENTMEMBER] = 1;
+            }
+            CURRENTMEMBER = target.index;
+            INPUT_NAME.value = document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML;
+            if (IfImport) {
+                document.getElementsByClassName('introduce')[0].className = 'introduce form-hide';
+            } 
+            changeForm();
+            importValue();
+        }
+    }
+}
+
 // 向userCourse写入数据函数
 function addCourse( user, courseId, weekday, noneCourseWeeks) {
     userCourses.push({ user, courseId, weekday, noneCourseWeeks });

@@ -89,6 +89,8 @@ div,input,li,textarea {
     background-color: #fd7575;
     color: #fff;
 }
+#saveStorage:hover,
+#importStorage:hover,
 #saveValue:hover,
 #use-course:hover,
 #new-member:hover,
@@ -144,6 +146,7 @@ div,input,li,textarea {
     width: 100px;
     height: 90px;
     text-align: center;
+    font-size: 16px;
 }
 #course-sections {
     float: left;
