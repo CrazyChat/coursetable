@@ -3,7 +3,7 @@ console.log('School: 佛山科学技术学院');
 console.log('Class: 17计算机科学与技术1班');
 console.log('WeChat: L13049045466');
 let CURRENTMEMBER = 0;   // 计算当前是哪个成员
-let IF_INTRODUCE = true;    // 判断当前是否为介绍页面
+let If_StarPage = true;    // 判断当前是否为介绍页面
 let INPUT_NAME = document.getElementsByClassName('left-name')[0];  // 名字输入框的姓名
 let WEEKS = 16 // 表示学期的周数为16周，可以设置为让用户输入
 let IF_FIRST = [];       // 判断成员数据是否已经提交到了userCourses
@@ -45,7 +45,7 @@ let userCourses = [
 
 // 姓名输入框的修改
 function changeName() {
-    if (!IF_INTRODUCE) {
+    if ($('#introduce').is('.form-current') !== true) {
         document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML = INPUT_NAME.value;
         member[CURRENTMEMBER] = INPUT_NAME.value;
     }

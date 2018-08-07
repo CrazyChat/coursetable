@@ -13,19 +13,19 @@ function deleteFormValue(whichForm) {
 // 交换表格并清掉数据
 function changeForm(allHide) {
     if ($('#form1').is('.form-current') == true) {
-        $("#form1").attr("class", "form-content form-hide");
-        $("#form2").attr("class", "form-content form-current");
         // 清空表格数据
         deleteFormValue(0);
+        // 换表格
+        $("#form1").attr("class", "form-content form-hide");
+        $("#form2").attr("class", "form-content form-current");
     } else if ($('#form2').is('.form-current') == true) {
-        $("#form2").attr("class", "form-content form-hide");
-        $("#form1").attr("class", "form-content form-current");
         // 清空表格数据
         deleteFormValue(1)
-    } else if (allHide) {
-        $("#form1").attr("class", "form-content form-hide");
+        // 换表格
         $("#form2").attr("class", "form-content form-hide");
+        $("#form1").attr("class", "form-content form-current");
     } else if (!allHide) {
+        $("#introduce").attr("class", "form-hide")
         $("#form1").attr("class", "form-content form-current");
     }
     return;

@@ -109,7 +109,7 @@ div,input,li,textarea {
     font-size: 18px;
 }
 .form-content,
-.introduce {
+#introduce {
     position: absolute;
     width: 800px;
     height: 630px;

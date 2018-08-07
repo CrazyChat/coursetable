@@ -1,41 +1,47 @@
 // 保存数据到localStorage
 function saveStorage() {
-  // 提交前一个成员的数据并保存数据
-  if (IF_FIRST[CURRENTMEMBER] === 1) {
-      changeValue();
+  if (member.length > 0) {
+    if (confirm('新数据将会覆盖之前的数据，确定此操作吗？')) {
+      // 提交前一个成员的数据并保存数据
+      if (IF_FIRST[CURRENTMEMBER] === 1) {
+          changeValue();
+      } else {
+          getValue();
+          IF_FIRST[CURRENTMEMBER] = 1;    // 数据写入到userCourses里了
+      }
+      // 开始保存数据
+      let storage = window.localStorage;
+      storage.clear();
+    
+      let temp = JSON.stringify(member_star);
+      storage.setItem("smember_star", temp);
+    
+      temp = JSON.stringify(member_end);
+      storage.setItem("smember_end", temp);
+      
+      temp = JSON.stringify(member_else);
+      storage.setItem("smember_else", temp);
+    
+      temp = JSON.stringify(member);
+      storage.setItem("smember", temp);
+    
+      temp = JSON.stringify(userCourses);
+      storage.setItem("suserCourses", temp);
+    
+      // 提示
+      setTimeout(function() {
+        alert("数据已经保存到当前浏览器!");
+      }, 200);
+    } 
   } else {
-      getValue();
-      IF_FIRST[CURRENTMEMBER] = 1;    // 数据写入到userCourses里了
+    alert('当前没有数据')
   }
-  // 开始保存数据
-  let storage = window.localStorage;
-  storage.clear();
-
-  let temp = JSON.stringify(member_star);
-  storage.setItem("smember_star", temp);
-
-  temp = JSON.stringify(member_end);
-  storage.setItem("smember_end", temp);
-  
-  temp = JSON.stringify(member_else);
-  storage.setItem("smember_else", temp);
-
-  temp = JSON.stringify(member);
-  storage.setItem("smember", temp);
-
-  temp = JSON.stringify(userCourses);
-  storage.setItem("suserCourses", temp);
-
-  // 提示
-  setTimeout(function() {
-    alert("数据已经保存到当前浏览器!");
-  }, 200);
 }
 
 // 导入Storage数据
 function importStorage() {
   // 判断是否为启动页面
-  if (IF_INTRODUCE){
+  if (If_StarPage){
     // 获取保存的数据
     let storage = window.localStorage;
   
@@ -70,8 +76,7 @@ function importStorage() {
     setTimeout(function() {
       alert("导入成功");
     }, 200);
-    IF_INTRODUCE = false;
-    document.getElementsByClassName('introduce')[0].className = 'introduce form-hide';
+    If_StarPage = false;
   } else {
     alert("当前页面已有数据，请刷新页面再导入数据");
   }
