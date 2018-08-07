@@ -54,11 +54,11 @@ window.onload = function() {
                 }
                 // 清除已经提交到userCourse的数据和保存的成员输入数据
                 if (If_First[CurrentMember] === 1) {
-                    let ValueIndex = CurrentMember * 42;
-                    userCourses.splice(ValueIndex, 42);
-                    member_star.splice(ValueIndex, 42);
-                    member_end.splice(ValueIndex, 42);
-                    member_else.splice(ValueIndex, 42);
+                    let ValueIndex = CurrentMember * eachTableCounts;
+                    userCourses.splice(ValueIndex, eachTableCounts);
+                    member_star.splice(ValueIndex, eachTableCounts);
+                    member_end.splice(ValueIndex, eachTableCounts);
+                    member_else.splice(ValueIndex, eachTableCounts);
                 }
                 // 清除导航栏的该成员的li标签
                 $("#members li:eq(" + CurrentMember + ")").remove();
@@ -99,9 +99,9 @@ function NoCourseTable() {
             })
         })
         let choiceweek = document.getElementById('choice-week').selectedIndex;
-        for (let weekdayCount = 0; weekdayCount < 7; weekdayCount++) {
-            for (let sectionCount = 0; sectionCount < 6; sectionCount++) {
-                let tableCount = sectionCount + weekdayCount * 6;
+        for (let weekdayCount = 0; weekdayCount < weekdayCounts; weekdayCount++) {
+            for (let sectionCount = 0; sectionCount < sectionCounts; sectionCount++) {
+                let tableCount = sectionCount + weekdayCount * sectionCounts;
                 document.getElementsByClassName('once-tex')[tableCount].innerHTML = COURSETABLES[choiceweek][sectionCount][weekdayCount];
             }
         }
@@ -131,9 +131,9 @@ function backInput() {
 function mySelect() {
     let sel_button = document.getElementById('choice-week');
     let whichWeek = sel_button.selectedIndex;
-    for (let weekdayCount = 0; weekdayCount < 7; weekdayCount++) {
-        for (let sectionCount = 0; sectionCount < 6; sectionCount++) {
-            let tableCount = sectionCount + weekdayCount * 6;sectionCount
+    for (let weekdayCount = 0; weekdayCount < weekdayCounts; weekdayCount++) {
+        for (let sectionCount = 0; sectionCount < sectionCounts; sectionCount++) {
+            let tableCount = sectionCount + weekdayCount * sectionCounts;sectionCount
             document.getElementsByClassName('once-tex')[tableCount].innerHTML = COURSETABLES[whichWeek][sectionCount][weekdayCount];
         }
     }

@@ -1,8 +1,8 @@
 // 清除表格的数据以供其他成员使用
 function deleteFormValue(whichForm) {
-    for (let weekdayCount = 0; weekdayCount < 7; weekdayCount++ ) {
-        for (let sectionCount = 0; sectionCount < 6; sectionCount++) {
-            let tableCount = sectionCount + weekdayCount * 6 + whichForm * 42;
+    for (let weekdayCount = 0; weekdayCount < weekdayCounts; weekdayCount++ ) {
+        for (let sectionCount = 0; sectionCount < sectionCounts; sectionCount++) {
+            let tableCount = sectionCount + weekdayCount * sectionCounts + whichForm * eachTableCounts;
             document.getElementsByClassName('course-star')[tableCount].value = '';
             document.getElementsByClassName('course-end')[tableCount].value = '';
             document.getElementsByClassName('course-else')[tableCount].value = '';
@@ -70,10 +70,10 @@ function changeValue() {
         if ( $('#form2').is('.form-current') == true ) {
             whichForm = 1
         }
-        for (let weekdayCount = 0; weekdayCount < 7; weekdayCount++ ) {
-            for (let sectionCount = 0; sectionCount < 6; sectionCount++) {
-                let tableCount = sectionCount + weekdayCount * 6 + whichForm * 42;        // 当前编辑成员的表格序号
-                let ValueIndex = sectionCount + weekdayCount * 6 + CurrentMember * 42;          // 当前编辑成员保存在数组的位置段索引
+        for (let weekdayCount = 0; weekdayCount < weekdayCounts; weekdayCount++ ) {
+            for (let sectionCount = 0; sectionCount < sectionCounts; sectionCount++) {
+                let tableCount = sectionCount + weekdayCount * sectionCounts + whichForm * eachTableCounts;        // 当前编辑成员的表格序号
+                let ValueIndex = sectionCount + weekdayCount * sectionCounts + CurrentMember * eachTableCounts;          // 当前编辑成员保存在数组的位置段索引
                 let course_star = document.getElementsByClassName('course-star')[tableCount].value;    // 获取开始的周
                 let course_end = document.getElementsByClassName('course-end')[tableCount].value;      // 获取截止的周
                 let course_else = document.getElementsByClassName('course-else')[tableCount].value;    // 获取其他不连续的周
@@ -116,10 +116,10 @@ function importValue() {
     if ($('#form2').is('.form-current') == true) {
         whichForm = 1;
     }
-    for (let weekdayCount = 0; weekdayCount < 7; weekdayCount++ ) {
-        for (let sectionCount = 0; sectionCount < 6; sectionCount++) {
-            let tableCount = sectionCount + weekdayCount * 6 + whichForm * 42;
-            let ValueIndex = sectionCount + weekdayCount * 6 + CurrentMember * 42;          // 保存在数组的位置段索引
+    for (let weekdayCount = 0; weekdayCount < weekdayCounts; weekdayCount++ ) {
+        for (let sectionCount = 0; sectionCount < sectionCounts; sectionCount++) {
+            let tableCount = sectionCount + weekdayCount * sectionCounts + whichForm * eachTableCounts;
+            let ValueIndex = sectionCount + weekdayCount * sectionCounts + CurrentMember * eachTableCounts;          // 保存在数组的位置段索引
             document.getElementsByClassName('course-star')[tableCount].value = member_star[ValueIndex];
             document.getElementsByClassName('course-end')[tableCount].value = member_end[ValueIndex];
             document.getElementsByClassName('course-else')[tableCount].value = member_else[ValueIndex];
@@ -133,10 +133,10 @@ function getValue() {
     if ($('#form2').is('.form-current') == true) {
         whichForm = 1;
     }
-    for (let weekdayCount = 0; weekdayCount < 7; weekdayCount++ ) {
-        for (let sectionCount = 0; sectionCount < 6; sectionCount++) {
-            let tableCount = sectionCount + weekdayCount * 6 + whichForm * 42;
-            let ValueIndex = sectionCount + weekdayCount * 6 + CurrentMember * 42;
+    for (let weekdayCount = 0; weekdayCount < weekdayCounts; weekdayCount++ ) {
+        for (let sectionCount = 0; sectionCount < sectionCounts; sectionCount++) {
+            let tableCount = sectionCount + weekdayCount * sectionCounts + whichForm * eachTableCounts;
+            let ValueIndex = sectionCount + weekdayCount * sectionCounts + CurrentMember * eachTableCounts;
             let course_star = document.getElementsByClassName('course-star')[tableCount].value;    // 获取开始的周
             let course_end = document.getElementsByClassName('course-end')[tableCount].value;      // 获取截止的周
             let course_else = document.getElementsByClassName('course-else')[tableCount].value;    // 获取其他不连续的周
@@ -184,9 +184,9 @@ function deleteDate() {
     }
     // 清空空课表表格数据
     $("#week1").attr("class", "fianll-table week-current");
-    for (let weekdayCount = 0; weekdayCount < 7; weekdayCount++ ) {
-        for (let sectionCount = 0; sectionCount < 6; sectionCount++) {
-            let tableCount = sectionCount + weekdayCount * 6;
+    for (let weekdayCount = 0; weekdayCount < weekdayCounts; weekdayCount++ ) {
+        for (let sectionCount = 0; sectionCount < sectionCounts; sectionCount++) {
+            let tableCount = sectionCount + weekdayCount * sectionCounts;
             document.getElementsByClassName('once-tex')[tableCount].innerHTML = '';
         }
     }
@@ -195,22 +195,22 @@ function deleteDate() {
 // 遍历tex获取最高的高度，改变所有tex高度为它,使所有小格高度一致为最小
 function uniteHeight() {
     let maxHeight = 100;
-    for (let days = 0; days < 7; days++ ) {
-        for (let sec = 0; sec < 6; sec++ ) {
-            let sort = sec + days * 6;
+    for (let days = 0; days < weekdayCounts; days++ ) {
+        for (let sec = 0; sec < sectionCounts; sec++ ) {
+            let sort = sec + days * sectionCounts;
             if ( document.getElementsByClassName('once-tex')[sort].scrollHeight > maxHeight ) {
                 maxHeight = document.getElementsByClassName('once-tex')[sort].scrollHeight;
             }
         }
     }
     if (maxHeight > 100) {
-        for (let days = 0; days < 7; days++ ) {
-            for (let sec = 0; sec < 6; sec++ ) {
-                let sort = sec + days * 6;
+        for (let days = 0; days < weekdayCounts; days++ ) {
+            for (let sec = 0; sec < sectionCounts; sec++ ) {
+                let sort = sec + days * sectionCounts;
                 document.getElementsByClassName('once-tex')[sort].style.height = maxHeight + 'px';
             }
         }
-        for (let sec = 0; sec < 6; sec++) {
+        for (let sec = 0; sec < sectionCounts; sec++) {
             document.getElementsByClassName('finall-section')[sec].style.height = maxHeight + 'px';
             document.getElementsByClassName('finall-section')[sec].style.lineHeight = maxHeight + 'px';
         }
