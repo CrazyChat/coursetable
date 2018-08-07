@@ -52,9 +52,6 @@ function clickNav() {
             }
             CURRENTMEMBER = target.index;
             INPUT_NAME.value = document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML;
-            if (IfImport) {
-                document.getElementsByClassName('introduce')[0].className = 'introduce form-hide';
-            } 
             changeForm();
             importValue();
         }

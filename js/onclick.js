@@ -1,10 +1,10 @@
 // 添加新成员按钮、删除成员以及点击导航栏姓名功能
 window.onload = function() {
-    let oBtn = document.getElementById("new-member");
-    let oDtn = document.getElementById('delete-name');
-    let oUl = document.getElementById("members");
+    let newMember = document.getElementById("new-member");
+    let deleteMember = document.getElementById('delete-name');
+    let memberFather = document.getElementById("members");
     // 点击添加新成员按钮
-    oBtn.onclick = function(){
+    newMember.onclick = function(){
         // 输入新建成员的姓名
         let str = window.prompt("请输入姓名:","");
         // 判断是否已经输入名字，然后新建成员表格滑下显示
@@ -13,10 +13,6 @@ window.onload = function() {
                 document.getElementsByClassName('introduce')[0].className = 'introduce form-hide';
                 $("#form1").attr("class", "form-content form-current");
                 IF_INTRODUCE = false;
-                if (IfImport) {
-                    // 添加新成员
-                    CURRENTMEMBER = member.length;
-                }
             } else {
                 // 提交前一个成员的数据并保存数据
                 if (IF_FIRST[CURRENTMEMBER] === 1) {
@@ -35,14 +31,14 @@ window.onload = function() {
             let oLi = document.createElement('li');
             oLi.innerHTML = str;
             oLi.className = "member";
-            oUl.appendChild(oLi);
+            memberFather.appendChild(oLi);
             clickNav();
             // 新建对象
             member[CURRENTMEMBER] = str;
         }
     };
     // 点击删除成员按钮
-    oDtn.onclick = function(){
+    deleteMember.onclick = function(){
         if (!IF_INTRODUCE) {
             if (confirm('确定要删除该成员？？？')) {
                 // 更换表格
@@ -92,8 +88,7 @@ window.onload = function() {
 
 // 计算空课表按钮功能
 function NoCourseTable() {
-    if (!IF_INTRODUCE || IfImport) {
-        IfImport = false;
+    if (!IF_INTRODUCE) {
         IF_INTRODUCE = false;
         document.getElementsByClassName('introduce')[0].className = 'introduce form-hide';
         // 提交当前修改的成员数据

@@ -1,4 +1,3 @@
-let IfImport = false;
 // 保存数据到localStorage
 function saveStorage() {
   // 提交前一个成员的数据并保存数据
@@ -71,8 +70,8 @@ function importStorage() {
     setTimeout(function() {
       alert("导入成功");
     }, 200);
-    IfImport = true;
     IF_INTRODUCE = false;
+    document.getElementsByClassName('introduce')[0].className = 'introduce form-hide';
   } else {
     alert("当前页面已有数据，请刷新页面再导入数据");
   }
