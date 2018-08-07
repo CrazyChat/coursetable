@@ -96,22 +96,12 @@ function NoCourseTable() {
         IfImport = false;
         IF_INTRODUCE = false;
         document.getElementsByClassName('introduce')[0].className = 'introduce form-hide';
+        // 提交当前修改的成员数据
         if (IF_FIRST[CURRENTMEMBER] === 1) {
             changeValue();
         } else {
             getValue();
             IF_FIRST[CURRENTMEMBER] = 1;
-        }
-        // 清空表格数据
-        for (let w = 0; w < 2; w++) {
-            for (let x = 0; x < 7; x++ ) {
-                for (let j = 0; j < 6; j++) {
-                    let m = j + x * 6 + w * 42;
-                    document.getElementsByClassName('course-star')[m].value = '';
-                    document.getElementsByClassName('course-end')[m].value = '';
-                    document.getElementsByClassName('course-else')[m].value = '';
-                }
-            }
         }
         CURRENTMEMBER = member.length - 1;
         // 将userCourse所有数据写入课表COURSETABLES
@@ -121,17 +111,17 @@ function NoCourseTable() {
             })
         })
         let choiceweek = document.getElementById('choice-week').selectedIndex;
-        for (let x = 0; x < 7; x++) {
-            for (let j = 0; j < 6; j++) {
-                let m = j + x * 6;
-                document.getElementsByClassName('once-tex')[m].innerHTML = COURSETABLES[choiceweek][j][x];
+        for (let weekdayCount = 0; weekdayCount < 7; weekdayCount++) {
+            for (let sectionCount = 0; sectionCount < 6; sectionCount++) {
+                let tableCount = sectionCount + weekdayCount * 6;
+                document.getElementsByClassName('once-tex')[tableCount].innerHTML = COURSETABLES[choiceweek][sectionCount][weekdayCount];
             }
         }
         document.getElementById('all_input').style.top = '-650px';
         document.getElementById('all_input').style.display = 'none';
         document.getElementById('none-course').style.display = 'block';
         document.getElementById('none-course').style.opacity = 1;
-        uniteHeight(0);
+        uniteHeight();
     }
 }
 
@@ -141,7 +131,7 @@ function backInput() {
     document.getElementById('none-course').style.display = 'none';
     document.getElementById('all_input').style.display = 'block';
     document.getElementById('all_input').style.top = '0px';
-    changeForm(false);
+    changeForm();
     importValue();
     INPUT_NAME.value = member[CURRENTMEMBER];
     deleteDate();
