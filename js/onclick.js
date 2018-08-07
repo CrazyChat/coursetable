@@ -141,7 +141,7 @@ function backInput() {
     document.getElementById('none-course').style.display = 'none';
     document.getElementById('all_input').style.display = 'block';
     document.getElementById('all_input').style.top = '0px';
-    changeForm();
+    changeForm(false);
     importValue();
     INPUT_NAME.value = member[CURRENTMEMBER];
     deleteDate();
@@ -150,11 +150,11 @@ function backInput() {
 // 选择展示周
 function mySelect() {
     let sel_button = document.getElementById('choice-week');
-    let my_select = sel_button.selectedIndex;
-    for (let x = 0; x < 7; x++) {
-        for (let j = 0; j < 6; j++) {
-            let m = j + x * 6;
-            document.getElementsByClassName('once-tex')[m].innerHTML = COURSETABLES[my_select][j][x];
+    let whichWeek = sel_button.selectedIndex;
+    for (let weekdayCount = 0; weekdayCount < 7; weekdayCount++) {
+        for (let sectionCount = 0; sectionCount < 6; sectionCount++) {
+            let tableCount = sectionCount + weekdayCount * 6;sectionCount
+            document.getElementsByClassName('once-tex')[tableCount].innerHTML = COURSETABLES[whichWeek][sectionCount][weekdayCount];
         }
     }
     uniteHeight();
