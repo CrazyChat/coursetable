@@ -72,6 +72,7 @@ function importStorage() {
       alert("导入成功");
     }, 200);
     IfImport = true;
+    IF_INTRODUCE = false;
   } else {
     alert("当前页面已有数据，请刷新页面再导入数据");
   }

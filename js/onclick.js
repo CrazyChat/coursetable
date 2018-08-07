@@ -52,9 +52,9 @@ window.onload = function() {
                 } else if (CURRENTMEMBER === 0) {
                     // 清空表格数据
                     for (let m = 0; m < 2; m++ ){
-                        for(let x = 0; x < 7; x++) {
-                            for (let j = 0; j < 6; j++) {
-                                let m = j + x * 6;
+                        for(let weekdayCountsectionCount = 0; weekdayCountsectionCount < 7; weekdayCountsectionCount++) {
+                            for (let sectionCount = 0; sectionCount < 6; sectionCount++) {
+                                let m = sectionCount + weekdayCountsectionCount * 6;
                                 document.getElementsByClassName('once-tex')[m].value = [];
                             }
                         }

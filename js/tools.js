@@ -1,30 +1,30 @@
-// 交换表格并清掉数据
-function changeForm() {
-    if ($('#form1').is('.form-current') == true) {
-        // 清空表格数据
-        for (let x = 0; x < 7; x++ ) {
-            for (let j = 0; j < 6; j++) {
-                let m = j + x * 6;
-                document.getElementsByClassName('course-star')[m].value = '';
-                document.getElementsByClassName('course-end')[m].value = '';
-                document.getElementsByClassName('course-else')[m].value = '';
-            }
+// 清除表格的数据以供其他成员使用
+function deleteFormValue(whichForm) {
+    for (let weekdayCount = 0; weekdayCount < 7; weekdayCount++ ) {
+        for (let sectionCount = 0; sectionCount < 6; sectionCount++) {
+            let tableCount = sectionCount + weekdayCount * 6 + whichForm * 42;
+            document.getElementsByClassName('course-star')[tableCount].value = '';
+            document.getElementsByClassName('course-end')[tableCount].value = '';
+            document.getElementsByClassName('course-else')[tableCount].value = '';
         }
+    }
+}
+// 交换表格并清掉数据
+function changeForm(allHide) {
+    if ($('#form1').is('.form-current') == true) {
         $("#form1").attr("class", "form-content form-hide");
         $("#form2").attr("class", "form-content form-current");
+        // 清空表格数据
+        deleteFormValue(0);
     } else if ($('#form2').is('.form-current') == true) {
         $("#form2").attr("class", "form-content form-hide");
         $("#form1").attr("class", "form-content form-current");
         // 清空表格数据
-        for (let x = 0; x < 7; x++ ) {
-            for (let j = 0; j < 6; j++) {
-                let m = j + x * 6 + 42;
-                document.getElementsByClassName('course-star')[m].value = '';
-                document.getElementsByClassName('course-end')[m].value = '';
-                document.getElementsByClassName('course-else')[m].value = '';
-            }
-        }
-    } else {
+        deleteFormValue(1)
+    } else if (allHide) {
+        $("#form1").attr("class", "form-content form-hide");
+        $("#form2").attr("class", "form-content form-hide");
+    } else if (!allHide) {
         $("#form1").attr("class", "form-content form-current");
     }
     return;
@@ -65,64 +65,64 @@ function addCourse( user, courseId, weekday, noneCourseWeeks) {
 
 // 修改userCourse数据
 function changeValue() {
-    let t = 1;
-    if ($('#form1').is('.form-current') == true) {
-        t = 0;
-    }
-    for (let x = 0; x < 7; x++ ) {
-        for (let j = 0; j < 6; j++) {
-            let m = j + x * 6 + t * 42;
-            let temp = j + x * 6 + CURRENTMEMBER * 42;
-            let course_star = document.getElementsByClassName('course-star')[m].value;    // 获取开始的周
-            let course_end = document.getElementsByClassName('course-end')[m].value;      // 获取截止的周
-            let course_else = document.getElementsByClassName('course-else')[m].value;    // 获取其他不连续的周
-            // 修改成员输入的数据
-            member_star[temp] = course_star;
-            member_end[temp] = course_end;
-            member_else[temp] = course_else;
-
-            let week = [];
-            let noneweek = [];
-            // 提取第几周到第几周成数组
-            if (course_star) {
-                week[0] = parseInt(course_star);
-                for ( let i = 1,l = course_end - course_star; i <= l; i++ ){
-                    week[i] = parseInt(week[i-1]) + 1;
+    if ($('#form1').is('.form-current') == true || $('#form2').is('.form-current') == true){
+        let t = 1;
+        if ($('#form1').is('.form-current') == true) {
+            t = 0;
+        }
+        for (let x = 0; x < 7; x++ ) {
+            for (let j = 0; j < 6; j++) {
+                let m = j + x * 6 + t * 42;
+                let temp = j + x * 6 + CURRENTMEMBER * 42;
+                let course_star = document.getElementsByClassName('course-star')[m].value;    // 获取开始的周
+                let course_end = document.getElementsByClassName('course-end')[m].value;      // 获取截止的周
+                let course_else = document.getElementsByClassName('course-else')[m].value;    // 获取其他不连续的周
+                // 修改成员输入的数据
+                member_star[temp] = course_star;
+                member_end[temp] = course_end;
+                member_else[temp] = course_else;
+    
+                let week = [];
+                let noneweek = [];
+                // 提取第几周到第几周成数组
+                if (course_star) {
+                    week[0] = parseInt(course_star);
+                    for ( let i = 1,l = course_end - course_star; i <= l; i++ ){
+                        week[i] = parseInt(week[i-1]) + 1;
+                    }
                 }
-            }
-            // 添加额外不连续的周 进数组
-            let num = course_else.match(/\d+/g);
-            if (num) {
-                for (let j = 0, l = num.length; j < l; j++) {
-                    week.push(parseInt(num[j]));
+                // 添加额外不连续的周 进数组
+                let num = course_else.match(/\d+/g);
+                if (num) {
+                    for (let j = 0, l = num.length; j < l; j++) {
+                        week.push(parseInt(num[j]));
+                    }
                 }
-            }
-            // 不用上课的周的数组
-            for (let t = 1; t < WEEKS+1; t++) {
-                if( week.indexOf(t) == -1 ) {
-                    noneweek.push(t);
+                // 不用上课的周的数组
+                for (let t = 1; t < WEEKS+1; t++) {
+                    if( week.indexOf(t) == -1 ) {
+                        noneweek.push(t);
+                    }
                 }
+                userCourses[temp].noneCourseWeeks = noneweek;
             }
-            userCourses[temp].noneCourseWeeks = noneweek;
         }
     }
-    console.log('done changeValue.');
 }
 
 // 导入要显示的成员的数据
 function importValue() {
-    let if_form2 = 1;
+    let if_form2_show = 1;
     if ($('#form1').is('.form-current') == true) {
-        if_form2 = 0;
-        console.log("form1出现");
+        if_form2_show = 0;
     }
-    for (let x = 0; x < 7; x++ ) {
-        for (let j = 0; j < 6; j++) {
-            let m = j + x * 6 + if_form2 * 42;
-            let temp = j + x * 6 + CURRENTMEMBER * 42;
-            document.getElementsByClassName('course-star')[m].value = member_star[temp];
-            document.getElementsByClassName('course-end')[m].value = member_end[temp];
-            document.getElementsByClassName('course-else')[m].value = member_else[temp];
+    for (let weekdayCount = 0; weekdayCount < 7; weekdayCount++ ) {
+        for (let sectionCount = 0; sectionCount < 6; sectionCount++) {
+            let tableCount = sectionCount + weekdayCount * 6 + if_form2_show * 42;
+            let tableCountValue = sectionCount + weekdayCount * 6 + CURRENTMEMBER * 42;
+            document.getElementsByClassName('course-star')[tableCount].value = member_star[tableCountValue];
+            document.getElementsByClassName('course-end')[tableCount].value = member_end[tableCountValue];
+            document.getElementsByClassName('course-else')[tableCount].value = member_else[tableCountValue];
         }    
     }
 }
@@ -170,7 +170,6 @@ function getValue() {
             userCourses.push({ user: member[CURRENTMEMBER], courseId: j, weekday: x, noneCourseWeeks: noneweek });
         }
     }
-    console.log('done getValue.');
 }
 
 // 清空数据
@@ -205,7 +204,6 @@ function uniteHeight() {
         }
     }
     if (maxHeight > 100) {
-        console.log('change divHeight');
         for (let days = 0; days < 7; days++ ) {
             for (let sec = 0; sec < 6; sec++ ) {
                 let sort = sec + days * 6;
