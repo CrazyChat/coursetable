@@ -9,6 +9,7 @@ function deleteFormValue(whichForm) {
         }
     }
 }
+
 // 交换表格并清掉数据
 function changeForm(allHide) {
     if ($('#form1').is('.form-current') == true) {
@@ -32,12 +33,14 @@ function changeForm(allHide) {
 
 // 点击导航栏名字功能
 function clickNav() {
-    let oUl = document.getElementById("members");
-    let aLi = oUl.getElementsByTagName('li');
-    for (let i = 0; i < aLi.length; i++) {
-        aLi[i].index = i;
+    let MemberFather = document.getElementById("members");
+    let Member = MemberFather.getElementsByTagName('li');
+    // 给成员加索引
+    for (let i = 0; i < Member.length; i++) {
+        Member[i].index = i;
     }
-    oUl.onclick = function() {
+    // 点击各个Member发生事件委托
+    MemberFather.onclick = function() {
         var ev = ev || window.event;   // 使用let会报错?
         let target = ev.target || ev.srcElement;
         if(target.nodeName.toLowerCase() == 'li'){
@@ -66,21 +69,21 @@ function addCourse( user, courseId, weekday, noneCourseWeeks) {
 // 修改userCourse数据
 function changeValue() {
     if ($('#form1').is('.form-current') == true || $('#form2').is('.form-current') == true){
-        let t = 1;
-        if ($('#form1').is('.form-current') == true) {
-            t = 0;
+        let whichForm = 0
+        if ( $('#form2').is('.form-current') == true ) {
+            whichForm = 1
         }
-        for (let x = 0; x < 7; x++ ) {
-            for (let j = 0; j < 6; j++) {
-                let m = j + x * 6 + t * 42;
-                let temp = j + x * 6 + CURRENTMEMBER * 42;
-                let course_star = document.getElementsByClassName('course-star')[m].value;    // 获取开始的周
-                let course_end = document.getElementsByClassName('course-end')[m].value;      // 获取截止的周
-                let course_else = document.getElementsByClassName('course-else')[m].value;    // 获取其他不连续的周
+        for (let weekdayCount = 0; weekdayCount < 7; weekdayCount++ ) {
+            for (let sectionCount = 0; sectionCount < 6; sectionCount++) {
+                let tableCount = sectionCount + weekdayCount * 6 + whichForm * 42;        // 当前编辑成员的表格序号
+                let ValueIndex = sectionCount + weekdayCount * 6 + CURRENTMEMBER * 42;          // 当前编辑成员保存在数组的位置段索引
+                let course_star = document.getElementsByClassName('course-star')[tableCount].value;    // 获取开始的周
+                let course_end = document.getElementsByClassName('course-end')[tableCount].value;      // 获取截止的周
+                let course_else = document.getElementsByClassName('course-else')[tableCount].value;    // 获取其他不连续的周
                 // 修改成员输入的数据
-                member_star[temp] = course_star;
-                member_end[temp] = course_end;
-                member_else[temp] = course_else;
+                member_star[ValueIndex] = course_star;
+                member_end[ValueIndex] = course_end;
+                member_else[ValueIndex] = course_else;
     
                 let week = [];
                 let noneweek = [];
@@ -104,7 +107,7 @@ function changeValue() {
                         noneweek.push(t);
                     }
                 }
-                userCourses[temp].noneCourseWeeks = noneweek;
+                userCourses[ValueIndex].noneCourseWeeks = noneweek;
             }
         }
     }
