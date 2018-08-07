@@ -42,42 +42,46 @@ function saveStorage() {
 function importStorage() {
   // 判断是否为启动页面
   if (If_StarPage){
-    // 获取保存的数据
-    let storage = window.localStorage;
-  
-    let temp = storage.getItem("smember_star");
-    member_star = JSON.parse(temp);
-
-    temp = storage.getItem("smember_end");
-    member_end = JSON.parse(temp);
-
-    temp = storage.getItem("smember_else");
-    member_else = JSON.parse(temp);
-
-    temp = storage.getItem("smember");
-    member = JSON.parse(temp);
-
-    temp = storage.getItem("suserCourses");
-    userCourses = JSON.parse(temp);
+    if (localStorage.length > 0) {
+      // 获取保存的数据
+      let storage = window.localStorage;
     
-    // 名字输入框显示“姓名”
-    INPUT_NAME.value = "姓名";
-    // 向导航栏导入名字并赋予点击响应
-    let oUl = document.getElementById("members");
-    for (let i = 0, l = member.length; i < l; i++) {
-      let oLi = document.createElement('li');
-      oLi.innerHTML = member[i];
-      oLi.className = "member";
-      oUl.appendChild(oLi);
-      IF_FIRST.push(1);
+      let temp = storage.getItem("smember_star");
+      member_star = JSON.parse(temp);
+  
+      temp = storage.getItem("smember_end");
+      member_end = JSON.parse(temp);
+  
+      temp = storage.getItem("smember_else");
+      member_else = JSON.parse(temp);
+  
+      temp = storage.getItem("smember");
+      member = JSON.parse(temp);
+  
+      temp = storage.getItem("suserCourses");
+      userCourses = JSON.parse(temp);
+      
+      // 名字输入框显示“姓名”
+      INPUT_NAME.value = "姓名";
+      // 向导航栏导入名字并赋予点击响应
+      let oUl = document.getElementById("members");
+      for (let i = 0, l = member.length; i < l; i++) {
+        let oLi = document.createElement('li');
+        oLi.innerHTML = member[i];
+        oLi.className = "member";
+        oUl.appendChild(oLi);
+        IF_FIRST.push(1);
+      }
+      clickNav();
+      // 提示导入成功
+      setTimeout(function() {
+        alert("导入成功");
+      }, 200);
+      If_StarPage = false;
+    } else {
+      alert('数据库中没有您保存的数据...');
     }
-    clickNav();
-    // 提示导入成功
-    setTimeout(function() {
-      alert("导入成功");
-    }, 200);
-    If_StarPage = false;
   } else {
-    alert("当前页面已有数据，请刷新页面再导入数据");
+    alert("当前页面已有数据，请在启动页面导入数据");
   }
 }

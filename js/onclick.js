@@ -74,6 +74,8 @@ window.onload = function() {
                 }
                 clickNav();
             }
+        } else {
+            alert('当前没有选择成员,请先选择成员');
         }
     }
 };
@@ -108,6 +110,8 @@ function NoCourseTable() {
         document.getElementById('none-course').style.display = 'block';
         document.getElementById('none-course').style.opacity = 1;
         uniteHeight();
+    } else {
+        alert('当前没有可操作成员,请先添加成员');
     }
 }
 
