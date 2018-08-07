@@ -187,10 +187,10 @@ function deleteDate() {
     }
     // 清空空课表表格数据
     $("#week1").attr("class", "fianll-table week-current");
-    for (let x = 0; x < 7; x++ ) {
-        for (let j = 0; j < 6; j++) {
-            let m = j + x * 6;
-            document.getElementsByClassName('once-tex')[m].innerHTML = '';
+    for (let weekdayCount = 0; weekdayCount < 7; weekdayCount++ ) {
+        for (let sectionCount = 0; sectionCount < 6; sectionCount++) {
+            let tableCount = sectionCount + weekdayCount * 6;
+            document.getElementsByClassName('once-tex')[tableCount].innerHTML = '';
         }
     }
 }
