@@ -193,7 +193,7 @@ function deleteDate() {
     }
 }
 
-// 遍历tex获取最高的高度，改变所有tex高度为它
+// 遍历tex获取最高的高度，改变所有tex高度为它,使所有小格高度一致为最小
 function uniteHeight() {
     let maxHeight = 100;
     for (let days = 0; days < 7; days++ ) {

@@ -8,6 +8,7 @@ function saveStorage() {
       getValue();
       IF_FIRST[CURRENTMEMBER] = 1;    // 数据写入到userCourses里了
   }
+  // 开始保存数据
   let storage = window.localStorage;
   storage.clear();
 
@@ -34,6 +35,7 @@ function saveStorage() {
 
 // 导入Storage数据
 function importStorage() {
+  // 判断是否为启动页面
   if (IF_INTRODUCE){
     // 获取保存的数据
     let storage = window.localStorage;
@@ -55,7 +57,7 @@ function importStorage() {
     
     // 名字输入框显示“姓名”
     INPUT_NAME.value = "姓名";
-    // 向导航栏输入名字并赋予点击响应
+    // 向导航栏导入名字并赋予点击响应
     let oUl = document.getElementById("members");
     for (let i = 0, l = member.length; i < l; i++) {
       let oLi = document.createElement('li');
@@ -65,6 +67,7 @@ function importStorage() {
       IF_FIRST.push(1);
     }
     clickNav();
+    // 提示导入成功
     setTimeout(function() {
       alert("导入成功");
     }, 200);
