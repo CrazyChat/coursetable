@@ -115,17 +115,17 @@ function changeValue() {
 
 // 导入要显示的成员的数据
 function importValue() {
-    let if_form2_show = 1;
-    if ($('#form1').is('.form-current') == true) {
-        if_form2_show = 0;
+    let whichForm = 0;
+    if ($('#form2').is('.form-current') == true) {
+        whichForm = 1;
     }
     for (let weekdayCount = 0; weekdayCount < 7; weekdayCount++ ) {
         for (let sectionCount = 0; sectionCount < 6; sectionCount++) {
-            let tableCount = sectionCount + weekdayCount * 6 + if_form2_show * 42;
-            let tableCountValue = sectionCount + weekdayCount * 6 + CURRENTMEMBER * 42;
-            document.getElementsByClassName('course-star')[tableCount].value = member_star[tableCountValue];
-            document.getElementsByClassName('course-end')[tableCount].value = member_end[tableCountValue];
-            document.getElementsByClassName('course-else')[tableCount].value = member_else[tableCountValue];
+            let tableCount = sectionCount + weekdayCount * 6 + whichForm * 42;
+            let ValueIndex = sectionCount + weekdayCount * 6 + CURRENTMEMBER * 42;          // 保存在数组的位置段索引
+            document.getElementsByClassName('course-star')[tableCount].value = member_star[ValueIndex];
+            document.getElementsByClassName('course-end')[tableCount].value = member_end[ValueIndex];
+            document.getElementsByClassName('course-else')[tableCount].value = member_else[ValueIndex];
         }    
     }
 }
