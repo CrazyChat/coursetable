@@ -12,8 +12,14 @@ function saveStorage() {
       // 开始保存数据
       let storage = window.localStorage;
       storage.clear();
-    
-      let temp = JSON.stringify(member_star);
+
+      let temp = JSON.stringify(weekdayCounts);
+      storage.setItem("sweekdayCounts", temp);
+
+      temp = JSON.stringify(sectionCounts);
+      storage.setItem("ssectionCounts", temp);
+
+      temp = JSON.stringify(member_star);
       storage.setItem("smember_star", temp);
     
       temp = JSON.stringify(member_end);
@@ -46,7 +52,14 @@ function importStorage() {
       // 获取保存的数据
       let storage = window.localStorage;
     
-      let temp = storage.getItem("smember_star");
+      let temp = storage.getItem("sweekdayCounts");
+      weekdayCounts = JSON.parse(temp);
+      
+      temp = storage.getItem("ssectionCounts");
+      sectionCounts = JSON.parse(temp);
+      eachTableCounts = weekdayCounts * sectionCounts;
+
+      temp = storage.getItem("smember_star");
       member_star = JSON.parse(temp);
   
       temp = storage.getItem("smember_end");
