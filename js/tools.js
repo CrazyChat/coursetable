@@ -132,21 +132,21 @@ function importValue() {
 
 // 获取输入的课表并写入userCourse
 function getValue() {
-    let w = 1;
-    if ($('#form1').is('.form-current') == true) {
-        w = 0;
+    let whichForm = 0;
+    if ($('#form2').is('.form-current') == true) {
+        whichForm = 1;
     }
-    for (let x = 0; x < 7; x++ ) {
-        for (let j = 0; j < 6; j++) {
-            let m = j + x * 6 + w * 42;
-            let temp = j + x * 6 + CURRENTMEMBER * 42;
-            let course_star = document.getElementsByClassName('course-star')[m].value;    // 获取开始的周
-            let course_end = document.getElementsByClassName('course-end')[m].value;      // 获取截止的周
-            let course_else = document.getElementsByClassName('course-else')[m].value;    // 获取其他不连续的周
-            // 保存成员输入的数据
-            member_star[temp] = course_star;
-            member_end[temp] = course_end;
-            member_else[temp] = course_else;
+    for (let weekdayCount = 0; weekdayCount < 7; weekdayCount++ ) {
+        for (let sectionCount = 0; sectionCount < 6; sectionCount++) {
+            let tableCount = sectionCount + weekdayCount * 6 + whichForm * 42;
+            let ValueIndex = sectionCount + weekdayCount * 6 + CURRENTMEMBER * 42;
+            let course_star = document.getElementsByClassName('course-star')[tableCount].value;    // 获取开始的周
+            let course_end = document.getElementsByClassName('course-end')[tableCount].value;      // 获取截止的周
+            let course_else = document.getElementsByClassName('course-else')[tableCount].value;    // 获取其他不连续的周
+            // 保存上一个成员输入的数据
+            member_star[ValueIndex] = course_star;
+            member_end[ValueIndex] = course_end;
+            member_else[ValueIndex] = course_else;
 
             let week = [];
             let noneweek = [];
@@ -170,7 +170,7 @@ function getValue() {
                     noneweek.push(t);
                 }
             }
-            userCourses.push({ user: member[CURRENTMEMBER], courseId: j, weekday: x, noneCourseWeeks: noneweek });
+            userCourses.push({ user: member[CURRENTMEMBER], courseId: sectionCount, weekday: weekdayCount, noneCourseWeeks: noneweek });
         }
     }
 }
