@@ -3,11 +3,11 @@ function saveStorage() {
   if (member.length > 0) {
     if (confirm('新数据将会覆盖之前的数据，确定此操作吗？')) {
       // 提交前一个成员的数据并保存数据
-      if (IF_FIRST[CURRENTMEMBER] === 1) {
+      if (If_First[CurrentMember] === 1) {
           changeValue();
       } else {
           getValue();
-          IF_FIRST[CURRENTMEMBER] = 1;    // 数据写入到userCourses里了
+          If_First[CurrentMember] = 1;    // 数据写入到userCourses里了
       }
       // 开始保存数据
       let storage = window.localStorage;
@@ -62,7 +62,7 @@ function importStorage() {
       userCourses = JSON.parse(temp);
       
       // 名字输入框显示“姓名”
-      INPUT_NAME.value = "姓名";
+      Input_Name.value = "姓名";
       // 向导航栏导入名字并赋予点击响应
       let oUl = document.getElementById("members");
       for (let i = 0, l = member.length; i < l; i++) {
@@ -70,7 +70,7 @@ function importStorage() {
         oLi.innerHTML = member[i];
         oLi.className = "member";
         oUl.appendChild(oLi);
-        IF_FIRST.push(1);
+        If_First.push(1);
       }
       clickNav();
       // 提示导入成功

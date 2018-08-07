@@ -13,18 +13,18 @@ window.onload = function() {
                 If_StarPage = false;
             } else {
                 // 提交前一个成员的数据并保存数据
-                if (IF_FIRST[CURRENTMEMBER] === 1) {
+                if (If_First[CurrentMember] === 1) {
                     changeValue();
                 } else {
                     getValue();
-                    IF_FIRST[CURRENTMEMBER] = 1;    // 数据写入到userCourses里了
+                    If_First[CurrentMember] = 1;    // 数据写入到userCourses里了
                 }
                 // 添加新成员
-                CURRENTMEMBER = member.length;
+                CurrentMember = member.length;
             }
             // 交换表格并清掉数据
             changeForm(false);
-            INPUT_NAME.value = str;
+            Input_Name.value = str;
             // 向导航栏添加成员并赋予功能
             let oLi = document.createElement('li');
             oLi.innerHTML = str;
@@ -32,7 +32,7 @@ window.onload = function() {
             memberFather.appendChild(oLi);
             clickNav();
             // 新建对象
-            member[CURRENTMEMBER] = str;
+            member[CurrentMember] = str;
         }
     };
     // 点击删除成员按钮
@@ -40,10 +40,10 @@ window.onload = function() {
         if (member.length > 0 && ($('#form1').is('.form-current') == true || $('#form2').is('.form-current') == true)) {
             if (confirm('确定要删除该成员？？？')) {
                 // 更换表格
-                if (CURRENTMEMBER > 0 || member.length > 1) {
+                if (CurrentMember > 0 || member.length > 1) {
                     // 更换页面表格
                     changeForm();
-                } else if (CURRENTMEMBER === 0 && member.length === 1) {
+                } else if (CurrentMember === 0 && member.length === 1) {
                     // 清空表格数据
                     changeForm();
                     $("#form1").attr("class", "form-content form-hide");
@@ -53,21 +53,21 @@ window.onload = function() {
                     If_StarPage = true;
                 }
                 // 清除已经提交到userCourse的数据和保存的成员输入数据
-                if (IF_FIRST[CURRENTMEMBER] === 1) {
-                    let ValueIndex = CURRENTMEMBER * 42;
+                if (If_First[CurrentMember] === 1) {
+                    let ValueIndex = CurrentMember * 42;
                     userCourses.splice(ValueIndex, 42);
                     member_star.splice(ValueIndex, 42);
                     member_end.splice(ValueIndex, 42);
                     member_else.splice(ValueIndex, 42);
                 }
                 // 清除导航栏的该成员的li标签
-                $("#members li:eq(" + CURRENTMEMBER + ")").remove();
+                $("#members li:eq(" + CurrentMember + ")").remove();
                 // 清除当前成员
-                member.splice(CURRENTMEMBER,1);
-                IF_FIRST.splice(CURRENTMEMBER,1);
+                member.splice(CurrentMember,1);
+                If_First.splice(CurrentMember,1);
                 // 姓名框变成即将展示的成员姓名（最后一个成员）
-                CURRENTMEMBER = member.length - 1;
-                INPUT_NAME.value =  member[CURRENTMEMBER] || '姓名';
+                CurrentMember = member.length - 1;
+                Input_Name.value =  member[CurrentMember] || '姓名';
                 // 导入要显示的成员的数据
                 if (!If_StarPage) {
                     importValue();
@@ -85,13 +85,13 @@ function NoCourseTable() {
     if (!If_StarPage) {
         document.getElementById('introduce').className = 'form-hide';
         // 提交当前修改的成员数据
-        if (IF_FIRST[CURRENTMEMBER] === 1) {
+        if (If_First[CurrentMember] === 1) {
             changeValue();
         } else {
             getValue();
-            IF_FIRST[CURRENTMEMBER] = 1;
+            If_First[CurrentMember] = 1;
         }
-        CURRENTMEMBER = member.length - 1;
+        CurrentMember = member.length - 1;
         // 将userCourse所有数据写入课表COURSETABLES
         userCourses.forEach(userCourse => {
             userCourse.noneCourseWeeks.forEach(week => {
@@ -123,7 +123,7 @@ function backInput() {
     document.getElementById('all_input').style.top = '0px';
     changeForm();
     importValue();
-    INPUT_NAME.value = member[CURRENTMEMBER];
+    Input_Name.value = member[CurrentMember];
     deleteDate();
 }
 

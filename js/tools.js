@@ -44,14 +44,14 @@ function clickNav() {
         var ev = ev || window.event;   // 使用let会报错?
         let target = ev.target || ev.srcElement;
         if(target.nodeName.toLowerCase() == 'li'){
-            if (IF_FIRST[CURRENTMEMBER] === 1) {
+            if (If_First[CurrentMember] === 1) {
                 changeValue();
             } else {
                 getValue();
-                IF_FIRST[CURRENTMEMBER] = 1;
+                If_First[CurrentMember] = 1;
             }
-            CURRENTMEMBER = target.index;
-            INPUT_NAME.value = document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML;
+            CurrentMember = target.index;
+            Input_Name.value = document.getElementsByClassName('member')[CurrentMember].innerHTML;
             changeForm();
             importValue();
         }
@@ -73,7 +73,7 @@ function changeValue() {
         for (let weekdayCount = 0; weekdayCount < 7; weekdayCount++ ) {
             for (let sectionCount = 0; sectionCount < 6; sectionCount++) {
                 let tableCount = sectionCount + weekdayCount * 6 + whichForm * 42;        // 当前编辑成员的表格序号
-                let ValueIndex = sectionCount + weekdayCount * 6 + CURRENTMEMBER * 42;          // 当前编辑成员保存在数组的位置段索引
+                let ValueIndex = sectionCount + weekdayCount * 6 + CurrentMember * 42;          // 当前编辑成员保存在数组的位置段索引
                 let course_star = document.getElementsByClassName('course-star')[tableCount].value;    // 获取开始的周
                 let course_end = document.getElementsByClassName('course-end')[tableCount].value;      // 获取截止的周
                 let course_else = document.getElementsByClassName('course-else')[tableCount].value;    // 获取其他不连续的周
@@ -99,7 +99,7 @@ function changeValue() {
                     }
                 }
                 // 不用上课的周的数组
-                for (let t = 1; t < WEEKS+1; t++) {
+                for (let t = 1; t < Weeks+1; t++) {
                     if( week.indexOf(t) == -1 ) {
                         noneweek.push(t);
                     }
@@ -119,7 +119,7 @@ function importValue() {
     for (let weekdayCount = 0; weekdayCount < 7; weekdayCount++ ) {
         for (let sectionCount = 0; sectionCount < 6; sectionCount++) {
             let tableCount = sectionCount + weekdayCount * 6 + whichForm * 42;
-            let ValueIndex = sectionCount + weekdayCount * 6 + CURRENTMEMBER * 42;          // 保存在数组的位置段索引
+            let ValueIndex = sectionCount + weekdayCount * 6 + CurrentMember * 42;          // 保存在数组的位置段索引
             document.getElementsByClassName('course-star')[tableCount].value = member_star[ValueIndex];
             document.getElementsByClassName('course-end')[tableCount].value = member_end[ValueIndex];
             document.getElementsByClassName('course-else')[tableCount].value = member_else[ValueIndex];
@@ -136,7 +136,7 @@ function getValue() {
     for (let weekdayCount = 0; weekdayCount < 7; weekdayCount++ ) {
         for (let sectionCount = 0; sectionCount < 6; sectionCount++) {
             let tableCount = sectionCount + weekdayCount * 6 + whichForm * 42;
-            let ValueIndex = sectionCount + weekdayCount * 6 + CURRENTMEMBER * 42;
+            let ValueIndex = sectionCount + weekdayCount * 6 + CurrentMember * 42;
             let course_star = document.getElementsByClassName('course-star')[tableCount].value;    // 获取开始的周
             let course_end = document.getElementsByClassName('course-end')[tableCount].value;      // 获取截止的周
             let course_else = document.getElementsByClassName('course-else')[tableCount].value;    // 获取其他不连续的周
@@ -162,12 +162,12 @@ function getValue() {
                 }
             }
             // 不用上课的周的数组
-            for (let t = 1; t < WEEKS+1; t++) {
+            for (let t = 1; t < Weeks+1; t++) {
                 if( week.indexOf(t) == -1 ) {
                     noneweek.push(t);
                 }
             }
-            userCourses.push({ user: member[CURRENTMEMBER], courseId: sectionCount, weekday: weekdayCount, noneCourseWeeks: noneweek });
+            userCourses.push({ user: member[CurrentMember], courseId: sectionCount, weekday: weekdayCount, noneCourseWeeks: noneweek });
         }
     }
 }
@@ -175,7 +175,7 @@ function getValue() {
 // 清空数据
 function deleteDate() {
     // 清空COURSETABLES的数据
-    for (let i = 0; i < WEEKS; i++) {
+    for (let i = 0; i < Weeks; i++) {
         for (let j = 0; j <= 5; j++) {
             for(let k = 0; k <= 6; k++) {
                 COURSETABLES[i][j][k].length = 0;

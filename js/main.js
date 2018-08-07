@@ -2,17 +2,18 @@ console.log('author: 陈铭涛');
 console.log('School: 佛山科学技术学院');
 console.log('Class: 17计算机科学与技术1班');
 console.log('WeChat: L13049045466');
-let CURRENTMEMBER = 0;   // 计算当前是哪个成员
+
+let CurrentMember = 0;   // 计算当前是哪个成员
 let If_StarPage = true;    // 判断当前是否为介绍页面
-let INPUT_NAME = document.getElementsByClassName('left-name')[0];  // 名字输入框的姓名
-let WEEKS = 16 // 表示学期的周数为16周，可以设置为让用户输入
-let IF_FIRST = [];       // 判断成员数据是否已经提交到了userCourses
+let Input_Name = document.getElementsByClassName('left-name')[0];  // 名字输入框的姓名
+let Weeks = 16 // 表示学期的周数为16周，可以设置为让用户输入
+let If_First = [];       // 判断成员数据是否已经提交到了userCourses
 // 保存每个成员的数据
 let member_star = [];
 let member_end = [];
 let member_else = [];
 let COURSETABLES = [] // 16个周的课程表, COURSETABLES[0]表示第一周的课表
-for (let i = 0; i < WEEKS; i++) {
+for (let i = 0; i < Weeks; i++) {
     /**
      * push的是一个周课程表，假设叫做courseTable，三维数组，courseTable[i][j]是一个数组，存储着当前课程时间段内有课的人及其有课的周
      * i表示课时，取值范围为0~5表示：1-2，3-4，5-6，7-8，9，10-11
@@ -46,7 +47,7 @@ let userCourses = [
 // 姓名输入框的修改
 function changeName() {
     if ($('#introduce').is('.form-current') !== true) {
-        document.getElementsByClassName('member')[CURRENTMEMBER].innerHTML = INPUT_NAME.value;
-        member[CURRENTMEMBER] = INPUT_NAME.value;
+        document.getElementsByClassName('member')[CurrentMember].innerHTML = Input_Name.value;
+        member[CurrentMember] = Input_Name.value;
     }
 }
