@@ -68,7 +68,13 @@ function deleteMember(){
             if (!If_StarPage) {
                 importValue();
             }
-            clickNav();
+            if (CurrentMember < 0) {
+                CurrentMember = 0;
+            } else {
+                clickNav();
+                console.log('执行了clickNav()')
+            }
+            console.log(CurrentMember)
         }
     } else {
         alert('当前没有选择成员,请先选择成员');
