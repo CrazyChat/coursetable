@@ -255,7 +255,6 @@ div,input,li,textarea {
     display: block;
     margin: 2px 0;
     color: #376792;
-    cursor: pointer;
 }
 .member:hover {
     color: #0484f7;

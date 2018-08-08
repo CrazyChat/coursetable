@@ -2,15 +2,7 @@ console.log('author: 陈铭涛');
 console.log('School: 佛山科学技术学院');
 console.log('Class: 17计算机科学与技术1班');
 console.log('WeChat: L13049045466');
-// 判断电脑还是手机
-(function () {
-    if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) { //移动端
-        document.body.innerHTML = "请使用电脑浏览器登录..."
-        return false
-    } else {
-        return;
-    }
-})()
+
 // 选择有几周
 // let Weeks;
 // $(function(){ 
