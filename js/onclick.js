@@ -33,7 +33,7 @@ function newMember(){
 }
 // 点击删除成员按钮
 function deleteMember(){
-    if (member.length > 0 && ($('#form1').is('.form-current') == true || $('#form2').is('.form-current') == true)) {
+    if (member.length > 0 && ($('#form1').is('.form-show') == true || $('#form2').is('.form-show') == true)) {
         if (confirm('确定要删除该成员？？？')) {
             // 更换表格
             if (CurrentMember > 0 || member.length > 1) {
@@ -42,9 +42,9 @@ function deleteMember(){
             } else if (CurrentMember === 0 && member.length === 1) {
                 // 清空表格数据
                 changeForm();
-                $("#form1").attr("class", "form-content form-hide");
-                $("#form2").attr("class", "form-content form-hide");
-                $("#introduce").attr("class", "form-current");
+                $("#form1").attr("class", "form-background form-hide");
+                $("#form2").attr("class", "form-background form-hide");
+                $("#introduce").attr("class", "form-background form-show");
                 //
                 If_StarPage = true;
             }
@@ -78,7 +78,6 @@ function deleteMember(){
 // 计算空课表按钮功能
 function NoCourseTable() {
     if (!If_StarPage) {
-        document.getElementById('introduce').className = 'form-hide';
         // 提交当前修改的成员数据
         if (If_First[CurrentMember] === 1) {
             changeValue();
@@ -100,10 +99,8 @@ function NoCourseTable() {
                 document.getElementsByClassName('once-tex')[tableCount].innerHTML = COURSETABLES[choiceweek][sectionCount][weekdayCount];
             }
         }
-        document.getElementById('all_input').style.top = '-650px';
-        document.getElementById('all_input').style.display = 'none';
-        document.getElementById('none-course').style.display = 'block';
-        document.getElementById('none-course').style.opacity = 1;
+        $('#none-course').css('display', 'block');
+        $('#input-page').css('display', 'none');
         uniteHeight();
     } else {
         alert('当前没有可操作成员,请先添加成员');
@@ -112,10 +109,8 @@ function NoCourseTable() {
 
 // 返回输入页面按钮
 function backInput() {
-    document.getElementById('none-course').style.opacity = 0;
-    document.getElementById('none-course').style.display = 'none';
-    document.getElementById('all_input').style.display = 'block';
-    document.getElementById('all_input').style.top = '0px';
+    $('#input-page').css('display', 'block');
+    $('#none-course').css('display', 'none');
     changeForm();
     importValue();
     Input_Name.value = member[CurrentMember];

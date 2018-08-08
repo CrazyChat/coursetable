@@ -1,76 +1,43 @@
 body {
     margin: 0 auto;
     padding: 0 auto;
-}
-ul,li {
+  }
+  ul,li {
     margin: 0;
     padding: 0;
     list-style-type: none;
-}
-div,input,li,textarea {
+  }
+  div,input,li,textarea {
     box-sizing: border-box;
-}
-/*--------------共用组件--------------*/
-/* 浮动 */
-.floatLeft {
+  }
+  
+  
+  
+  /*--------------共用组件--------------*/
+  /* 浮动 */
+  .floatLeft {
     float: left;
-}
-/* 解决子元素浮动致使父元素高度为0 */
-#all::after,
-#course-days>ul::after,
-#main,
-.finall-days>ul::after,
-#none-course::after {
-    content: '';
-    display: table;
-    clear: both;
-}
-
-/* 整体 */
-#all_input {
-    position: absolute;
-    z-index: 10000;
-    width: 1240px;
-    height: 650px;
-    margin: 0 auto;
-    font-size: 0;      /* 消除设置line-block后产生的间隙 */
-    background-size: 100% 100%;
-    -moz-background-size:100% 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 0px;      
+  }
+  /* 显示 || 隐藏 */
+  .form-show {
+    top: 10px;
     transition: all 1s;
-    background-color: #eaeaea;
-    /* background: linear-gradient(45deg,#eaeaea, rgb(150, 227, 250)); */
-    /* background: linear-gradient(45deg,#e7ffed, rgb(150, 210, 228)); */
-    /* background: radial-gradient(#42daff, rgb(150, 227, 250), #eaeaea); */
-    background: -webkit-radial-gradient(#e7ffed, rgb(150, 210, 228), #eaeaea);
-    background: -o-radial-gradient(#e7ffed, rgb(150, 210, 228), #eaeaea);
-    background: -moz-radial-gradient(#e7ffed, rgb(150, 210, 228), #eaeaea);
-    background: radial-gradient(#e7ffed, rgb(150, 210, 228), #eaeaea);
-}
-
-/*--------------左边姓名处--------------*/
-#left {
-    position: relative;
-    display: inline-block;
-    width: 17%;
-    height: 100%;
-    
-}
-.left-wrap {
-    position: absolute;
-    width: 100%;
-    height: 30%;
-    top: 120px;
-}
-.left-name,
-#saveStorage,
-#importStorage,
-#delete-name,
-#use-course,
-#new-member,
-.compete {
+  }
+  .form-hide {
+    top: -630px;
+    transition: all 1s;
+  }
+  /* 解决子元素浮动致使父元素高度为0 */
+  .finall-day>ul::after,
+  .main::after,
+  .course-days>ul::after,
+  #input-page::after {
+      content: '';
+      display: table;
+      clear: both;
+  }
+  /* 按钮 */
+  .button-style {
     display: block;
     margin: 20px auto;
     width: 110px;
@@ -83,265 +50,216 @@ div,input,li,textarea {
     font-size: 20px;
     background-color: rgba(255,255,255,0.5);
     color: #376792;
-}
-#delete-name:hover {
-    cursor: pointer;
-    background-color: #fd7575;
-    color: #fff;
-}
-#saveStorage:hover,
-#importStorage:hover,
-#saveValue:hover,
-#use-course:hover,
-#new-member:hover,
-.compete:hover {
+  }
+  /* 整体 */
+  #body-content {
+    margin: 0 auto;
+    width: 100%;
+    height: 650px;
+    max-width: 1500px;
+    min-width: 1200px;
+  }
+  /*----------------------------编辑页面----------------------------*/
+  #input-page {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: -webkit-radial-gradient(#e7ffed, rgb(150, 210, 228), #eaeaea);
+    background: -o-radial-gradient(#e7ffed, rgb(150, 210, 228), #eaeaea);
+    background: -moz-radial-gradient(#e7ffed, rgb(150, 210, 228), #eaeaea);
+    background: radial-gradient(#e7ffed, rgb(150, 210, 228), #eaeaea);
+  }
+  /*--------------左边姓名处--------------*/
+  #input-left {
+    float: left;
+    width: 17%;
+    height: 100%;
+  }
+  .left-content {
+    width: 100%;
+    height: 100%;
+    padding-top: 120px;
+  }
+  .button-style:hover {
     cursor: pointer;
     background-color: rgba(255,255,255,0.7);
-}
-
-
-/*--------------中间表格处--------------*/
-#form {
-    position: relative;
-    display: inline-block;
+  }
+  #delete-name:hover {
+    background-color: #fd7575;
+    color: #fff;
+  }
+  /*--------------右边导航处--------------*/
+  #input-right {
+    float: right;
+    width: 17%;
+    height: 100%;
+  }
+  .right-content {
+    width: 100%;
+    height: 100%;
+    padding-top: 10px;
+  }
+  .nav {
+    width: 100%;
+    height: 75%;
+  }
+  .nav-content {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    border-radius:5px;
+    background-color: rgba(255,255,255,0.5);
+    font-size: 15px;
+  }
+  #members {
+    height: 475px;
+    overflow: scroll;
+    text-align: center;
+  }
+  .member:first-child {
+    margin-top: 12px;
+  }
+  .member {
+    display: block;
+    margin: 2px 0;
+    color: #376792;
+  }
+  .member:hover {
+    color: #0484f7;
+    cursor: pointer;
+  }
+  .right-button {
+    width: 100%;
+    height: 25%;
+  }
+  #new-member,
+  #compete {
+    width: 130px;
+  }
+  /*--------------中间表格处--------------*/
+  #input-center {
+    float: left;
     width: 66%;
     height: 100%;
     font-size: 18px;
-}
-.form-content,
-#introduce {
+  }
+  .center-content {
+    width: 800px;
+    height: 630px;
+    margin: 0 auto;
+  }
+  .form-background {
     position: absolute;
     width: 800px;
     height: 630px;
     border-radius: 5px;
     background-color:rgba(255,255,255,0.5);
-}
-.form-current {
-    top: 10px;
-    transition: all 1s;
-}
-.form-hide {
-    top: -630px;
-    transition: all 1s;
-}
-/* 介绍 */
-.author {
+  }
+  #course-days {
     width: 100%;
-    height: 15%;
-    text-align: centet;
-}
-
-/* 星期几 */
-/* 第几节 */
-.course-day,
-.course-section {
-    line-height: 90px;
-    font-weight: bold;
-    font-size: 20px;
-}
-.course-day,
-.course-section,
-.course-num {
-    display: block;
-    width: 100px;
     height: 90px;
-    text-align: center;
-    font-size: 16px;
-}
-#course-sections {
-    float: left;
-    width: 100px;
-}
-/* 课程表格 */
-.course-form {
+  }
+  #main {
+    width: 100%;
+    height: 540px;
+  }
+  /* 星期几 */
+  /* 第几节 */
+  .course-day,
+  .course-section {
+      line-height: 90px;
+      font-weight: bold;
+      font-size: 20px;
+  }
+  .course-day,
+  .course-section,
+  .course-num {
+      display: block;
+      width: 100px;
+      height: 90px;
+      text-align: center;
+      font-size: 16px;
+  }
+  .course-sections {
+      float: left;
+      width: 100px;
+  }
+  /* 课程表格 */
+  .course-form {
     float: left;
     height: 540px;
     width: 700px;
-}
-.course-num input {
+  }
+  .week {
+    float: left;
+    width: 100px;
+  }
+  .course-num input {
     font-size: 18px;
     font-weight: 100;
-}
-.course-star,
-.course-end {
-    display: block;
-    float: left;
-    width: 30px;
-    height: 30px;
-    margin: 10px 7px;
-    text-align: center;
-    background: none;
-    border: .1px solid rgba(0,0,0,.2);
-}
-.star-end {
-    width: 10px;
-    height: 20px;
-    line-height: 20px;
-    margin: 15px 0;
-    text-align: center;
-}
-.course-else {
-    display: block;
-    margin: 0 auto;
-    width: 92%;
-    height: 30px;
-    background: none;
-    text-align: center;
-    border: .1px solid rgba(0,0,0,.2);
-}
-.week {
-    float: left;
-}
-
-/* 表格分割线 */
-.course-day,
-.course-section,
-.course-num,
-.once-tex,
-.finall-day,
-.finall-section {
-    border-right: 1px solid rgba(0,0,0,.2);
-    border-bottom: 1px solid rgba(0,0,0,.2);
-}
-.finall-section {
+  }
+  .course-star,
+  .course-end {
+      display: block;
+      float: left;
+      width: 30px;
+      height: 30px;
+      margin: 10px 7px;
+      text-align: center;
+      background: none;
+      border: .1px solid rgba(0,0,0,.2);
+  }
+  .star-end {
+      width: 10px;
+      height: 20px;
+      line-height: 20px;
+      margin: 15px 0;
+      text-align: center;
+  }
+  .course-else {
+      display: block;
+      margin: 0 auto;
+      width: 92%;
+      height: 30px;
+      background: none;
+      text-align: center;
+      border: .1px solid rgba(0,0,0,.2);
+  }
+  /* 表格分割线 */
+  .course-day,
+  .course-section,
+  .course-num,
+  .once-tex,
+  .finall-day,
+  .finall-section {
+      border-right: 1px solid rgba(0,0,0,.2);
+      border-bottom: 1px solid rgba(0,0,0,.2);
+  }
+  .finall-section {
     border-left: 1px solid rgba(0,0,0,.2);
-}
-.finall-day {
+  }
+  .finall-day {
     border-top: 1px solid rgba(0,0,0,.2);
-}
-.finall-day:first-child {
+  }
+  .finall-day:first-child {
     color: #fd7575;
     border-left: 1px solid rgba(0,0,0,.2);
-}
-
-
-/*--------------右边导航处--------------*/
-#right {
-    position: relative;
-    display: inline-block;
-    width: 17%;
-    height: 100%;
-}
-.right-wrap {
-    position: absolute;
+  }
+  /*----------------------------输出页面----------------------------*/
+  /* 空课表样式 */
+  #none-course {
     width: 100%;
     height: 100%;
-}
-.nav {
-    position: relative;
-    width: 100%;
-    height: 75%;
-}
-.nav-wrap {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    height: 98%;
-    border-radius:5px;
-    background-color: rgba(255,255,255,0.5);
-    font-size: 15px;
-    text-align: center;
-}
-#members {
-    height: 475px;
-    overflow: scroll;
-}
-.member:first-child {
-    margin-top: 10px;
-}
-.member {
-    display: block;
-    margin: 2px 0;
-    color: #376792;
-}
-.member:hover {
-    color: #0484f7;
-    cursor: pointer;
-}
-
-
-
-.finall {
-    width: 100%;
-    height: 25%;
-}
-#new-member,
-.compete {
-    
-    width: 130px;
-}
-.finall-wrap {
-    position: absolute;
-    width: 100%;
-}
-
-
-/* 空课表样式 */
-#none-course {
-    position: absolute;
-    z-index: 100;
-    width: 100%;
-    max-width: 1500px;
-    min-width: 1200px;
-    opacity: 0;    
     display: none;
-    transition: all 1s;
-    left: 50%;
-    transform: translateX(-50%);
-}
-.fianll-table-wrap {
+  }
+  .finall-content {
     width: 80%;
     margin: 10px auto;
-}
-.finall-content {
-    position: relative;
+  }
+  .finall-days {
     width: 100%;
-    height: 100%;
-}
-#choice {
-    position: absolute;
-    top: 5px;
-    display: block;
-    
-    height: 30px;
-    left: 18px;
-    z-index: 10000;
-}
-#back-input,
-#choice-week {
-    display: block;
-    width: 100%;
-    height: 100%;
-    font-size: 16px;
-    margin-top: 6px;
-}
-#back-input {
-    cursor: pointer;
-    border-radius: 5px;
-}
-#back-input:hover {
-    background-color: #f3f3f3;
-}
-
-.fianll-table {
-    position: absolute;
-    width: 100%;
-    transition: all 1s;
-}
-.week-current {
-    display: block;
-    top: 0px;
-}
-.week-hide {
-    top: -850px;
-    display: none;
-}
-.finall-days {
-    width: 100%;
-}
-.finall-day {
+  }
+  .finall-day {
     display: block;
     width: 12.5%;
     height: 90px;
@@ -349,12 +267,12 @@ div,input,li,textarea {
     line-height: 90px;
     font-weight: bold;
     font-size: 20px;
-}
-.finall-sections {
+  }
+  .finall-sections {
     width: 12.5%;
     float: left;
-}
-.finall-section {
+  }
+  .finall-section {
     display: block;
     width: 100%;
     height: 100px;     
@@ -363,20 +281,20 @@ div,input,li,textarea {
     line-height: 100px; 
     font-weight: bold;
     font-size: 20px;
-}
-.once-form {
+  }
+  .once-form {
     width: 100%;
     height: 750px;
-}
-.once-ul {
+  }
+  .once-ul {
     width: 12.5%;
     float: left;
-}
-.once-li {
+  }
+  .once-li {
     display: block;
     width: 100%;
-}
-.once-tex {
+  }
+  .once-tex {
     display: block;
     width: 100%;
     min-height: 100px;
@@ -388,4 +306,26 @@ div,input,li,textarea {
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-user-modify: read-write-plaintext-only;
-}
+  }
+  #choice {
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+  }
+  #back-input,
+  #choice-week {
+    display: block;
+    width: 80px;
+    height: 30px;
+    font-size: 16px;
+    margin: 0 auto;
+    margin-top: 10px;
+  }
+  #back-input {
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  #back-input:hover {
+    background-color: #f3f3f3;
+  }

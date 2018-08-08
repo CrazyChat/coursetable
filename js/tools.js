@@ -12,21 +12,21 @@ function deleteFormValue(whichForm) {
 
 // 交换表格并清掉数据
 function changeForm(allHide) {
-    if ($('#form1').is('.form-current') == true) {
+    if ($('#form1').is('.form-show') == true) {
         // 清空表格数据
         deleteFormValue(0);
         // 换表格
-        $("#form1").attr("class", "form-content form-hide");
-        $("#form2").attr("class", "form-content form-current");
-    } else if ($('#form2').is('.form-current') == true) {
+        $("#form1").attr("class", "form-background form-hide");
+        $("#form2").attr("class", "form-background form-show");
+    } else if ($('#form2').is('.form-show') == true) {
         // 清空表格数据
         deleteFormValue(1)
         // 换表格
-        $("#form2").attr("class", "form-content form-hide");
-        $("#form1").attr("class", "form-content form-current");
+        $("#form2").attr("class", "form-background form-hide");
+        $("#form1").attr("class", "form-background form-show");
     } else if (!allHide) {
-        $("#introduce").attr("class", "form-hide")
-        $("#form1").attr("class", "form-content form-current");
+        $("#introduce").attr("class", "form-background form-hide")
+        $("#form1").attr("class", "form-background form-show");
     }
     return;
 }
@@ -69,9 +69,9 @@ function addCourse( user, courseId, weekday, noneCourseWeeks) {
 
 // 修改userCourse数据
 function changeValue() {
-    if ($('#form1').is('.form-current') == true || $('#form2').is('.form-current') == true){
+    if ($('#form1').is('.form-show') == true || $('#form2').is('.form-show') == true){
         let whichForm = 0
-        if ( $('#form2').is('.form-current') == true ) {
+        if ( $('#form2').is('.form-show') == true ) {
             whichForm = 1
         }
         for (let weekdayCount = 0; weekdayCount < weekdayCounts; weekdayCount++ ) {
@@ -117,7 +117,7 @@ function changeValue() {
 // 导入要显示的成员的数据
 function importValue() {
     let whichForm = 0;
-    if ($('#form2').is('.form-current') == true) {
+    if ($('#form2').is('.form-show') == true) {
         whichForm = 1;
     }
     for (let weekdayCount = 0; weekdayCount < weekdayCounts; weekdayCount++ ) {
@@ -134,7 +134,7 @@ function importValue() {
 // 获取输入的课表并写入userCourse
 function getValue() {
     let whichForm = 0;
-    if ($('#form2').is('.form-current') == true) {
+    if ($('#form2').is('.form-show') == true) {
         whichForm = 1;
     }
     for (let weekdayCount = 0; weekdayCount < weekdayCounts; weekdayCount++ ) {
@@ -187,7 +187,6 @@ function deleteDate() {
         }
     }
     // 清空空课表表格数据
-    $("#week1").attr("class", "fianll-table week-current");
     for (let weekdayCount = 0; weekdayCount < weekdayCounts; weekdayCount++ ) {
         for (let sectionCount = 0; sectionCount < sectionCounts; sectionCount++) {
             let tableCount = sectionCount + weekdayCount * sectionCounts;
