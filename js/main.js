@@ -18,6 +18,7 @@ console.log('WeChat: L13049045466');
 let CurrentMember = 0;   // 计算当前是哪个成员
 let If_StarPage = true;    // 判断当前是否为介绍页面
 let Input_Name = document.getElementsByClassName('left-name')[0];  // 名字输入框的姓名
+Input_Name.value = '姓名';
 let Weeks = 16; // 表示学期的周数为16周，可以设置为让用户输入
 let weekdayCounts = 7;    // 课程表上课的天数(星期一~星期日为7)
 let sectionCounts = 6;    // 课程表上课的节数(第一大节~...)

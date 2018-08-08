@@ -40,9 +40,9 @@ function clickNav() {
         Member[i].index = i;
     }
     // 点击各个Member发生事件委托
-    MemberFather.onclick = function() {
+    MemberFather.onclick = function(ev) {
         var ev = ev || window.event;   // 事件
-        var target = ev.target || ev.srcElement;    // 获得事件源
+        let target = ev.target || ev.srcElement;    // 获得事件源
         if(target.nodeName.toLowerCase() == 'li'){
             if (CurrentMember !== target.index) {
                 // 提交上一个成员的数据
