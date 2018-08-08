@@ -827,6 +827,19 @@
             </div>
         </div>
     </div>
+    <script>
+        // 手机还是PC端？？？
+        function IsPC() {
+            if(/phone|pad|pod|iPhone|iPod|ios|iPad|android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone/i.test(navigator.userAgent)) {
+                document.body.innerHTML = "请使用电脑端登录...";
+                return false;
+            } else {
+                console.log('欢迎！')
+                return true;
+            }
+        }
+        var isPc = IsPC()
+    </script>
     <script src="./js/jquery.js"></script>
     <script src="./js/main.js"></script>
     <script src="./js/tools.js"></script>
