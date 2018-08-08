@@ -3,8 +3,6 @@ console.log('School: 佛山科学技术学院');
 console.log('Class: 17计算机科学与技术1班');
 console.log('WeChat: L13049045466');
 
-
-if(isPc){
 // 选择有几周
 // let Weeks;
 // $(function(){ 
@@ -68,8 +66,4 @@ function changeName() {
         document.getElementsByClassName('member')[CurrentMember].innerHTML = Input_Name.value;
         member[CurrentMember] = Input_Name.value;
     }
-}
-}
-else {
-    console.log('请使用电脑登录')
 }

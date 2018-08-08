@@ -1,4 +1,3 @@
-if(isPc){
 // 点击添加新成员按钮
 function newMember(){
     // 输入新建成员的姓名
@@ -134,5 +133,4 @@ function mySelect() {
         }
     }
     uniteHeight();
-}
 }

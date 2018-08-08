@@ -1,4 +1,3 @@
-if(isPc){
 // 清除表格的数据以供其他成员使用
 function deleteFormValue(whichForm) {
     for (let weekdayCount = 0; weekdayCount < weekdayCounts; weekdayCount++ ) {
@@ -220,5 +219,4 @@ function uniteHeight() {
             document.getElementsByClassName('finall-section')[sec].style.lineHeight = maxHeight + 'px';
         }
     }
-}
 }

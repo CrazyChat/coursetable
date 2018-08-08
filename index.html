@@ -6,9 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>佛大17计科1班陈铭涛</title>
-    <link rel="stylesheet" href="css/main.css">
-</head>
+    <script>
+        function IsPc() {
+            if(/phone|pad|pod|iPhone|iPod|ios|iPad|android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone/i.test(navigator.userAgent)) {
+                return false;
+                console.log('false')
+            } else {
+                return true;
+                console.log('true')
+            }
+        }
+        let isPc = IsPc();
 
+        function isLoadJs() {
+            let body = document.getElementsByTagName('body')[0];
+            let script;
+            for (let i = 0; i < 5; i++) {
+                script = document.createElement('script');
+                script.type = 'text/javascript';
+                switch(i) {
+                    case 0: script.src = './js/jquery.js';break;
+                    case 1: script.src = './js/main.js';break;
+                    case 2: script.src = './js/tools.js';break;
+                    case 3: script.src = './js/onclick.js';break;
+                    case 4: script.src = './js/saveImport.js';break;
+                }
+                body.appendChild(script);
+            }
+        }
+
+        function isLoadCss() {
+            let head = document.getElementsByTagName('head')[0];
+            let link = document.createElement('link');
+            link.type='text/css';
+            link.rel = 'stylesheet';
+            link.href = 'css/main.css';
+            head.appendChild(link);
+        }
+        if (isPc) {
+            isLoadCss();
+        }
+    </script>
+</head>
 <body>
     <!-- 输入课表页面 -->
     <div id="all_input">
@@ -828,23 +867,16 @@
         </div>
     </div>
     <script>
-        // 手机还是PC端？？？
-        function IsPC() {
-            if(/phone|pad|pod|iPhone|iPod|ios|iPad|android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone/i.test(navigator.userAgent)) {
-                document.body.innerHTML = "请使用电脑端登录...";
-                return false;
-            } else {
-                console.log('欢迎！')
-                return true;
-            }
+        if (isPc) {
+            isLoadJs();
+        } else {
+            document.body.innerHTML = "请使用电脑端登录...";
         }
-        var isPc = IsPC()
     </script>
-    <script src="./js/jquery.js"></script>
-    <script src="./js/main.js"></script>
-    <script src="./js/tools.js"></script>
-    <script src="./js/onclick.js"></script>
-    <script src="./js/saveImport.js"></script>
+    <!-- <script src="./js/jquery.js"></script>  -->
+    <!-- <script src="./js/tools.js"></script>-->
+    <!-- <script src="./js/onclick.js"></script>-->
+    <!-- <script src="./js/saveImport.js"></script>-->
 </body>
 
 </html>

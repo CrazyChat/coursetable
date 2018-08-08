@@ -1,4 +1,3 @@
-if(isPc){
 // 保存数据到localStorage
 function saveStorage() {
   if (member.length > 0) {
@@ -98,5 +97,4 @@ function importStorage() {
   } else {
     alert("当前页面已有数据，请在启动页面导入数据");
   }
-}
 }
