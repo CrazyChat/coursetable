@@ -41,19 +41,23 @@ function clickNav() {
     }
     // 点击各个Member发生事件委托
     MemberFather.onclick = function() {
-        var ev = ev || window.event;   // 使用let会报错?
-        let target = ev.target || ev.srcElement;
+        var ev = ev || window.event;   // 事件
+        var target = ev.target || ev.srcElement;    // 获得事件源
         if(target.nodeName.toLowerCase() == 'li'){
-            if (If_First[CurrentMember] === 1) {
-                changeValue();
-            } else {
-                getValue();
-                If_First[CurrentMember] = 1;
+            if (CurrentMember !== target.index) {
+                // 提交上一个成员的数据
+                if (If_First[CurrentMember] === 1) {
+                    changeValue();
+                } else {
+                    getValue();
+                    If_First[CurrentMember] = 1;
+                }
+                // 跳转到下一个成员
+                CurrentMember = target.index;
+                Input_Name.value = member[CurrentMember];
+                changeForm();
+                importValue();
             }
-            CurrentMember = target.index;
-            Input_Name.value = document.getElementsByClassName('member')[CurrentMember].innerHTML;
-            changeForm();
-            importValue();
         }
     }
 }
