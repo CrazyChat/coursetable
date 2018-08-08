@@ -10,14 +10,11 @@
         function IsPc() {
             if(/phone|pad|pod|iPhone|iPod|ios|iPad|android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone/i.test(navigator.userAgent)) {
                 return false;
-                console.log('false')
             } else {
                 return true;
-                console.log('true')
             }
         }
         let isPc = IsPc();
-
         function isLoadJs() {
             let body = document.getElementsByTagName('body')[0];
             let script;
@@ -34,19 +31,8 @@
                 body.appendChild(script);
             }
         }
-
-        function isLoadCss() {
-            let head = document.getElementsByTagName('head')[0];
-            let link = document.createElement('link');
-            link.type='text/css';
-            link.rel = 'stylesheet';
-            link.href = 'css/main.css';
-            head.appendChild(link);
-        }
-        if (isPc) {
-            isLoadCss();
-        }
     </script>
+    <link type="text/css" rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <!-- 输入课表页面 -->
@@ -874,6 +860,7 @@
         }
     </script>
     <!-- <script src="./js/jquery.js"></script>  -->
+    <!-- <script src="./js/main.js"></script>  -->
     <!-- <script src="./js/tools.js"></script>-->
     <!-- <script src="./js/onclick.js"></script>-->
     <!-- <script src="./js/saveImport.js"></script>-->
