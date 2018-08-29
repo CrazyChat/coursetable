@@ -24,7 +24,7 @@ body {
     transition: all 1s;
   }
   .form-hide {
-    top: -630px;
+    top: -810px;
     transition: all 1s;
   }
   /* 解决子元素浮动致使父元素高度为0 */
@@ -55,7 +55,7 @@ body {
   #body-content {
     margin: 0 auto;
     width: 100%;
-    height: 650px;
+    height: 850px;
     max-width: 1500px;
     min-width: 1200px;
   }
@@ -101,7 +101,7 @@ body {
   }
   .nav {
     width: 100%;
-    height: 75%;
+    height: 56%;
   }
   .nav-content {
     width: 80%;
@@ -145,13 +145,13 @@ body {
   }
   .center-content {
     width: 800px;
-    height: 630px;
+    height: 810px;
     margin: 0 auto;
   }
   .form-background {
     position: absolute;
     width: 800px;
-    height: 630px;
+    height: 810px;
     border-radius: 5px;
     background-color:rgba(255,255,255,0.5);
   }
@@ -316,7 +316,7 @@ body {
   #back-input,
   #choice-week {
     display: block;
-    width: 80px;
+    width: 90px;
     height: 30px;
     font-size: 16px;
     margin: 0 auto;

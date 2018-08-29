@@ -180,8 +180,8 @@ function getValue() {
 function deleteDate() {
     // 清空COURSETABLES的数据
     for (let i = 0; i < Weeks; i++) {
-        for (let j = 0; j <= 5; j++) {
-            for(let k = 0; k <= 6; k++) {
+        for (let j = 0; j < sectionCounts; j++) {
+            for(let k = 0; k < weekdayCounts; k++) {
                 COURSETABLES[i][j][k].length = 0;
             }
         }
