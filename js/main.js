@@ -21,7 +21,7 @@ let Input_Name = document.getElementById('left-name');  // 名字输入框的姓
 Input_Name.value = '姓名';
 let Weeks = 16; // 表示学期的周数为16周，可以设置为让用户输入
 let weekdayCounts = 7;    // 课程表上课的天数(星期一~星期日为7)
-let sectionCounts = 8;    // 课程表上课的节数(第一大节~...)
+let sectionCounts = 6;    // 课程表上课的节数(第一大节~...)
 let eachTableCounts = weekdayCounts * sectionCounts;    // 一个课程表有多少个小格
 let If_First = [];       // 判断成员数据是否已经提交到了userCourses
 // 保存每个成员的数据
@@ -37,8 +37,6 @@ for (let i = 0; i < Weeks; i++) {
      * 例子：courseTable[0][2] = [ { user: { id: 1, name: '陈铭涛' }, noneCourseWeeks: [1, 2, 3] } ] 表示陈铭涛在1~3周的周三的1-2节课无课
      */
     COURSETABLES.push([
-      [ [], [], [], [], [], [], [] ],
-      [ [], [], [], [], [], [], [] ],
       [ [], [], [], [], [], [], [] ],
       [ [], [], [], [], [], [], [] ],
       [ [], [], [], [], [], [], [] ],

@@ -9,7 +9,7 @@
     <link href="images/title.ico" rel="shortcut icon" type="image/x-icon" />
     <script>
         function IsPc() {
-            if (/phone|pad|pod|iPhone|iPod|ios|iPad|android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone/i.test(navigator.userAgent)) {
+            if(/phone|pad|pod|iPhone|iPod|ios|iPad|android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone/i.test(navigator.userAgent)) {
                 return false;
             } else {
                 return true;
@@ -22,12 +22,12 @@
             for (let i = 0; i < 5; i++) {
                 script = document.createElement('script');
                 script.type = 'text/javascript';
-                switch (i) {
-                    case 0: script.src = './js/jquery.js'; break;
-                    case 1: script.src = './js/main.js'; break;
-                    case 2: script.src = './js/tools.js'; break;
-                    case 3: script.src = './js/onclick.js'; break;
-                    case 4: script.src = './js/saveImport.js'; break;
+                switch(i) {
+                    case 0: script.src = './js/jquery.js';break;
+                    case 1: script.src = './js/main.js';break;
+                    case 2: script.src = './js/tools.js';break;
+                    case 3: script.src = './js/onclick.js';break;
+                    case 4: script.src = './js/saveImport.js';break;
                 }
                 body.appendChild(script);
             }
@@ -35,7 +35,6 @@
     </script>
     <link type="text/css" rel="stylesheet" href="css/main.css">
 </head>
-
 <body>
     <div id="body-content">
         <!-- 输入课表页面 -->
@@ -44,10 +43,10 @@
             <div id="input-left">
                 <div class="left-content">
                     <input type="text" id="left-name" class="button-style" value="姓名" onchange=changeName()>
-                    <button id="delete-name" class="button-style" onclick="deleteMember()">删除成员</button>
-                    <button id="save-storage" class="button-style" onclick="saveStorage()">保存数据</button>
-                    <button id="import-storage" class="button-style" onclick="importStorage()">导入数据</button>
-                    <button id="use-course" class="button-style" onclick="window.open('https://github.com/CrazyChat/coursetable')">使用教程</button>
+                    <button id="delete-name"  class="button-style" onclick="deleteMember()">删除成员</button>
+                    <button id="save-storage"  class="button-style" onclick="saveStorage()">保存数据</button>
+                    <button id="import-storage"  class="button-style" onclick="importStorage()">导入数据</button>
+                    <button id="use-course"  class="button-style" onclick="window.open('https://github.com/CrazyChat/coursetable')">使用教程</button>
                 </div>
             </div>
             <!-- 中间大课表 -->
@@ -71,14 +70,12 @@
                         <div class="main">
                             <div class="course-sections">
                                 <ul>
-                                    <li class="course-section">01-02</li>
-                                    <li class="course-section">03-04</li>
-                                    <li class="course-section">05</li>
-                                    <li class="course-section">06-07</li>
-                                    <li class="course-section">08-09</li>
-                                    <li class="course-section">10</li>
-                                    <li class="course-section">11-12</li>
-                                    <li class="course-section">13-14</li>
+                                    <li class="course-section">第一大节</li>
+                                    <li class="course-section">第二大节</li>
+                                    <li class="course-section">第三大节</li>
+                                    <li class="course-section">第四大节</li>
+                                    <li class="course-section">第五大节</li>
+                                    <li class="course-section">第六大节</li>
                                 </ul>
                             </div>
                             <!-- 输入数据的表格位置 -->
@@ -120,82 +117,8 @@
                                         <input type="text" class="course-end">
                                         <input type="text" class="course-else">
                                     </li>
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
                                 </ul>
                                 <ul class="week">
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
-                                </ul>
-                                <ul class="week">
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
                                     <li class="course-num">
                                         <input type="text" class="course-star">
                                         <div class="floatLeft star-end">-</div>
@@ -270,6 +193,32 @@
                                         <input type="text" class="course-end">
                                         <input type="text" class="course-else">
                                     </li>
+                                </ul>
+                                <ul class="week">
+                                    <li class="course-num">
+                                        <input type="text" class="course-star">
+                                        <div class="floatLeft star-end">-</div>
+                                        <input type="text" class="course-end">
+                                        <input type="text" class="course-else">
+                                    </li>
+                                    <li class="course-num">
+                                        <input type="text" class="course-star">
+                                        <div class="floatLeft star-end">-</div>
+                                        <input type="text" class="course-end">
+                                        <input type="text" class="course-else">
+                                    </li>
+                                    <li class="course-num">
+                                        <input type="text" class="course-star">
+                                        <div class="floatLeft star-end">-</div>
+                                        <input type="text" class="course-end">
+                                        <input type="text" class="course-else">
+                                    </li>
+                                    <li class="course-num">
+                                        <input type="text" class="course-star">
+                                        <div class="floatLeft star-end">-</div>
+                                        <input type="text" class="course-end">
+                                        <input type="text" class="course-else">
+                                    </li>
                                     <li class="course-num">
                                         <input type="text" class="course-star">
                                         <div class="floatLeft star-end">-</div>
@@ -320,18 +269,6 @@
                                         <input type="text" class="course-end">
                                         <input type="text" class="course-else">
                                     </li>
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
                                 </ul>
                                 <ul class="week">
                                     <li class="course-num">
@@ -370,32 +307,8 @@
                                         <input type="text" class="course-end">
                                         <input type="text" class="course-else">
                                     </li>
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
                                 </ul>
                                 <ul class="week">
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
                                     <li class="course-num">
                                         <input type="text" class="course-star">
                                         <div class="floatLeft star-end">-</div>
@@ -452,14 +365,12 @@
                         <div class="main">
                             <div class="course-sections">
                                 <ul>
-                                    <li class="course-section">01-02</li>
-                                    <li class="course-section">03-04</li>
-                                    <li class="course-section">05</li>
-                                    <li class="course-section">06-07</li>
-                                    <li class="course-section">08-09</li>
-                                    <li class="course-section">10</li>
-                                    <li class="course-section">11-12</li>
-                                    <li class="course-section">13-14</li>
+                                    <li class="course-section">第一大节</li>
+                                    <li class="course-section">第二大节</li>
+                                    <li class="course-section">第三大节</li>
+                                    <li class="course-section">第四大节</li>
+                                    <li class="course-section">第五大节</li>
+                                    <li class="course-section">第六大节</li>
                                 </ul>
                             </div>
                             <!-- 输入数据的表格位置 -->
@@ -501,82 +412,8 @@
                                         <input type="text" class="course-end">
                                         <input type="text" class="course-else">
                                     </li>
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
                                 </ul>
                                 <ul class="week">
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
-                                </ul>
-                                <ul class="week">
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
                                     <li class="course-num">
                                         <input type="text" class="course-star">
                                         <div class="floatLeft star-end">-</div>
@@ -651,6 +488,32 @@
                                         <input type="text" class="course-end">
                                         <input type="text" class="course-else">
                                     </li>
+                                </ul>
+                                <ul class="week">
+                                    <li class="course-num">
+                                        <input type="text" class="course-star">
+                                        <div class="floatLeft star-end">-</div>
+                                        <input type="text" class="course-end">
+                                        <input type="text" class="course-else">
+                                    </li>
+                                    <li class="course-num">
+                                        <input type="text" class="course-star">
+                                        <div class="floatLeft star-end">-</div>
+                                        <input type="text" class="course-end">
+                                        <input type="text" class="course-else">
+                                    </li>
+                                    <li class="course-num">
+                                        <input type="text" class="course-star">
+                                        <div class="floatLeft star-end">-</div>
+                                        <input type="text" class="course-end">
+                                        <input type="text" class="course-else">
+                                    </li>
+                                    <li class="course-num">
+                                        <input type="text" class="course-star">
+                                        <div class="floatLeft star-end">-</div>
+                                        <input type="text" class="course-end">
+                                        <input type="text" class="course-else">
+                                    </li>
                                     <li class="course-num">
                                         <input type="text" class="course-star">
                                         <div class="floatLeft star-end">-</div>
@@ -701,18 +564,6 @@
                                         <input type="text" class="course-end">
                                         <input type="text" class="course-else">
                                     </li>
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
                                 </ul>
                                 <ul class="week">
                                     <li class="course-num">
@@ -751,32 +602,8 @@
                                         <input type="text" class="course-end">
                                         <input type="text" class="course-else">
                                     </li>
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
                                 </ul>
                                 <ul class="week">
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
-                                    <li class="course-num">
-                                        <input type="text" class="course-star">
-                                        <div class="floatLeft star-end">-</div>
-                                        <input type="text" class="course-end">
-                                        <input type="text" class="course-else">
-                                    </li>
                                     <li class="course-num">
                                         <input type="text" class="course-star">
                                         <div class="floatLeft star-end">-</div>
@@ -828,9 +655,9 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="right-button">
-                        <button id="new-member" class="button-style" onclick="newMember()">添加新成员</button>
-                        <button id="compete" class="button-style" onclick="NoCourseTable()">计算空课表</button>
+                    <div class="right-button">    
+                        <button id="new-member"  class="button-style" onclick="newMember()">添加新成员</button>
+                        <button id="compete"  class="button-style" onclick="NoCourseTable()">计算空课表</button>
                     </div>
                 </div>
             </div>
@@ -874,198 +701,154 @@
                         </ul>
                     </div>
                     <div class="once-form">
-                        <ul class="finall-sections">
-                            <li class="finall-section">01-02</li>
-                            <li class="finall-section">03-04</li>
-                            <li class="finall-section">05</li>
-                            <li class="finall-section">06-07</li>
-                            <li class="finall-section">08-09</li>
-                            <li class="finall-section">10</li>
-                            <li class="finall-section">11-12</li>
-                            <li class="finall-section">13-14</li>
-                        </ul>
-                        <ul class="once-ul">
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                        </ul>
-                        <ul class="once-ul">
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                        </ul>
-                        <ul class="once-ul">
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                        </ul>
-                        <ul class="once-ul">
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                        </ul>
-                        <ul class="once-ul">
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                        </ul>
-                        <ul class="once-ul">
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                        </ul>
-                        <ul class="once-ul">
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                            <li class="once-li">
-                                <div class="once-tex"></div>
-                            </li>
-                        </ul>
+                            <ul class="finall-sections">
+                                <li class="finall-section">第一大节</li>
+                                <li class="finall-section">第二大节</li>
+                                <li class="finall-section">第三大节</li>
+                                <li class="finall-section">第四大节</li>
+                                <li class="finall-section">第五大节</li>
+                                <li class="finall-section">第六大节</li>
+                            </ul>
+                            <ul class="once-ul">
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                            </ul>
+                            <ul class="once-ul">
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                            </ul>
+                            <ul class="once-ul">
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                            </ul>
+                            <ul class="once-ul">
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                            </ul>
+                            <ul class="once-ul">
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                            </ul>
+                            <ul class="once-ul">
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                            </ul>
+                            <ul class="once-ul">
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                                <li class="once-li">
+                                    <div class="once-tex"></div>
+                                </li>
+                            </ul>
                     </div>
                 </div>
             </div>
@@ -1078,6 +861,11 @@
             document.body.innerHTML = "请使用电脑端登录...";
         }
     </script>
+    <!-- <script src="./js/jquery.js"></script>  -->
+    <!-- <script src="./js/main.js"></script>  -->
+    <!-- <script src="./js/tools.js"></script>-->
+    <!-- <script src="./js/onclick.js"></script>-->
+    <!-- <script src="./js/saveImport.js"></script>-->
 </body>
 
 </html>
