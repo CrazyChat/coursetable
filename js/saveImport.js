@@ -1,52 +1,112 @@
+let storage = window.localStorage;
+class memberValue {
+  constructor(id, weekdayCounts, sectionCounts, member_star, member_end, member_else, member, userCourses) {
+    this.id = id;
+    this.weekdayCounts = weekdayCounts;
+    this.sectionCounts = sectionCounts;
+    this.member_star = member_star;
+    this.member_end = member_end;
+    this.member_else = member_else;
+    this.member = member;
+    this.userCourses = userCourses;
+  }
+}
+
+function isNumber(value) {
+　let re = /^[0-9]+.?[0-9]*$/; //判断字符串是否为数字 //判断正整数 /^[1-9]+[0-9]*]*$/
+  if (re.test(value)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// 导入数据函数
+function importV(memberNumber) {
+  weekdayCounts = memberNumber.weekdayCounts;
+  sectionCounts = memberNumber.sectionCounts;
+  member_star = memberNumber.member_star;
+  member_end = memberNumber.member_end;
+  member_else = memberNumber.member_else;
+  member = memberNumber.member;
+  userCourses = memberNumber.userCourses;
+  // 名字输入框显示“姓名”
+  Input_Name.value = "姓名";
+  // 向导航栏导入名字并赋予点击响应
+  let oUl = document.getElementById("members");
+  for (let i = 0, l = member.length; i < l; i++) {
+    let oLi = document.createElement('li');
+    oLi.innerHTML = member[i];
+    oLi.className = "member";
+    oUl.appendChild(oLi);
+    If_First.push(1);
+  }
+  clickNav();
+}
+
 // 保存数据到localStorage
 function saveStorage() {
   if (member.length > 0) {
-    if (confirm('新数据将会覆盖之前的数据，确定此操作吗？')) {
-      // 提交前一个成员的数据并保存数据
-      if (If_First[CurrentMember] === 1) {
-          changeValue();
+    let valueNumber = Number(window.prompt("输入保存的数据编号(数字),以后导入数据需要该编号:",""));
+    if (isNumber(valueNumber)) {
+      // localStorage是否存在allVersion
+      if (!storage.getItem("allVersion")) {
+        let allVersion = [];
+        let temp = JSON.stringify(allVersion);
+        storage.setItem("allVersion", temp);
+      }
+      // 添加编号进入allVersion
+      let temp = storage.getItem("allVersion");
+      let allVersion = JSON.parse(temp);
+      // 判断编号是否已被占用
+      if (allVersion.indexOf(valueNumber) === -1){
+        // 提交前一个成员的数据并保存数据
+        if (If_First[CurrentMember] === 1) {
+            changeValue();
+        } else {
+            getValue();
+            If_First[CurrentMember] = 1;    // 数据写入到userCourses里了
+        }
+        // 保存allVersion到localStorage
+        allVersion.push(valueNumber);
+        temp = JSON.stringify(allVersion);
+        storage.setItem("allVersion", temp);
+        // 创建对象
+        let memberObject = new memberValue(valueNumber, weekdayCounts, sectionCounts, member_star, member_end, member_else, member, userCourses);
+        // 保存对象到localStorage
+        let order = allVersion.indexOf(valueNumber);
+        let memberNumber = "member" + order;
+        temp = JSON.stringify(memberObject);
+        storage.setItem(memberNumber, temp);
+        // 提示
+        setTimeout(function() {
+          alert("数据已经保存!");
+        }, 200);
       } else {
-          getValue();
-          If_First[CurrentMember] = 1;    // 数据写入到userCourses里了
+        if(confirm('此编号版本已经存在,继续保存将覆盖原来的数据,是否继续？')) {
+          // 提交前一个成员的数据并保存数据
+          if (If_First[CurrentMember] === 1) {
+            changeValue();
+          } else {
+            getValue();
+            If_First[CurrentMember] = 1;    // 数据写入到userCourses里了
+          }
+          // 创建对象
+          let memberObject = new memberValue(valueNumber, weekdayCounts, sectionCounts, member_star, member_end, member_else, member, userCourses);
+          let order = allVersion.indexOf(valueNumber);
+          let memberNumber = "member" + order;
+          storage.removeItem(memberNumber);
+          temp = JSON.stringify(memberObject);
+          storage.setItem(memberNumber, temp);
+          // 提示
+          setTimeout(function() {
+            alert("数据已经保存!");
+          }, 200);
+        }
       }
-      let storage = window.localStorage;
-      // 清除之前保存的数据
-      if (localStorage.smember) {
-        storage.removeItem("sweekdayCounts");
-        storage.removeItem("ssectionCounts");
-        storage.removeItem("smember_star");
-        storage.removeItem("smember_end");
-        storage.removeItem("smember_else");
-        storage.removeItem("smember");
-        storage.removeItem("suserCourses");
-      }
-      // 开始保存数据
-      let temp = JSON.stringify(weekdayCounts);
-      storage.setItem("sweekdayCounts", temp);
-
-      temp = JSON.stringify(sectionCounts);
-      storage.setItem("ssectionCounts", temp);
-
-      temp = JSON.stringify(member_star);
-      storage.setItem("smember_star", temp);
-    
-      temp = JSON.stringify(member_end);
-      storage.setItem("smember_end", temp);
-      
-      temp = JSON.stringify(member_else);
-      storage.setItem("smember_else", temp);
-    
-      temp = JSON.stringify(member);
-      storage.setItem("smember", temp);
-    
-      temp = JSON.stringify(userCourses);
-      storage.setItem("suserCourses", temp);
-    
-      // 提示
-      setTimeout(function() {
-        alert("数据已经保存到当前浏览器!");
-      }, 200);
-    } 
+    } else {
+      alert('请输入纯数字!');
+    }
   } else {
     alert('当前没有数据')
   }
@@ -56,56 +116,28 @@ function saveStorage() {
 function importStorage() {
   // 判断是否为启动页面
   if (If_StarPage){
-    if (localStorage.smember.length > 0) {
-      // 获取保存的数据
-      let storage = window.localStorage;
-    
-      let temp = storage.getItem("sweekdayCounts");
-      let temp2 = storage.getItem("ssectionCounts");
-      let weekdayCounts_temp = JSON.parse(temp);
-      let sectionCounts_temp = JSON.parse(temp2);
-      if (weekdayCounts === weekdayCounts_temp && sectionCounts === sectionCounts_temp) {
-        weekdayCounts = weekdayCounts_temp;
-        sectionCounts = sectionCounts_temp;
-
-        temp = storage.getItem("smember_star");
-        member_star = JSON.parse(temp);
-    
-        temp = storage.getItem("smember_end");
-        member_end = JSON.parse(temp);
-    
-        temp = storage.getItem("smember_else");
-        member_else = JSON.parse(temp);
-    
-        temp = storage.getItem("smember");
-        member = JSON.parse(temp);
-    
-        temp = storage.getItem("suserCourses");
-        userCourses = JSON.parse(temp);
-
-        // 名字输入框显示“姓名”
-        Input_Name.value = "姓名";
-        // 向导航栏导入名字并赋予点击响应
-        let oUl = document.getElementById("members");
-        for (let i = 0, l = member.length; i < l; i++) {
-          let oLi = document.createElement('li');
-          oLi.innerHTML = member[i];
-          oLi.className = "member";
-          oUl.appendChild(oLi);
-          If_First.push(1);
-        }
-      clickNav();
-      // 提示导入成功
-      setTimeout(function() {
-        alert("导入成功");
-      }, 200);
-      If_StarPage = false;
+    let temp = storage.getItem("allVersion");
+    let allVersion = JSON.parse(temp);
+    let searchVersion = Number(window.prompt("输入编号(数字)导入:",""));
+    if (allVersion && allVersion.indexOf(searchVersion) !== -1) {
+      order = allVersion.indexOf(searchVersion);
+      memberNumber = "member" +  order;
+      temp = storage.getItem(memberNumber);
+      memberNumber = JSON.parse(temp);
+      if (weekdayCounts === memberNumber.weekdayCounts && sectionCounts === memberNumber.sectionCounts) {
+        importV(memberNumber);
+        // 提示导入成功
+        setTimeout(function() {
+          alert("导入成功");
+        }, 200);
+        If_StarPage = false;
       } else {
         alert("保存的数据星期数或节数与当前不同");
       }
     } else {
       alert('数据库中没有您保存的数据...');
     }
+    
   } else {
     alert("当前页面已有数据，请在启动页面导入数据");
   }

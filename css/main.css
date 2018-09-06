@@ -113,7 +113,8 @@ body {
   }
   #members {
     height: 475px;
-    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
     text-align: center;
   }
   .member:first-child {

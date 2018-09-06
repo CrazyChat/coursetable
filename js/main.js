@@ -1,19 +1,8 @@
 console.log('author: 陈铭涛');
 console.log('School: 佛山科学技术学院');
 console.log('Class: 17计算机科学与技术1班');
+console.log('Email: mail@mintoochen.com');
 console.log('WeChat: L13049045466');
-
-// 选择有几周
-// let Weeks;
-// $(function(){ 
-//     Weeks = Number(window.prompt("请输入一个(Week>0)数字为您想要计算的最大周数","")) || 0;
-//     while (  isNaN(Weeks) || Weeks <= 0 || Weeks > 20 ) {
-//         Weeks = Number(window.prompt("请输入一个(Week>0)数字为您想要计算的最大周数","")) || 0;
-//         console.log('1', isNaN(Weeks));
-//         console.log('2', Weeks < 0 );
-//     }
-// });
-
 
 let CurrentMember = 0;   // 计算当前是哪个成员
 let If_StarPage = true;    // 判断当前是否为介绍页面
