@@ -109,6 +109,7 @@ function changeValue() {
                     }
                 }
                 userCourses[ValueIndex].noneCourseWeeks = noneweek;
+                userCourses[ValueIndex].user = member[CurrentMember];
             }
         }
     }
